@@ -19,7 +19,7 @@
     
     
   <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
-  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+  <link href="/lib/pace/pace-theme-center-simple.min.css?v=1.0.2" rel="stylesheet">
 
 
 
@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="Seven">
 <meta property="og:description" content="I’m going to change the world.  Now：前端切图师预备岗 Weibo：https://weibo.com/cnchrisnoah GitHub：https://github.com/ccnyms">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-27T01:26:21.634Z">
+<meta property="og:updated_time" content="2019-02-27T13:42:14.638Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="I&#39;m Here">
 <meta name="twitter:description" content="I’m going to change the world.  Now：前端切图师预备岗 Weibo：https://weibo.com/cnchrisnoah GitHub：https://github.com/ccnyms">
@@ -201,16 +201,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
-            
-            关于
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
@@ -227,6 +217,16 @@
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
           </a>
         </li>
       
@@ -325,10 +325,6 @@
 
           
 
-  
-
-
-
         </div>
         
           
@@ -353,9 +349,9 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/header.jpg" alt="cylmx">
+              <img class="site-author-image" itemprop="image" src="/images/header.jpg" alt="cnlmx">
             
-              <p class="site-author-name" itemprop="name">cylmx</p>
+              <p class="site-author-name" itemprop="name">cnlmx</p>
               <p class="site-description motion-element" itemprop="description">I’m going to change the world.</p>
           </div>
 
@@ -436,7 +432,7 @@
   <span class="with-love">
     <i class="fal fa-at"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">cylmx</span>
+  <span class="author" itemprop="copyrightHolder">cnlmx</span>
 
   
 </div>
@@ -455,7 +451,7 @@
 -->
 <div class="powered-by">
 <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
-  本站访问量：<span id="busuanzi_value_site_uv"></span> 
+  本站访问 <span id="busuanzi_value_site_uv"></span> 次
 </span>
 </div>
 
@@ -468,9 +464,30 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站字数：73 </span>
+  <span class="post-count">共 73 字</span>
 </div>
 
+
+  <span class="post-meta-divider">|</span>
+
+
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("02/26/2019 17:38:00");//在此处修改你的建站时间
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "已运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
         
 
 
@@ -616,6 +633,28 @@
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'wWGsfkcAwFWjUDeM5XmTDN3O-gzGzoHsz',
+        appKey: 'njwjBDQMnOFjIXTqg2uUIMCc',
+        placeholder: '随便说点什么',
+        avatar:'identicon',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
@@ -956,6 +995,10 @@
   
 
   
+
+
+  <script type="text/javascript" color="0,220,220" opacity="0.7" zindex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
 
 </body>
 </html>
