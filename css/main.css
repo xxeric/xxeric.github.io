@@ -1832,7 +1832,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #6e4494;
+  background: #0dd196;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2962,8 +2962,4 @@ div.vcontrol {
 }
 div#comments.comments.v {
   border: 0px;
-}
-.v .vlist .vcard .vcontent.expand:after {
-  content: "点击查看全部" !important;
-  font-weight: 400 !important;
 }
