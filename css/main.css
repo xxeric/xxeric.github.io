@@ -1832,7 +1832,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #9e7194;
+  background: #694e82;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3001,9 +3001,6 @@ div.vedit {
 .v .veditor {
   min-height: 70px !important;
   height: 70px !important;
-}
-.v .vlist .vcard {
-  border: 1px dashed #49b1f5 !important;
 }
 .v .vlist .vcard .vhead .vsys {
   display: none !important;
