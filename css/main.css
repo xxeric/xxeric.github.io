@@ -1832,7 +1832,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #78ff2f;
+  background: #ee4079;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2960,4 +2960,83 @@ div.vcontrol {
 }
 div#comments.comments.v {
   border: 0px;
+}
+.v .vwrap {
+  border: 2px solid #000 !important;
+  height: 210px !important;
+  border-radius: 6px !important;
+  overflow: visible !important;
+  counter-reset: avater;
+}
+.v .vwrap .vedit .vemojis {
+  width: 600px !important;
+  background-color: #fff !important;
+  border-radius: 5px !important;
+}
+.v .vwrap .vedit .vpreview {
+  width: 600px !important;
+  background-color: #fff !important;
+  border-radius: 5px !important;
+}
+.v .vbtn {
+  background-color: #5f5f5f !important;
+  color: #fff !important;
+}
+.v .vwrap .vedit .vctrl {
+  text-align: left !important;
+}
+.v .vwrap .vedit .vctrl span {
+  background-color: #7f7f7f !important;
+  color: #fff !important;
+  border-radius: 3px !important;
+  padding: 3px !important;
+}
+.v .vwrap .vedit .vctrl {
+  padding: 0px !important;
+  margin: 0px !important;
+}
+div.vedit {
+  height: 120px;
+}
+.v .veditor {
+  min-height: 70px !important;
+  height: 70px !important;
+}
+.v .vlist .vcard .vhead .vsys {
+  display: none !important;
+  background-color: #fff !important;
+}
+.v .vlist .vcard .vh .vmeta .vat {
+  background-color: #7f7f7f !important;
+  color: #fff !important;
+  border-radius: 3px !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+.v .vlist .vcard .vquote .vcontent {
+  font-size: 15px;
+  font-weight: 200;
+}
+.v .vlist .vcard .vcontent {
+  margin-top: 58px !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  padding-top: 0px !important;
+}
+.v .vlist .vcard .vhead .vnick {
+  font-size: 17px !important;
+  font-weight: 600 !important;
+}
+.v .vlist .vcard {
+  padding-top: 8px !important;
+}
+.v .vlist .vcard .vhead {
+  float: left !important;
+}
+.v .vlist .vcard .vh .vmeta {
+  float: right !important;
+}
+.v .vlist .vcard .vcontent.expand:after {
+  content: "点击查看全部" !important;
+  font-weight: 400 !important;
 }
