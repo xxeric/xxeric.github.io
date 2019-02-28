@@ -1832,7 +1832,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #adff41;
+  background: #9e7194;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3015,23 +3015,6 @@ div.vedit {
   border-radius: 3px !important;
   padding-left: 10px !important;
   padding-right: 10px !important;
-}
-.v .vlist .vcard .vhead:before {
-  display: block;
-  float: left;
-  width: 50px;
-  height: 50px;
-  line-height: 50px;
-  margin: 0 12px 0 0;
-  color: #fff;
-  font-size: 15px;
-  font-weight: bold;
-  font-style: normal;
-  background-color: #55aacf;
-  border-radius: 50%;
-  text-align: center;
-  content: counter(avater) '楼';
-  counter-increment: avater;
 }
 .v .vlist .vcard .vquote {
   margin-left: 80px;
