@@ -1832,7 +1832,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff9ee5;
+  background: #d7a124;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3039,4 +3039,8 @@ div.vedit {
 .v .vlist .vcard .vcontent.expand:after {
   content: "点击查看全部" !important;
   font-weight: 400 !important;
+}
+.footer-inner {
+  margin: 0 auto;
+  text-align: center !important;
 }
