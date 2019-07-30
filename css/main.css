@@ -1833,7 +1833,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #b495e8;
+  background: #ff08ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3148,15 +3148,23 @@ pre {
   border: 1px solid #d6d6d6;
 }
 .post {
-  margin-top: 86px;
-  margin-bottom: 40px;
+  margin-top: 10px;
+  margin-bottom: 20px;
   -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.75);
   -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
+}
+.post-block {
+  padding: 20px 40px !important;
 }
 div#comments.comments.v {
   margin-top: 0px !important;
   margin-left: 0px !important;
   margin-right: 0px !important;
+}
+@media (max-width: 767px) {
+  div#comments.comments.v {
+    padding: 15px !important;
+  }
 }
 div.vheader.item2 {
   border-bottom: 1px solid #5f5f5f;
