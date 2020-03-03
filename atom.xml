@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ccnyms.github.io/"/>
-  <updated>2019-02-27T12:45:32.319Z</updated>
+  <updated>2020-03-03T13:20:44.369Z</updated>
   <id>https://ccnyms.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>学习笔记（一）JavaScript 简介</title>
+    <link href="https://ccnyms.github.io/2020/03/03/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89%E7%AE%80%E4%BB%8B/"/>
+    <id>https://ccnyms.github.io/2020/03/03/学习笔记（一）简介/</id>
+    <published>2020-03-03T13:17:25.000Z</published>
+    <updated>2020-03-03T13:20:44.369Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="𝟙-浏览器"><a href="#𝟙-浏览器" class="headerlink" title="𝟙.浏览器"></a>𝟙.浏览器</h3><ol><li>Mosaic 是互联网历史上第一个获普遍使用和能够显示图片的网页浏览器。于 1993 年问世。</li><li>浏览器组成：<ul><li>shell （外形）部分</li><li>内核部分<ul><li>渲染引擎（语法规则和渲染）</li><li>js 引擎</li><li>其他模块</li></ul></li></ul></li><li>主流浏览器及其内核：<ol><li>IE             -&gt;     Trident</li><li>Chrome   -&gt;      Blink</li><li>Opera      -&gt;      Blink</li><li>Safari      -&gt;      Webkit</li><li>Firefox    -&gt;      Gecko</li></ol></li><li>2001 年的 IE6 浏览器，首次实现对 JavaScript 引擎的优化和分离。</li><li>2008 年 Google 发布最新浏览器 Chrome，它是采用优化后的 JavaScript 引擎，引擎代号 V8，因能把 JavaScript 代码直接转化为机械码来执行，进而以速度快而闻名。</li></ol><h3 id="𝟚-JavaScript-简介"><a href="#𝟚-JavaScript-简介" class="headerlink" title="𝟚. JavaScript 简介"></a>𝟚. JavaScript 简介</h3><ol><li><p>程序设计语言分为解释型和编译型两大类。</p><ul><li>C 或 C++ 等语言需要一个编译器（compiler）。编译器是一种程序，能够把用 Java 等高级语言编写出来的源代码翻译为直接在计算机上执行的文件。</li><li>解释型程序设计语言不需要编译器，它们只需要解释器。对于 JavaScript，浏览器负责完成有关的解释和执行工作。</li></ul></li><li><p>JavaScript 的特点：</p><ol><li>解释型语言 — （不需要编译成文件）跨平台。</li><li><strong>单线程</strong> — 同一时间只能干一件事。</li><li>ECMA 标注 —为了取得技术优势，微软推出了 JScript，CEnvi 推出 ScriptEase，与 JavaScript 同样可在浏览器上运行。为了统一规格，JavaScript 兼容于 ECMA （欧洲计算机联盟）标准，因此也称为 ECMAScript。</li></ol></li><li><p>我们把 JavaScript 中的<strong>核心部分称为 ECMAScript</strong>，加上 BOM（浏览器对象模型）与 DOM（文档对象类型），三者共同组成了 JavaScript。</p><ul><li>ECMA-262 标准规定了这门语言的如下组成部分：语法、类型、语句、关键字、保留字、操作符、对象。</li><li>浏览器对象模型（BOM，Browser Object Model），提供与浏览器交互的方法和接口。</li><li>文档对象内容（DOM，Document Object Model），提供访问和操作网页内容的方法和接口。</li></ul></li><li><p><strong>异步（asynchronous）：同时执行</strong>，类似于有很多条路一起走，可以同时出发。</p></li><li><p><strong>同步（synchronous）：分次执行</strong>，类似于只有一条路走，这个走完了下个才能走。</p></li><li><p>JavaScript 执行队列 -&gt; 执行过程：轮转时间片。</p><ul><li><strong>单线程模拟多线程。</strong></li><li>类似吃饭，吃一口米饭，吃一口茄子，再吃一口排骨，再吃一口米饭，再吃一口米饭，再吃一口茄子，顺序完全随机，在足够快的时间内，肉眼可见菜和饭在同时减少。</li><li>比如 js 引擎要执行任务 1 和任务 2，js 引擎会把任务 1 和任务 2 切成无数个片段，然后把这些片段<strong>随机排成一个队列送入引擎执行</strong>，直到被执行完。</li></ul></li><li><p><strong>JavaScript 可正常计算的范围：小数点前 16 位，后 16 位。</strong></p></li><li><p>JS 计算精度不准，是纯粹的 bug，所以在 JS 中应尽量避免小数操作。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">0.14</span> * <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 14.000000000000002</span></span><br></pre></td></tr></table></figure></li><li><p>如果需要计算，那么采用<code>Math.floor()</code>（向下取整）或<code>Math.ceil()</code>（向上取整）方法。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 向上取整，无论小数是多少，都向前进 1</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">Math</span>.ceil(<span class="number">123.234</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 124</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 向下取整，无论小数是多少，都不要了</span></span><br><span class="line"><span class="keyword">var</span> num1 = <span class="built_in">Math</span>.floor(<span class="number">123.999</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num1); <span class="comment">// 123</span></span><br></pre></td></tr></table></figure></li><li><p><code>Math.random()</code>方法可以随机产生一个 0 ～ 1 之间的开区间的数。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="built_in">Math</span>.random();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 0.4322440432127299</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 0.5216225452503296</span></span><br></pre></td></tr></table></figure></li><li><p><code>toFixed()</code>方法可以把 Number 四舍五入为指定小数位数的数字。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">123.45678</span>;</span><br><span class="line"></span><br><span class="line">demo = num.toFixed(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(demo); <span class="comment">// 123.46</span></span><br></pre></td></tr></table></figure></li><li><p>在 HTML 中<strong>引入 JavaScript</strong> ：</p><ol><li>页面内嵌<code>&lt;script&gt;&lt;/script&gt;</code>标签</li><li>外部引入<code>&lt;script src=&quot;location&quot;&gt;&lt;/script&gt;</code></li></ol></li><li><p>为符合 Web 标准中结构、样式、行为相分离的原则，通常会采用外部引入。</p></li><li><p>现代 Web 应用程序一般都把全部 JavaScript 引用放在<code>&lt;body&gt;</code>元素中页面内容的后面，这样在解析包含的 JavaScript 代码之前，页面的内容将完全呈现在浏览器中。</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;𝟙-浏览器&quot;&gt;&lt;a href=&quot;#𝟙-浏览器&quot; class=&quot;headerlink&quot; title=&quot;𝟙.浏览器&quot;&gt;&lt;/a&gt;𝟙.浏览器&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Mosaic 是互联网历史上第一个获普遍使用和能够显示图片的网页浏览器。于 1993 年问世。&lt;
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
