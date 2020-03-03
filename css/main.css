@@ -1833,7 +1833,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff00b1;
+  background: #3eff22;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3162,6 +3162,13 @@ div#comments.comments.v {
   margin-left: 0px !important;
   margin-right: 0px !important;
 }
+@media (max-width: 768px) {
+  .v .vwrap,
+  .v .vinfo,
+  .v .vlist {
+    margin: 20px !important;
+  }
+}
 div#comments.comments.v {
   border: 0px;
 }
@@ -3187,6 +3194,7 @@ div.vcontrol {
   border-radius: 6px !important;
   overflow: visible !important;
   counter-reset: avater;
+  margin-bottom: 0px !important;
 }
 .v .vwrap .vedit .vemojis {
   width: 600px !important;
@@ -3223,11 +3231,14 @@ div.vedit {
   height: 70px !important;
 }
 .v .vlist {
-  width: 95% !important;
+  width: auto !important;
 }
 .v .vlist .vcard .vimg {
   width: 2.5em !important;
   height: 2.5em !important;
+}
+.v .info .power {
+  display: none;
 }
 .v .vlist .vcard .vhead .vsys {
   display: none !important;
@@ -3241,7 +3252,7 @@ div.vedit {
   padding-right: 10px !important;
 }
 .v .vlist .vcard .vquote .vcontent {
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 200;
 }
 .v .vlist .vcard .vcontent {
@@ -3255,7 +3266,7 @@ div.vedit {
   font-weight: 600 !important;
 }
 .v .vlist .vcard {
-  padding-top: 8px !important;
+  padding-top: 0px !important;
 }
 .v .vlist .vcard .vhead {
   float: left !important;
