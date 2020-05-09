@@ -2075,6 +2075,11 @@ blockquote footer cite:before {
     margin-left: 15px;
   }
 }
+@media screen and (max-width: 768px) {
+  #aside_content {
+    display: none;
+  }
+}
 .category-content ol,
 .category-content ul {
   margin-top: 0.4rem;
@@ -2283,18 +2288,21 @@ blockquote footer cite:before {
   color: #eee;
   text-align: center;
 }
-#footer-wrap a {
+#footer-wrap .framework-info {
+  display: none;
+}
+#footer-wrap .framework-info a {
   color: #eee;
   cursor: pointer;
 }
-#footer-wrap a:hover {
+#footer-wrap .framework-info a:hover {
   color: #49b1f5;
   text-decoration: underline;
 }
-#footer-wrap .footer-separator {
+#footer-wrap .framework-info .footer-separator {
   margin: 0 0.2rem;
 }
-#footer-wrap .icp-icon {
+#footer-wrap .framework-info .icp-icon {
   padding: 0 4px;
   vertical-align: text-bottom;
 }
