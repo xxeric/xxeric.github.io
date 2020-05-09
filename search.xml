@@ -112,101 +112,6 @@
       </tags>
   </entry>
   <entry>
-    <title>（二）变量、值类型、语句基本规则</title>
-    <url>/2019/07/05/%E4%BA%8C%E3%80%81%E5%8F%98%E9%87%8F%E3%80%81%E5%80%BC%E7%B1%BB%E5%9E%8B%E3%80%81%E8%AF%AD%E5%8F%A5%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%88%99/</url>
-    <content><![CDATA[<h2 id="变量（variable）"><a href="#变量（variable）" class="headerlink" title="变量（variable）"></a>变量（variable）</h2><h3 id="变量声明："><a href="#变量声明：" class="headerlink" title="变量声明："></a>变量声明：</h3><ol>
-<li>声明、赋值分解<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a;</span><br><span class="line">a = <span class="number">1</span>;</span><br></pre></td></tr></table></figure></li>
-<li>单一 var<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>,</span><br><span class="line">    b = <span class="number">2</span>;</span><br></pre></td></tr></table></figure></li>
-<li>开发规范：单一 var 模式，每个变量用逗号隔开，同时换行。</li>
-<li>命名规则：<ul>
-<li>变量名必须以<code>英文字母</code>、<code>_</code>、<code>$</code>开头</li>
-<li>变量名可以包括<code>英文字母</code>、<code>_</code>、<code>$</code>、<code>数字</code></li>
-<li>不可以用系统的关键字、保留字作为变量名。</li>
-</ul>
-</li>
-</ol>
-<h2 id="值类型：原始值与引用值"><a href="#值类型：原始值与引用值" class="headerlink" title="值类型：原始值与引用值"></a>值类型：原始值与引用值</h2><h3 id="原始值"><a href="#原始值" class="headerlink" title="原始值"></a>原始值</h3><ol>
-<li>不可改变， 存储在 stack（栈）：先进的后出来。</li>
-<li>五大值类型：<ul>
-<li>Number — 数字</li>
-<li>Boolean — 布尔</li>
-<li>String — 字符串</li>
-<li>undefined — 未定义（未被赋值的变量值输出时会有这个结果）</li>
-<li>null — 空（可以用来占位）</li>
-</ul>
-</li>
-</ol>
-<h3 id="引用值"><a href="#引用值" class="headerlink" title="引用值"></a>引用值</h3><ol>
-<li>存储在 heap（堆）：怎么进的怎么出。</li>
-<li>值类型：<ul>
-<li>Array — 数组</li>
-<li>Object — 对象</li>
-<li>Function — 函数</li>
-<li>RegExp — 正则</li>
-<li>Date — 日期</li>
-</ul>
-</li>
-</ol>
-<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><ol>
-<li><p><strong>原始值和引用值唯一的不同是赋值形式不同</strong>。</p>
-</li>
-<li><p>原始值以值的拷贝方式赋值，原值是不可变的。操作都在副本上。引用值以引用的拷贝方式赋值，原值是可变的。引用的是地址，操作还是在原来的地方，除非换一个地址（赋新值）。</p>
-</li>
-<li><p><strong>原始值一旦赋值，不可更改。无论是原值增删，还是新的赋值，都会直接存放到新的地方，原值不动</strong>。在操作上，表现为原始值和对应栈名复制一份到新的地方，同时之前的对应栈名初始化，值不动，增删和新赋值都在副本上进行。如：</p>
-<ul>
-<li>在栈内存中声明一个叫 num 的房间，放入值 1</li>
-<li>在栈内存中声明一个叫 num1 的房间，拷贝 num 的值 1 放入 num1</li>
-<li>将 num 及其值 1 拷贝到一个新的房间，然后修改值为 2，原来的房间名初始化为 1005，原值 1 依然留在该房间，不会发生变化</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">1</span>,</span><br><span class="line">      num1 = num;</span><br><span class="line">num = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num1); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>引用值赋值之后，如果是在原值上增删，会直接修改原值。如果是新的赋值，就会直接存放到新的地方，原值不动。</strong></p>
-</li>
-<li><p>原值增删：</p>
-<ul>
-<li>在栈内存中声明一个叫 arr 的房间，在堆内存中一个房间里放入值 [1, 2]，然后 arr 房间内放入这个值的==堆内存地址==<code>heap1001</code></li>
-<li>在栈内存中声明一个叫 arr1 的房间，然后直接拷贝 arr 房间内存放的地址<code>heap1001</code>，获得 arr 的值</li>
-<li>此时 arr 与 arr1 指向同一个值的地址<code>heap1001</code></li>
-<li>arr 增加新值 3，直接在<code>heap1001</code>存放的值里增加，变为 [1, 2, 3]</li>
-<li>此时 arr 与 arr1 共同指向的值变为 [1, 2, 3]</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>],</span><br><span class="line">   arr1 = arr;</span><br><span class="line">arr.push(<span class="number">3</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.write(arr1); <span class="comment">// [1, 2, 3]</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>赋新值：</p>
-<ul>
-<li>在栈内存中声明一个叫 arr 的房间，在堆内存中一个房间里放入值 [1, 2]，然后 arr 房间内放入堆内存地址<code>heap1001</code></li>
-<li>在栈内存中声明一个叫 arr1 的房间，然后直接拷贝 arr 房间内存放的地址，获得 arr 的值</li>
-<li>此时 arr 与 arr1 指向同一个值的地址<code>heap1001</code></li>
-<li>arr 赋新值，在堆内存中另一个房间里放入新值 [1, 2, 3]，然后 arr 房间内删除原来的地址<code>heap1001</code>，放入这个新值的堆内存地址<code>heap1002</code></li>
-<li>此时 arr 指向的值为 [1, 2, 3]，arr1 指向的值为 [1, 2]</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>],</span><br><span class="line">   arr1 = arr;</span><br><span class="line">arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="built_in">document</span>.write(arr1); <span class="comment">// [1, 2]</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h2 id="JS-语句基本规则"><a href="#JS-语句基本规则" class="headerlink" title="JS 语句基本规则"></a>JS 语句基本规则</h2><ol>
-<li>语句后面要用分号<code>;</code>结束。注意，下列三种语句不用加分号：<ul>
-<li>函数： function test() {}</li>
-<li>for 循环：for() {}</li>
-<li>if 语句：if() {}</li>
-</ul>
-</li>
-<li>一个 HTML 文件中可以放多个 JS 代码块，代码块内的规则可以互通。如果某个代码块内出现 JS 语法错误，会引发该代码块内的后续代码终止，但不会影响其他 JS 代码块，目前有两种错误：<ul>
-<li>低级错误：语法解析错误，整个代码块都不会执行。<br>如：使用了中文标点符号：Uncaught Syntax Error: ……</li>
-<li>逻辑错误：标准错误，会执行到该代码块最后一行正确代码再终止。<br>如：没有声明变量，直接使用：Uncaught Reference Error: ……</li>
-</ul>
-</li>
-<li>书写格式要规范，<code>=</code> <code>+</code> <code>/</code> <code>-</code>两边都应该有空格。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>（三）运算符、语句、编程形式</title>
     <url>/2019/07/07/%E4%B8%89%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E3%80%81%E8%AF%AD%E5%8F%A5%E3%80%81%E7%BC%96%E7%A8%8B%E5%BD%A2%E5%BC%8F/</url>
     <content><![CDATA[<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><ol>
@@ -336,6 +241,101 @@
 <li>面向过程：C</li>
 <li>面向对象：Java、C++</li>
 <li>既面向对象也面向过程：JavaScript </li>
+</ol>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>（二）变量、值类型、语句基本规则</title>
+    <url>/2019/07/05/%E4%BA%8C%E3%80%81%E5%8F%98%E9%87%8F%E3%80%81%E5%80%BC%E7%B1%BB%E5%9E%8B%E3%80%81%E8%AF%AD%E5%8F%A5%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%88%99/</url>
+    <content><![CDATA[<h2 id="变量（variable）"><a href="#变量（variable）" class="headerlink" title="变量（variable）"></a>变量（variable）</h2><h3 id="变量声明："><a href="#变量声明：" class="headerlink" title="变量声明："></a>变量声明：</h3><ol>
+<li>声明、赋值分解<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a;</span><br><span class="line">a = <span class="number">1</span>;</span><br></pre></td></tr></table></figure></li>
+<li>单一 var<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>,</span><br><span class="line">    b = <span class="number">2</span>;</span><br></pre></td></tr></table></figure></li>
+<li>开发规范：单一 var 模式，每个变量用逗号隔开，同时换行。</li>
+<li>命名规则：<ul>
+<li>变量名必须以<code>英文字母</code>、<code>_</code>、<code>$</code>开头</li>
+<li>变量名可以包括<code>英文字母</code>、<code>_</code>、<code>$</code>、<code>数字</code></li>
+<li>不可以用系统的关键字、保留字作为变量名。</li>
+</ul>
+</li>
+</ol>
+<h2 id="值类型：原始值与引用值"><a href="#值类型：原始值与引用值" class="headerlink" title="值类型：原始值与引用值"></a>值类型：原始值与引用值</h2><h3 id="原始值"><a href="#原始值" class="headerlink" title="原始值"></a>原始值</h3><ol>
+<li>不可改变， 存储在 stack（栈）：先进的后出来。</li>
+<li>五大值类型：<ul>
+<li>Number — 数字</li>
+<li>Boolean — 布尔</li>
+<li>String — 字符串</li>
+<li>undefined — 未定义（未被赋值的变量值输出时会有这个结果）</li>
+<li>null — 空（可以用来占位）</li>
+</ul>
+</li>
+</ol>
+<h3 id="引用值"><a href="#引用值" class="headerlink" title="引用值"></a>引用值</h3><ol>
+<li>存储在 heap（堆）：怎么进的怎么出。</li>
+<li>值类型：<ul>
+<li>Array — 数组</li>
+<li>Object — 对象</li>
+<li>Function — 函数</li>
+<li>RegExp — 正则</li>
+<li>Date — 日期</li>
+</ul>
+</li>
+</ol>
+<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><ol>
+<li><p><strong>原始值和引用值唯一的不同是赋值形式不同</strong>。</p>
+</li>
+<li><p>原始值以值的拷贝方式赋值，原值是不可变的。操作都在副本上。引用值以引用的拷贝方式赋值，原值是可变的。引用的是地址，操作还是在原来的地方，除非换一个地址（赋新值）。</p>
+</li>
+<li><p><strong>原始值一旦赋值，不可更改。无论是原值增删，还是新的赋值，都会直接存放到新的地方，原值不动</strong>。在操作上，表现为原始值和对应栈名复制一份到新的地方，同时之前的对应栈名初始化，值不动，增删和新赋值都在副本上进行。如：</p>
+<ul>
+<li>在栈内存中声明一个叫 num 的房间，放入值 1</li>
+<li>在栈内存中声明一个叫 num1 的房间，拷贝 num 的值 1 放入 num1</li>
+<li>将 num 及其值 1 拷贝到一个新的房间，然后修改值为 2，原来的房间名初始化为 1005，原值 1 依然留在该房间，不会发生变化</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">1</span>,</span><br><span class="line">      num1 = num;</span><br><span class="line">num = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num1); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>引用值赋值之后，如果是在原值上增删，会直接修改原值。如果是新的赋值，就会直接存放到新的地方，原值不动。</strong></p>
+</li>
+<li><p>原值增删：</p>
+<ul>
+<li>在栈内存中声明一个叫 arr 的房间，在堆内存中一个房间里放入值 [1, 2]，然后 arr 房间内放入这个值的==堆内存地址==<code>heap1001</code></li>
+<li>在栈内存中声明一个叫 arr1 的房间，然后直接拷贝 arr 房间内存放的地址<code>heap1001</code>，获得 arr 的值</li>
+<li>此时 arr 与 arr1 指向同一个值的地址<code>heap1001</code></li>
+<li>arr 增加新值 3，直接在<code>heap1001</code>存放的值里增加，变为 [1, 2, 3]</li>
+<li>此时 arr 与 arr1 共同指向的值变为 [1, 2, 3]</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>],</span><br><span class="line">   arr1 = arr;</span><br><span class="line">arr.push(<span class="number">3</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.write(arr1); <span class="comment">// [1, 2, 3]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>赋新值：</p>
+<ul>
+<li>在栈内存中声明一个叫 arr 的房间，在堆内存中一个房间里放入值 [1, 2]，然后 arr 房间内放入堆内存地址<code>heap1001</code></li>
+<li>在栈内存中声明一个叫 arr1 的房间，然后直接拷贝 arr 房间内存放的地址，获得 arr 的值</li>
+<li>此时 arr 与 arr1 指向同一个值的地址<code>heap1001</code></li>
+<li>arr 赋新值，在堆内存中另一个房间里放入新值 [1, 2, 3]，然后 arr 房间内删除原来的地址<code>heap1001</code>，放入这个新值的堆内存地址<code>heap1002</code></li>
+<li>此时 arr 指向的值为 [1, 2, 3]，arr1 指向的值为 [1, 2]</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>],</span><br><span class="line">   arr1 = arr;</span><br><span class="line">arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="built_in">document</span>.write(arr1); <span class="comment">// [1, 2]</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="JS-语句基本规则"><a href="#JS-语句基本规则" class="headerlink" title="JS 语句基本规则"></a>JS 语句基本规则</h2><ol>
+<li>语句后面要用分号<code>;</code>结束。注意，下列三种语句不用加分号：<ul>
+<li>函数： function test() {}</li>
+<li>for 循环：for() {}</li>
+<li>if 语句：if() {}</li>
+</ul>
+</li>
+<li>一个 HTML 文件中可以放多个 JS 代码块，代码块内的规则可以互通。如果某个代码块内出现 JS 语法错误，会引发该代码块内的后续代码终止，但不会影响其他 JS 代码块，目前有两种错误：<ul>
+<li>低级错误：语法解析错误，整个代码块都不会执行。<br>如：使用了中文标点符号：Uncaught Syntax Error: ……</li>
+<li>逻辑错误：标准错误，会执行到该代码块最后一行正确代码再终止。<br>如：没有声明变量，直接使用：Uncaught Reference Error: ……</li>
+</ul>
+</li>
+<li>书写格式要规范，<code>=</code> <code>+</code> <code>/</code> <code>-</code>两边都应该有空格。</li>
 </ol>
 ]]></content>
       <categories>
