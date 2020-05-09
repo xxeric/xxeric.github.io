@@ -88,22 +88,18 @@
 
 
 
-<meta name="description" content="𝟙.变量（variable） 变量声明：  声明、赋值分解 12var a;a = 1;  单一 var 12var a = 1,    b = 2;  开发规范：单一 var 模式，每个变量用逗号隔开，同时换行。    命名规则： 变量名必须以英文字母、_、$开头 变量名可以包括英文字母、_、$、数字 不可以用系统的关键字、保留字作为变量名。    𝟚.值类型：原始值与引用值原始值 不可改变">
+<meta name="description" content="𝟙.变量（variable）变量声明： 声明、赋值分解 12var a;a = 1;  单一 var 12var a = 1,    b = 2;  开发规范：单一 var 模式，每个变量用逗号隔开，同时换行。  命名规则： 变量名必须以英文字母、_、$开头 变量名可以包括英文字母、_、$、数字 不可以用系统的关键字、保留字作为变量名。    𝟚.值类型：原始值与引用值原始值 不可改变， 存储">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="学习笔记（二）变量、值类型、语句基本规则">
-<meta property="og:url" content="https://ccnyms.github.io/2020/03/05/学习笔记（二）变量、值类型、语句基本规则/index.html">
+<meta property="og:title" content="二、变量、值类型、语句基本规则">
+<meta property="og:url" content="https://ccnyms.github.io/2020/03/05/二、变量、值类型、语句基本规则/index.html">
 <meta property="og:site_name" content="Seven">
-<meta property="og:description" content="𝟙.变量（variable） 变量声明：  声明、赋值分解 12var a;a = 1;  单一 var 12var a = 1,    b = 2;  开发规范：单一 var 模式，每个变量用逗号隔开，同时换行。    命名规则： 变量名必须以英文字母、_、$开头 变量名可以包括英文字母、_、$、数字 不可以用系统的关键字、保留字作为变量名。    𝟚.值类型：原始值与引用值原始值 不可改变">
+<meta property="og:description" content="𝟙.变量（variable）变量声明： 声明、赋值分解 12var a;a = 1;  单一 var 12var a = 1,    b = 2;  开发规范：单一 var 模式，每个变量用逗号隔开，同时换行。  命名规则： 变量名必须以英文字母、_、$开头 变量名可以包括英文字母、_、$、数字 不可以用系统的关键字、保留字作为变量名。    𝟚.值类型：原始值与引用值原始值 不可改变， 存储">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://ccnyms.github.io/Users/cn/blog/hexoblog/source/_posts/原始值赋值.png">
-<meta property="og:image" content="https://ccnyms.github.io/Users/cn/blog/hexoblog/source/_posts/引用值赋值1.png">
-<meta property="og:image" content="https://ccnyms.github.io/Users/cn/blog/hexoblog/source/_posts/引用值赋值2.png">
-<meta property="og:updated_time" content="2020-03-05T07:09:51.273Z">
+<meta property="og:updated_time" content="2020-05-09T03:15:48.682Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="学习笔记（二）变量、值类型、语句基本规则">
-<meta name="twitter:description" content="𝟙.变量（variable） 变量声明：  声明、赋值分解 12var a;a = 1;  单一 var 12var a = 1,    b = 2;  开发规范：单一 var 模式，每个变量用逗号隔开，同时换行。    命名规则： 变量名必须以英文字母、_、$开头 变量名可以包括英文字母、_、$、数字 不可以用系统的关键字、保留字作为变量名。    𝟚.值类型：原始值与引用值原始值 不可改变">
-<meta name="twitter:image" content="https://ccnyms.github.io/Users/cn/blog/hexoblog/source/_posts/原始值赋值.png">
+<meta name="twitter:title" content="二、变量、值类型、语句基本规则">
+<meta name="twitter:description" content="𝟙.变量（variable）变量声明： 声明、赋值分解 12var a;a = 1;  单一 var 12var a = 1,    b = 2;  开发规范：单一 var 模式，每个变量用逗号隔开，同时换行。  命名规则： 变量名必须以英文字母、_、$开头 变量名可以包括英文字母、_、$、数字 不可以用系统的关键字、保留字作为变量名。    𝟚.值类型：原始值与引用值原始值 不可改变， 存储">
 
 
 
@@ -133,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="https://ccnyms.github.io/2020/03/05/学习笔记（二）变量、值类型、语句基本规则/">
+  <link rel="canonical" href="https://ccnyms.github.io/2020/03/05/二、变量、值类型、语句基本规则/">
 
 
 
 
 
-  <title>学习笔记（二）变量、值类型、语句基本规则 | Seven</title>
+  <title>二、变量、值类型、语句基本规则 | Seven</title>
   
 
 
@@ -293,7 +289,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">学习笔记（二）变量、值类型、语句基本规则</h1>
+	<h1 class="post-title" itemprop="name headline">二、变量、值类型、语句基本规则</h1>
 
 
 
@@ -305,9 +301,7 @@
       <div class="post-body">
         
         
-          <h3 id="𝟙-变量（variable）"><a href="#𝟙-变量（variable）" class="headerlink" title="𝟙.变量（variable）"></a>𝟙.变量（variable）</h3><ol>
-<li><p>变量声明：</p>
-<ul>
+          <h2 id="𝟙-变量（variable）"><a href="#𝟙-变量（variable）" class="headerlink" title="𝟙.变量（variable）"></a>𝟙.变量（variable）</h2><h3 id="变量声明："><a href="#变量声明：" class="headerlink" title="变量声明："></a>变量声明：</h3><ol>
 <li><p>声明、赋值分解</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a;</span><br><span class="line">a = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
 </li>
@@ -316,8 +310,6 @@
 </li>
 <li><p>开发规范：单一 var 模式，每个变量用逗号隔开，同时换行。</p>
 </li>
-</ul>
-</li>
 <li>命名规则：<ul>
 <li>变量名必须以<code>英文字母</code>、<code>_</code>、<code>$</code>开头</li>
 <li>变量名可以包括<code>英文字母</code>、<code>_</code>、<code>$</code>、<code>数字</code></li>
@@ -325,7 +317,7 @@
 </ul>
 </li>
 </ol>
-<h3 id="𝟚-值类型：原始值与引用值"><a href="#𝟚-值类型：原始值与引用值" class="headerlink" title="𝟚.值类型：原始值与引用值"></a>𝟚.值类型：原始值与引用值</h3><h4 id="原始值"><a href="#原始值" class="headerlink" title="原始值"></a>原始值</h4><ol>
+<h2 id="𝟚-值类型：原始值与引用值"><a href="#𝟚-值类型：原始值与引用值" class="headerlink" title="𝟚.值类型：原始值与引用值"></a>𝟚.值类型：原始值与引用值</h2><h3 id="原始值"><a href="#原始值" class="headerlink" title="原始值"></a>原始值</h3><ol>
 <li>不可改变， 存储在 stack（栈）：先进的后出来。</li>
 <li>五大值类型：<ul>
 <li>Number — 数字</li>
@@ -336,55 +328,52 @@
 </ul>
 </li>
 </ol>
-<h4 id="引用值"><a href="#引用值" class="headerlink" title="引用值"></a>引用值</h4><ol>
+<h3 id="引用值"><a href="#引用值" class="headerlink" title="引用值"></a>引用值</h3><ol>
 <li>存储在 heap（堆）：怎么进的怎么出。</li>
 <li>值类型：<ul>
 <li>Array — 数组</li>
 <li>Object — 对象</li>
-<li>Function — 函数<br>……</li>
+<li>Function — 函数</li>
+<li>RegExp — 正则</li>
+<li>Date — 日期</li>
 </ul>
 </li>
 </ol>
-<h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><ol>
+<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><ol>
 <li><strong>原始值和引用值唯一的不同是赋值形式不同</strong>。</li>
 <li>原始值以值的拷贝方式赋值，原值是不可变的。操作都在副本上。引用值以引用的拷贝方式赋值，原值是可变的。引用的是地址，操作还是在原来的地方，除非换一个地址（赋新值）。</li>
 <li><p><strong>原始值一旦赋值，不可更改。无论是原值增删，还是新的赋值，都会直接存放到新的地方，原值不动</strong>。在操作上，表现为原始值和对应栈名复制一份到新的地方，同时之前的对应栈名初始化，值不动，增删和新赋值都在副本上进行。如：</p>
 <ul>
 <li>在栈内存中声明一个叫 num 的房间，放入值 1</li>
 <li>在栈内存中声明一个叫 num1 的房间，拷贝 num 的值 1 放入 num1</li>
-<li>将 num 及其值 1 拷贝到一个新的房间，然后修改值为 2，原来的房间名初始化为 1005，原值 1 依然留在该房间，不会发生变化<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">1</span>,</span><br><span class="line">    num1 = num;</span><br><span class="line">num = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num1); <span class="comment">//输出"1"</span></span><br></pre></td></tr></table></figure>
-</li>
+<li>将 num 及其值 1 拷贝到一个新的房间，然后修改值为 2，原来的房间名初始化为 1005，原值 1 依然留在该房间，不会发生变化</li>
 </ul>
-<p><img src="/Users/cn/blog/hexoblog/source/_posts/原始值赋值.png" alt="原始值赋值"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">1</span>,</span><br><span class="line">      num1 = num;</span><br><span class="line">num = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num1); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>引用值赋值之后，如果是在原值上增删，会直接修改原值。如果是新的赋值，就会直接存放到新的地方，原值不动。</strong></p>
-<ul>
+</li>
 <li><p>原值增删：</p>
 <ul>
-<li>在栈内存中声明一个叫 arr 的房间，在堆内存中一个房间里放入值 [1,2]，然后 arr 房间内放入这个值的==堆内存地址==<code>heap1001</code></li>
+<li>在栈内存中声明一个叫 arr 的房间，在堆内存中一个房间里放入值 [1, 2]，然后 arr 房间内放入这个值的==堆内存地址==<code>heap1001</code></li>
 <li>在栈内存中声明一个叫 arr1 的房间，然后直接拷贝 arr 房间内存放的地址<code>heap1001</code>，获得 arr 的值</li>
 <li>此时 arr 与 arr1 指向同一个值的地址<code>heap1001</code></li>
-<li>arr 增加新值 3，直接在<code>heap1001</code>存放的值里增加，变为 [1,2,3]</li>
-<li>此时 arr 与 arr1 共同指向的值变为 [1,2,3]<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>],</span><br><span class="line">    arr1 = arr;</span><br><span class="line">arr.push(<span class="number">3</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.write(arr1);<span class="comment">//输出[1,2,3]</span></span><br></pre></td></tr></table></figure>
-</li>
+<li>arr 增加新值 3，直接在<code>heap1001</code>存放的值里增加，变为 [1, 2, 3]</li>
+<li>此时 arr 与 arr1 共同指向的值变为 [1, 2, 3]</li>
 </ul>
-<p><img src="/Users/cn/blog/hexoblog/source/_posts/引用值赋值1.png" alt="引用值赋值1"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>],</span><br><span class="line">   arr1 = arr;</span><br><span class="line">arr.push(<span class="number">3</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.write(arr1); <span class="comment">// [1, 2, 3]</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>赋新值：</p>
 <ul>
-<li>在栈内存中声明一个叫 arr 的房间，在堆内存中一个房间里放入值 [1,2]，然后 arr 房间内放入堆内存地址<code>heap1001</code></li>
+<li>在栈内存中声明一个叫 arr 的房间，在堆内存中一个房间里放入值 [1, 2]，然后 arr 房间内放入堆内存地址<code>heap1001</code></li>
 <li>在栈内存中声明一个叫 arr1 的房间，然后直接拷贝 arr 房间内存放的地址，获得 arr 的值</li>
 <li>此时 arr 与 arr1 指向同一个值的地址<code>heap1001</code></li>
-<li>arr 赋新值，在堆内存中另一个房间里放入新值 [1,2,3]，然后 arr 房间内删除原来的地址<code>heap1001</code>，放入这个新值的堆内存地址<code>heap1002</code></li>
-<li>此时 arr 指向的值为 [1,2,3]，arr1 指向的值为 [1,2]<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>],</span><br><span class="line">    arr1 = arr;</span><br><span class="line">arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="built_in">document</span>.write(arr1);<span class="comment">//输出[1,2]</span></span><br></pre></td></tr></table></figure>
-</li>
+<li>arr 赋新值，在堆内存中另一个房间里放入新值 [1, 2, 3]，然后 arr 房间内删除原来的地址<code>heap1001</code>，放入这个新值的堆内存地址<code>heap1002</code></li>
+<li>此时 arr 指向的值为 [1, 2, 3]，arr1 指向的值为 [1, 2]</li>
 </ul>
-<p><img src="/Users/cn/blog/hexoblog/source/_posts/引用值赋值2.png" alt="引用值赋值2"></p>
-</li>
-</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>],</span><br><span class="line">   arr1 = arr;</span><br><span class="line">arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="built_in">document</span>.write(arr1); <span class="comment">// [1, 2]</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h3 id="𝟛-JS-语句基本规则"><a href="#𝟛-JS-语句基本规则" class="headerlink" title="𝟛. JS 语句基本规则"></a>𝟛. JS 语句基本规则</h3><ol>
+<h2 id="𝟛-JS-语句基本规则"><a href="#𝟛-JS-语句基本规则" class="headerlink" title="𝟛. JS 语句基本规则"></a>𝟛. JS 语句基本规则</h2><ol>
 <li>语句后面要用分号<code>;</code>结束。注意，下列三种语句不用加分号：<ul>
 <li>函数： function test() {}</li>
 <li>for 循环：for() {}</li>
@@ -539,7 +528,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#𝟙-变量（variable）"><span class="nav-number">1.</span> <span class="nav-text">𝟙.变量（variable）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#𝟚-值类型：原始值与引用值"><span class="nav-number">2.</span> <span class="nav-text">𝟚.值类型：原始值与引用值</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#原始值"><span class="nav-number">2.1.</span> <span class="nav-text">原始值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#引用值"><span class="nav-number">2.2.</span> <span class="nav-text">引用值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#区别"><span class="nav-number">2.3.</span> <span class="nav-text">区别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#𝟛-JS-语句基本规则"><span class="nav-number">3.</span> <span class="nav-text">𝟛. JS 语句基本规则</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#𝟙-变量（variable）"><span class="nav-number">1.</span> <span class="nav-text">𝟙.变量（variable）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量声明："><span class="nav-number">1.1.</span> <span class="nav-text">变量声明：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#𝟚-值类型：原始值与引用值"><span class="nav-number">2.</span> <span class="nav-text">𝟚.值类型：原始值与引用值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原始值"><span class="nav-number">2.1.</span> <span class="nav-text">原始值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用值"><span class="nav-number">2.2.</span> <span class="nav-text">引用值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#区别"><span class="nav-number">2.3.</span> <span class="nav-text">区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#𝟛-JS-语句基本规则"><span class="nav-number">3.</span> <span class="nav-text">𝟛. JS 语句基本规则</span></a></li></ol></div>
             
 
           </div>
@@ -597,7 +586,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共 2.2k 字</span>
+  <span class="post-count">共 2.4k 字</span>
 </div>
 
 
