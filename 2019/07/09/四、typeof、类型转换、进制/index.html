@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JavaScript,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Seven" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="typeof 操作符 作用：区分数据类型（六种） number string boolean undefined object（泛指引用值，数组 array 和 null 都属于此类） function     原始值：number/string/boolean/undefined/null 引用值：array/object/function null 最初是作为代替空对象的形式出现（给对象占位）">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="（四）typeof、类型转换、进制">
+<meta property="og:url" content="https://ccnyms.github.io/2019/07/09/四、typeof、类型转换、进制/index.html">
+<meta property="og:site_name" content="Seven">
+<meta property="og:description" content="typeof 操作符 作用：区分数据类型（六种） number string boolean undefined object（泛指引用值，数组 array 和 null 都属于此类） function     原始值：number/string/boolean/undefined/null 引用值：array/object/function null 最初是作为代替空对象的形式出现（给对象占位）">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-05-09T06:51:19.866Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="（四）typeof、类型转换、进制">
+<meta name="twitter:description" content="typeof 操作符 作用：区分数据类型（六种） number string boolean undefined object（泛指引用值，数组 array 和 null 都属于此类） function     原始值：number/string/boolean/undefined/null 引用值：array/object/function null 最初是作为代替空对象的形式出现（给对象占位）">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://ccnyms.github.io/2019/07/09/四、typeof、类型转换、进制/">
+
+
+
+
+
+  <title>（四）typeof、类型转换、进制 | Seven</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/ccnyms" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner{visibility: hidden;}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Seven</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+	<h1 class="post-title" itemprop="name headline">（四）typeof、类型转换、进制</h1>
+
+
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <h2 id="typeof-操作符"><a href="#typeof-操作符" class="headerlink" title="typeof 操作符"></a>typeof 操作符</h2><ol>
+<li>作用：区分数据类型（六种）<ul>
+<li>number</li>
+<li>string</li>
+<li>boolean</li>
+<li>undefined</li>
+<li>object（泛指引用值，数组 array 和 null 都属于此类）</li>
+<li>function  </li>
+</ul>
+</li>
+<li>原始值：<code>number/string/boolean/undefined/null</code></li>
+<li>引用值：<code>array/object/function</code></li>
+<li><strong>null 最初是作为代替空对象的形式出现（给对象占位），所以它的数据类型是 object</strong></li>
+<li><p>写法：<code>typeof()</code> 或者 <code>typeof 内容</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num)); <span class="comment">// function</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> mul = <span class="literal">null</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> mul); <span class="comment">// object</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [];</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(arr)); <span class="comment">// objcet</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注意：</p>
+<ul>
+<li>任何变量未经声明就使用的话，会直接报错。</li>
+<li>如果放入 typeof 操作符中，不会报错，会直接返回<code>undefined</code>。</li>
+<li><p>这个返回值<code>undefined</code>的类型是字符串。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(a),<span class="keyword">typeof</span>(<span class="keyword">typeof</span>(a))); <span class="comment">// undefined string</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<ol start="7">
+<li><p><strong>任何情况下，返回的六种类型的值都是字符串类型。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'abc'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(str), <span class="keyword">typeof</span>(<span class="keyword">typeof</span>(str))); <span class="comment">// string string</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> bool = <span class="literal">true</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(bool), <span class="keyword">typeof</span>(<span class="keyword">typeof</span>(bool))); <span class="comment">// boolean string</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">7</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num), <span class="keyword">typeof</span>(<span class="keyword">typeof</span>(num))); <span class="comment">// number string</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> obj, <span class="keyword">typeof</span>(<span class="keyword">typeof</span> obj)); <span class="comment">// object string</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> fn, <span class="keyword">typeof</span>(<span class="keyword">typeof</span> fn)); <span class="comment">// function string</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="literal">undefined</span>, <span class="keyword">typeof</span>(<span class="keyword">typeof</span> <span class="literal">undefined</span>)); <span class="comment">// undefined string</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><h3 id="显示"><a href="#显示" class="headerlink" title="显示"></a>显示</h3><ol>
+<li><p><strong>Number( )：将括号里的内容转换成数字/数字类型</strong>。</p>
+<ul>
+<li><code>undefined、字符串（除了字符串类型的数字）、NaN-&gt; NaN</code> </li>
+<li><code>true -&gt; 1</code></li>
+<li><code>false、&quot;&quot;、null -&gt; 0</code></li>
+<li><code>&quot;123&quot; -&gt; 123（字符串类型的数字直接转换类型，数值不变）</code></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="built_in">Number</span>(<span class="literal">true</span>); <span class="comment">// 布尔类型</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num),num); <span class="comment">// number 1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">Number</span>(<span class="string">'true'</span>); <span class="comment">// 字符串类型</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num),num); <span class="comment">// number NaN</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="string">'123abc'</span>)); <span class="comment">// NaN</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="literal">null</span>)); <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>parseInt (string, radix)：（integer：整数）</p>
+<ul>
+<li>第一个作用：string 参数，<strong>转换成整值</strong>（如果前面是数字，从数字位开始看，直到非数字位截止，返回数字位）</li>
+<li>第二个作用：radix 进制，以此进制为基底，将值转换为十进制，取值：2～36，选填。划重点：<strong>你填的多少，进制就是多少。</strong>从你填的转为十进制。目标进制（你填写的进制） &lt;==&gt; 十进制</li>
+<li>常见转换：<ul>
+<li><code>&quot;123.7&quot;-&gt; 123</code> </li>
+<li><code>&quot;123abc&quot; -&gt; 123（首位是数字的话，从数字位开始看，在非数字位截断）</code></li>
+<li><code>其他 -&gt; NaN</code></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="built_in">parseInt</span>(<span class="literal">true</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num) + <span class="string">': '</span> + num); <span class="comment">// number: NaN</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">'123.9'</span>)); <span class="comment">// 123</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">'123abc'</span>)); <span class="comment">// 123</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">parseInt</span>(<span class="string">'abc123'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num) + <span class="string">': '</span> + num); <span class="comment">// number: NaN</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">parseInt</span>(<span class="string">'a'</span>,<span class="number">16</span>); <span class="comment">// a 目前为十六进制数，要转化为十进制数</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num) + <span class="string">': '</span> + num); <span class="comment">// number: 10</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>parseFloat(string)：类似 parseInt 方法，转换成浮点数（正常的小数）。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="built_in">parseFloat</span>(<span class="string">'123.45'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num) + <span class="string">': '</span> + num); <span class="comment">// number: 123.45</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">parseFloat</span>(<span class="string">'123.45abc'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num) + <span class="string">': '</span> + num); <span class="comment">// number: 123.45</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">parseFloat</span>(<span class="string">'abc123.45'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num) + <span class="string">': '</span> + num); <span class="comment">// number : NaN</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>参数.toString(radix)：将参数转换成字符串</p>
+<ul>
+<li>radix 进制，以十进制为基底，转换成填写的进制，选填。<br>十进制&lt;==&gt;目标进制（你填写的进制）划重点：<strong>你填的多少，就是想要多少</strong>。从十进制转为你填的。</li>
+<li><strong>undefined 和 null 不能用该方法</strong>，使用会直接报错（因为它俩没有原型，而其他原始值经过包装类后成为原始值对象，都有原型）</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> demo = <span class="number">123</span>;</span><br><span class="line"><span class="keyword">var</span> num = demo.toString();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num) + <span class="string">': '</span> + num); <span class="comment">// string: 123</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> demo = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> num = demo.toString(<span class="number">16</span>);<span class="comment">// 10 目前为十进制数，要转化为十六进制</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num) + <span class="string">': '</span> + num); <span class="comment">// string: a</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意：如果直接使用<code>123.toString()</code>是不可以的，会直接报错。因为系统会首先将这个语句识别为浮点型，数学计算的点<code>.</code>优先级最高，所以识别成浮点数，小数点后是字母是肯定报错的。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">123.</span>toString();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 报错，Uncaught SyntaxError: Invalid or unexpected token</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>String( )：将括号里的内容转换成字符串</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="built_in">String</span>(<span class="number">123</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num) + <span class="string">': '</span> + num); <span class="comment">// string: 123</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">String</span>(<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num)+<span class="string">': '</span>+num); <span class="comment">// string: true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Boolean( )：转换成布尔值</p>
+<ul>
+<li>undefined / null / NaN / “” / 0 / flase  -&gt; false </li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="built_in">Boolean</span>(<span class="string">''</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num) + <span class="string">': '</span> + num); <span class="comment">// boolean: false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">Boolean</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num) + <span class="string">': '</span> + num); <span class="comment">// boolean: false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">Boolean</span>(<span class="string">'0'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num) + <span class="string">': '</span> + num); <span class="comment">// boolean: true</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="隐式"><a href="#隐式" class="headerlink" title="隐式"></a>隐式</h3><ol>
+<li>内部原理：调用显示类型转换。原理：调用 Number( ) 方法转为数字，然后和 NaN 比对。</li>
+<li><p><code>isNaN()</code> ：判断参数是不是 NaN，返回结果为 boolean 类型。常用转换：NaN / undefined / 字符串（除了字符串类型的数字） -&gt; NaN</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="literal">NaN</span>)); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="number">123</span>)); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="string">'123'</span>)); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="string">'aa'</span>)); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="literal">undefined</span>)); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="literal">null</span>)); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>++/--</code>、<code>+/-</code>（一元正负）：转换为 number 类型。原理：调用 Number( )。一元正负，只有一边有参数，如”+ a” / “- b”</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">'abc'</span>;</span><br><span class="line">a++;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(a), a);<span class="comment">// number NaN</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = <span class="string">'123'</span>;</span><br><span class="line">b++;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(b), b);<span class="comment">// number 124</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c = <span class="literal">null</span>;</span><br><span class="line">c--;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(c), c);<span class="comment">// number -1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> d = +<span class="string">'abc'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(d), d);<span class="comment">//number NaN</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>+</code> （加号）：若加号两边存在一个字符串，将另一个也转为字符串，转为 string 类型。调用 String 方法。其他情况下（number / undefined / null / boolean），转为 number 类型。调用 Number 方法。</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span> +<span class="string">'abc'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(a), a);<span class="comment">// string 1abc</span></span><br></pre></td></tr></table></figure>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="literal">false</span> + <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(a), a);<span class="comment">// number 1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>-、*、/、%</code>：转为 number 类型。原理：调用 Number 方法</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">'1'</span> * <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(a), a);<span class="comment">// number 1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = <span class="literal">null</span> / <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(b), b);<span class="comment">// number 0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c = <span class="string">'abc'</span> - <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(c), c);<span class="comment">// number NaN</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>&amp;&amp;、||</code>：<strong>过程中转为 boolean 类型进行比较</strong>，结果返回表达式的值（值本身是什么类型就返回什么类型）。</p>
+</li>
+<li><p><code>!</code>：结果返回 boolean 类型。</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="string">'abc'</span> &amp;&amp; <span class="number">2</span>; </span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num), num);<span class="comment">// number 2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="string">'abc'</span> &amp;&amp; <span class="string">'def'</span>; </span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num), num);<span class="comment">// string def</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="literal">null</span> &amp;&amp; <span class="number">4</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num), num);<span class="comment">// object null</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = !!<span class="string">'a'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num), num);<span class="comment">// boolean true</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="8">
+<li><p><code>&lt;、&gt;、&lt;=、&gt;=</code> ：</p>
+<ul>
+<li>两边都是字符串时，比较 asc 码，返回 boolean 类型。</li>
+<li><strong>其他情况下，调用 Number( )，先转换为数字进行比较</strong>，结果返回 boolean 类型。</li>
+<li>undefined 和 null 除外，见特殊情况。</li>
+</ul>
+</li>
+<li><p><code>==、!=</code> ：若两边均为对象，对比它们的引用是否相同，返回 boolean 类型。其他情况下，调用 Number 方法，两边转为数字进行比较，结果返回 boolean 类型。</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引用值，两个不同的地址引用（不同房间）：</span></span><br><span class="line"><span class="built_in">console</span>.log(&#123;&#125; == &#123;&#125;); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 同一个地址引用：</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> obj1 = obj;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj == obj1); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>特殊情况：</p>
+<ul>
+<li>undefined 和 null 既不大于 0，也不小于 0，更不等于 0。</li>
+<li><code>undefined == null</code></li>
+<li><code>NaN !== NaN</code></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="literal">undefined</span> &gt; <span class="number">0</span>); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">undefined</span> &lt; <span class="number">0</span>); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">undefined</span> == <span class="number">0</span>); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">null</span> &gt; <span class="number">0</span>); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">null</span> &lt; <span class="number">0</span>); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">null</span> == <span class="number">0</span>); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">undefined</span> == <span class="literal">null</span>);<span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">NaN</span> == <span class="literal">NaN</span>);<span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="11">
+<li><p>例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// false == 0, true == 1, 0 &gt; 1 -&gt; false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">false</span> &gt; <span class="literal">true</span>); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 先判断 1 &gt; 10 -&gt; false, false == 0, 0 &gt; 0 -&gt; false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span> &gt; <span class="number">10</span> &gt; <span class="number">0</span>); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2 &gt; 3 -&gt; false, false == 0, 0 &lt; 1 -&gt; true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">2</span> &gt; <span class="number">3</span> &lt; <span class="number">1</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>不发生类型转换：</p>
+<ul>
+<li><code>===</code></li>
+<li><code>!==</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="常用转换汇总"><a href="#常用转换汇总" class="headerlink" title="常用转换汇总"></a>常用转换汇总</h3><ol>
+<li>Boolean()：undefined、null、NaN、””、0、false  -&gt; false</li>
+<li>Number()：（千方百计变成数字）<ul>
+<li>undefined / 字符串（除了字符串类型的数字）/ NaN -&gt; NaN</li>
+<li>true -&gt; 1</li>
+<li>false / “” / null -&gt; 0</li>
+<li>“123” -&gt; 123 （字符串类型的数字直接转换类型，数值不变）</li>
+</ul>
+</li>
+<li><p>parseInt (string, radix)：（只要整数，不管其他）</p>
+<ul>
+<li>“123.7” -&gt; 123</li>
+<li>“123abc” -&gt; 123（首位是数字的话，从数字位开始看，在非数字位截断）</li>
+<li>其他 -&gt; NaN</li>
+</ul>
+</li>
+<li><p>例 1：关于 parseInt() 方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">parseInt</span>(<span class="string">'123abc'</span>), <span class="built_in">parseInt</span>(<span class="string">'123abc'</span>)); <span class="comment">// number 123</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">'123.7'</span>)); <span class="comment">// 123</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">parseInt</span>(<span class="literal">undefined</span>), <span class="built_in">parseInt</span>(<span class="literal">undefined</span>)); <span class="comment">// number NaN</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="literal">null</span>)); <span class="comment">// NaN</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="literal">NaN</span>)); <span class="comment">// NaN</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">'abc123'</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">''</span>)); <span class="comment">// NaN</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="literal">true</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="literal">false</span>)); <span class="comment">// NaN</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="5">
+<li><p>例 2：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="literal">false</span> + <span class="number">1</span>; </span><br><span class="line"><span class="comment">// 0 + 1</span></span><br><span class="line"><span class="built_in">console</span>.log(str); <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> demo = <span class="literal">false</span> == <span class="number">1</span>; </span><br><span class="line"><span class="comment">// 0 !== 1 -&gt; false</span></span><br><span class="line"><span class="built_in">console</span>.log(demo); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">11</span> + <span class="string">'11'</span> * <span class="number">2</span> == <span class="number">33</span>);<span class="comment">// true</span></span><br><span class="line"><span class="comment">//          11 + 		22</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>例 3:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(a) &amp;&amp; -<span class="literal">true</span> + (+<span class="literal">undefined</span>) + <span class="string">''</span>); <span class="comment">// 'NaN'</span></span><br><span class="line"><span class="comment">// 左边：typeof(a) -&gt; 'undefined'</span></span><br><span class="line"><span class="comment">// &amp;&amp; 优先级低于算术运算符，放在最后处理</span></span><br><span class="line"><span class="comment">// 右边：-true + (+undefined) + '' -&gt; -1 + NaN + '' -&gt; NaN + '' -&gt; 'NaN'</span></span><br><span class="line"><span class="comment">// 'undefined' &amp;&amp; 'NaN'</span></span><br><span class="line"><span class="comment">// 一真返二</span></span><br><span class="line"><span class="comment">// 'NaN'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">typeof</span>(a) &amp;&amp; -<span class="literal">true</span> + (+<span class="literal">undefined</span>) + <span class="string">''</span>)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'是否能输出'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 条件内返回的是字符串的'NaN'，为 true，可以执行</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>例 4:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">!!<span class="string">' '</span> + !!<span class="string">''</span> - !!<span class="literal">false</span> || <span class="built_in">console</span>.log(<span class="string">'能吗？'</span>);</span><br><span class="line"><span class="comment">// 左边：true + false - false -&gt; 1 + 0 - 0 = 1</span></span><br><span class="line"><span class="comment">// 1 为真，会直接返回 1，|| 后面的语句不会执行</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="进制"><a href="#进制" class="headerlink" title="进制"></a>进制</h2><h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ol>
+<li>进制也就是进位计数制，是人为定义的带进位的计数方法。对于任何一种进制—— <strong>X 进制，就表示每一位置上的数运算时都是逢 X 进一位。</strong> </li>
+<li>十进制是逢十进一，十六进制是逢十六进一，二进制就是逢二进一，以此类推，X 进制就是逢 X 进位。</li>
+<li>比如十六进制：1, 2, 3, 4, 5, 6, 7, 8, 9, a, b, c, d, e, f。如果 f + 1，那么按照逢十六进一的规则，个位数变为 0，然后向前进一位，十位数变为 1。那么：f + 1 = 10，这里的 10（一零），就代表十进制里的 16。</li>
+<li>比如二进制：0, 1。如果 1 + 1，按照逢二进一的规则，个位数变为 0 ，十位数变为 1，1 + 1 = 10，这里的 10（一零），代表十进制里的 2。</li>
+</ol>
+<h4 id="进制转换"><a href="#进制转换" class="headerlink" title="进制转换"></a>进制转换</h4><ol>
+<li>十进制 -&gt; X 进制：除。数除以 X，得商，接着用商除 X，直到商为 0，余数倒过来写。</li>
+<li>X 进制 -&gt; 十进制：乘。从数的个位开始，依次乘以 X 的 0 次方，1 次方……，最后加起来。</li>
+<li><p>十进制 -&gt; 十六进制</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">10 进制数：33</span><br><span class="line"></span><br><span class="line">33 / 16 = 2 ...... 1</span><br><span class="line"> 2 / 16 = 0 ...... 2</span><br><span class="line"></span><br><span class="line">转换成 16 进制数：21</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>十六进制 -&gt; 十进制</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">16 进制数：21</span><br><span class="line"></span><br><span class="line">1 * 16⁰ + 2 * 16¹ = 33</span><br><span class="line"></span><br><span class="line">转换成 10 进制数：33</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>十进制 -&gt; 八进制</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">10 进制数：19</span><br><span class="line"></span><br><span class="line">19 / 8 = 2 ...... 3</span><br><span class="line"> 2 / 8 = 0 ...... 2</span><br><span class="line"></span><br><span class="line">转换成 8 进制数：23</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>八进制 -&gt; 十进制</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">8 进制数：23</span><br><span class="line"></span><br><span class="line">3 * 8⁰ + 2 * 8¹ = 19</span><br><span class="line"></span><br><span class="line">转换成 10 进制数：19</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>十进制 -&gt; 二进制</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">10 进制数：46</span><br><span class="line"></span><br><span class="line">46 / 2 = 23 ...... 0</span><br><span class="line">23 / 2 = 11 ...... 1</span><br><span class="line">11 / 2 = 5  ...... 1</span><br><span class="line"> 5 / 2 = 2  ...... 1</span><br><span class="line"> 2 / 2 = 1  ...... 0</span><br><span class="line"> 1 / 2 = 0  ...... 1</span><br><span class="line"></span><br><span class="line">转换成 2 进制数：101110</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>二进制 -&gt; 十进制</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2 进制数：101110</span><br><span class="line"></span><br><span class="line">0 * 2⁰ + 1 * 2¹ + 1 * 2² + 1 * 2³ + 0 * 2⁴ + 1 * 2⁵ = 46</span><br><span class="line"></span><br><span class="line">转换成 10 进制数：46</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+        
+      </div>
+      
+      
+      
+    </div>
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/header.jpg" alt="cnlmx">
+            
+              <p class="site-author-name" itemprop="name">cnlmx</p>
+              <p class="site-description motion-element" itemprop="description">I’m going to change the world.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ccnyms" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:ccnyms@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#typeof-操作符"><span class="nav-number">1.</span> <span class="nav-text">typeof 操作符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型转换"><span class="nav-number">2.</span> <span class="nav-text">类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#显示"><span class="nav-number">2.1.</span> <span class="nav-text">显示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隐式"><span class="nav-number">2.2.</span> <span class="nav-text">隐式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用转换汇总"><span class="nav-number">2.3.</span> <span class="nav-text">常用转换汇总</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进制"><span class="nav-number">3.</span> <span class="nav-text">进制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特点"><span class="nav-number">3.1.</span> <span class="nav-text">特点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#进制转换"><span class="nav-number">3.1.1.</span> <span class="nav-text">进制转换</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+                    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-address-card"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">cnlmx</span>
+
+  
+</div>
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+-->
+<div class="powered-by">
+<i class="fa fa-clipboard"></i><span id="busuanzi_container_site_uv">
+  本站访问 <span id="busuanzi_value_site_uv"></span> 次
+</span>
+</div>
+
+
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">共 6.4k 字</span>
+</div>
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<span id="timeDate">载入天数...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("02/26/2019");//在此处修改你的建站时间
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);  
+        document.getElementById("timeDate").innerHTML = "已运行 " + dnum + " 天 "; 
+    } 
+setInterval("createtime()",250);
+</script>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'wWGsfkcAwFWjUDeM5XmTDN3O-gzGzoHsz',
+        appKey: 'njwjBDQMnOFjIXTqg2uUIMCc',
+        placeholder: '随便说点什么',
+        avatar:'mp',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("wWGsfkcAwFWjUDeM5XmTDN3O-gzGzoHsz", "njwjBDQMnOFjIXTqg2uUIMCc");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+
+<div class="bg_content">
+    <canvas id="canvas"></canvas>
+</div>
+<script type="text/javascript" src="/js/src/dynamic_bg.js"></script>
+
+</body>
+</html>

@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="JavaScript,">
 
 
 
@@ -88,17 +88,18 @@
 
 
 
-<meta name="description" content="Welcome to Hexo!">
+<meta name="description" content="运算符算术运算符 +：数学运算；字符串连接：任何数据类型加字符串都等于字符串。  1234567// 从左至右运算// 1+1 数字运算，得 2// 2+&apos;a&apos; 字符串连接，得 2a// &apos;2a&apos;+1 字符串连接，得 2a1// 同理可得 2a11var result = 1 + 1 + &apos;a&apos; + 1 + 1;console.log(result); // 2a11    -、*、/、%、=、(">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://ccnyms.github.io/2019/02/26/hello-world/index.html">
+<meta property="og:title" content="（三）运算符、语句、编程形式">
+<meta property="og:url" content="https://ccnyms.github.io/2019/07/07/三、运算符、语句、编程形式/index.html">
 <meta property="og:site_name" content="Seven">
-<meta property="og:description" content="Welcome to Hexo!">
+<meta property="og:description" content="运算符算术运算符 +：数学运算；字符串连接：任何数据类型加字符串都等于字符串。  1234567// 从左至右运算// 1+1 数字运算，得 2// 2+&apos;a&apos; 字符串连接，得 2a// &apos;2a&apos;+1 字符串连接，得 2a1// 同理可得 2a11var result = 1 + 1 + &apos;a&apos; + 1 + 1;console.log(result); // 2a11    -、*、/、%、=、(">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-27T12:45:32.319Z">
+<meta property="og:updated_time" content="2020-05-09T06:36:38.610Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo!">
+<meta name="twitter:title" content="（三）运算符、语句、编程形式">
+<meta name="twitter:description" content="运算符算术运算符 +：数学运算；字符串连接：任何数据类型加字符串都等于字符串。  1234567// 从左至右运算// 1+1 数字运算，得 2// 2+&apos;a&apos; 字符串连接，得 2a// &apos;2a&apos;+1 字符串连接，得 2a1// 同理可得 2a11var result = 1 + 1 + &apos;a&apos; + 1 + 1;console.log(result); // 2a11    -、*、/、%、=、(">
 
 
 
@@ -128,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="https://ccnyms.github.io/2019/02/26/hello-world/">
+  <link rel="canonical" href="https://ccnyms.github.io/2019/07/07/三、运算符、语句、编程形式/">
 
 
 
 
 
-  <title>Hello World | Seven</title>
+  <title>（三）运算符、语句、编程形式 | Seven</title>
   
 
 
@@ -288,7 +289,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">Hello World</h1>
+	<h1 class="post-title" itemprop="name headline">（三）运算符、语句、编程形式</h1>
 
 
 
@@ -300,15 +301,117 @@
       <div class="post-body">
         
         
-          <p>Welcome to Hexo!<br><a id="more"></a><br>This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+          <h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><ol>
+<li><p><code>+</code>：数学运算；字符串连接：<strong>任何数据类型加字符串都等于字符串</strong>。</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 从左至右运算</span></span><br><span class="line"><span class="comment">// 1+1 数字运算，得 2</span></span><br><span class="line"><span class="comment">// 2+'a' 字符串连接，得 2a</span></span><br><span class="line"><span class="comment">// '2a'+1 字符串连接，得 2a1</span></span><br><span class="line"><span class="comment">// 同理可得 2a11</span></span><br><span class="line"><span class="keyword">var</span> result = <span class="number">1</span> + <span class="number">1</span> + <span class="string">'a'</span> + <span class="number">1</span> + <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(result); <span class="comment">// 2a11</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="2">
+<li><code>-</code>、<code>*</code>、<code>/</code>、<code>%</code>、<code>=</code>、<code>()</code></li>
+<li><code>+=</code>、<code>-=</code>、<code>/=</code>、<code>*=</code>、<code>%=</code></li>
+<li><p><code>++</code>。<strong>先加加（减减）还是后加加（减减）是针对当前语句来说的</strong>。<code>++</code>放后面，意为先执行该条语句，然后再加加。<code>++</code>放前面，意为先加加，然后再执行该条语句。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a++); <span class="comment">// 10</span></span><br><span class="line"><span class="comment">// 意为先执行 console.log(a)，执行完后 a++</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//此时再看 a 的值，就是加完之后的了</span></span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 11</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> b = ++a - <span class="number">1</span> + a++; </span><br><span class="line"></span><br><span class="line"><span class="comment">// ++a 先加后执行，10 + 1 = 11，a 的值变为 11</span></span><br><span class="line"><span class="comment">// a++ 先执行后加，a 现在的值为 11 ，故 a++ = 11</span></span><br><span class="line"><span class="comment">// b = 11 - 1 + 11 = 21</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(b);<span class="comment">// 21</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// a 两次自增，故值为 12</span></span><br><span class="line"><span class="built_in">console</span>.log(a);<span class="comment">// 12</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>--</code>。注意：<strong>有前自增（自减）操作符时，要先加加（减减），再执行该条语句</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> b = a-- + --a; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 先算 --a，先减后执行，a = 1，自减后 a = 0</span></span><br><span class="line"><span class="comment">// 再算 a--，先执行后减，a = 0，故 a-- = 0</span></span><br><span class="line"><span class="comment">// b = 0 + 0 = 0</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(b);<span class="comment">// 0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// a 两次自减，故值为 -1</span></span><br><span class="line"><span class="built_in">console</span>.log(a);<span class="comment">// -1</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h3><ol>
+<li><code>&gt;</code>、<code>&lt;</code>、<code>==</code>、<code>&gt;=</code>、<code>&lt;=</code>、<code>!=</code></li>
+<li>比较结果为 boolean 值：true / false。</li>
+<li>注意，<code>==</code>是等于，而<code>=</code>是赋值。</li>
+<li><strong>字符串的比较规则为 asc 码</strong>。如“A”的 asc 码为 65 ，“a”的 asc 码为 97。</li>
+<li><p>字符串比较是按照顺序来的，如果运算符左边的字符串中顺位第一的字符小于右边字符串的第一位字符，那么左边直接就是小于右边；如果第一位相等，那就再看第二位。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 读作字符串一零 &gt; 字符串二</span></span><br><span class="line"><span class="keyword">var</span> result = <span class="string">'10'</span> &gt; <span class="string">'2'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(result); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 字符串‘1’的 asc 码为 49</span></span><br><span class="line"><span class="comment">// 字符串‘2’的 asc 码为 50</span></span><br><span class="line"><span class="comment">// 字符串‘3’的 asc 码为 51</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result = <span class="string">'3'</span> &gt; <span class="string">'20'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(result); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><ol>
+<li><code>&amp;&amp;</code>、<code>||</code>、<code>!</code></li>
+<li>运算结果为真实的值</li>
+<li>下面六个值转化为布尔值都是 false：<code>undefined、null、NaN、&quot;&quot;、0、flase</code>。其中 <strong>NaN(Not a Number)：非数，是数字类型的一类值，意为不可表示的值。</strong></li>
+<li><p>注意：<code>&amp;&amp;</code>在运行时，<strong>在碰到表达式的布尔值为假时，返回该表达式的值</strong>。</p>
+<ul>
+<li>多个表达式时，先看第一个表达式转换成布尔值的结果，若结果为真，接着看第二个表达式的布尔值，若第二个也为真，接着看第三个，依此类推，直到表达式的布尔值为 false，直接返回该表达式的值。即<strong>看到假，返回假</strong>。如果全为真，则返回最后一个表达式的值。</li>
+<li><p>只有两个表达式时，若第一个表达式的布尔值为 true，返回第二个表达式的值。若第一个表达式为 false，直接返回第一个表达式原本的值。即<strong>一真返二</strong>。一假返一。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span> &amp;&amp; <span class="number">2</span>;</span><br><span class="line"> </span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 1 转化为 true，判断为真</span></span><br><span class="line"><span class="comment">// 第一个为 true，直接返回第二个表达式的值</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<ol start="5">
+<li><p>基于<code>&amp;&amp;</code>运算符的原理， 使它具备中断的作用，在实际开发中作为<strong>短路语句</strong>使用，它是 if 语句的简写形式，可以用来替代 if 语句：“如果…是真/假，那么…”</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span> &amp;&amp; <span class="built_in">document</span>.write(<span class="string">'a'</span>); <span class="comment">// 不会输出 a</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果前面的数据正确，那么执行后面的语句</span></span><br><span class="line"></span><br><span class="line"><span class="number">2</span> &gt; <span class="number">1</span> &amp;&amp; <span class="built_in">console</span>.log(<span class="string">'团子很可爱'</span>); <span class="comment">// 团子很可爱</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>||</code>与<code>&amp;&amp;</code>类似，只不过是<strong>碰到表达式的布尔值为真时，返回该表达式的值</strong>。</p>
+<ul>
+<li>多个表达式时，若第一个为假，则一直往下看，直到找到为真的表达式，然后返回该值。即<strong>看到真，返回真</strong>。如果全为假，则返回最后一个表达式的值。</li>
+<li>两个表达式时，若第一个为假，直接返回第二个表达式的值。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">1</span> || <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>!</code>将表达式转换成布尔值再取反，然后输出布尔值。 </p>
+</li>
+</ol>
+<h3 id="其他：逗号运算符"><a href="#其他：逗号运算符" class="headerlink" title="其他：逗号运算符"></a>其他：逗号运算符</h3><ol>
+<li>形式：(表达式1，表达式2，表达式3………….)</li>
+<li>作用：通常与小括号<code>()</code>一起使用，逗号<code>,</code>用于连接算式</li>
+<li><p>运算规则：对每个操作对象求值（从左至右），返回最后一个操作对象的值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>,</span><br><span class="line">    b = <span class="number">20</span>,</span><br><span class="line">    result = (a++, a + b);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log (result); <span class="comment">// 31 </span></span><br><span class="line"><span class="built_in">console</span>.log (a); <span class="comment">// 11</span></span><br><span class="line"><span class="built_in">console</span>.log (b); <span class="comment">// 20</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查询<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Operator_Precedence" target="_blank" rel="noopener">运算符优先级</a>。</p>
+</li>
+</ol>
+<h2 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h2><h3 id="if-条件语句"><a href="#if-条件语句" class="headerlink" title="if 条件语句"></a>if 条件语句</h3><ol>
+<li><code>if (条件判断) {执行语句}</code></li>
+<li><code>if () {} else if () {}</code></li>
+<li><code>if () {}</code>&lt;—&gt; <code>&amp;&amp;</code>转换</li>
+</ol>
+<h3 id="for-循环语句"><a href="#for-循环语句" class="headerlink" title="for 循环语句"></a>for 循环语句</h3><ol>
+<li><p>for 循环执行顺序：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//	   (1)	   (2)    (4)</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'a'</span>);            <span class="comment">// (3)</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> i = <span class="number">0</span>;                       <span class="comment">// (1)</span></span><br><span class="line"><span class="keyword">for</span> (; i &lt; <span class="number">10</span>; ) &#123;               <span class="comment">// (2)</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'a'</span>);            <span class="comment">// (3)</span></span><br><span class="line">    i++;                         <span class="comment">// (4)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>先执行一遍 (1) ：<code>var i = 0</code></li>
+<li>判断 (2) -&gt; 执行语句 (3)：<code>if(i &lt; 10){console.log(&#39;a&#39;);}</code></li>
+<li>执行 (4)：<code>i++ -&gt; i = 1</code></li>
+<li>判断 (2) -&gt; 执行语句 (3)</li>
+<li>执行 (4)：<code>i++ -&gt; i = 2</code></li>
+<li>判断 (2) -&gt; 执行语句 (3)</li>
+<li>执行 (4)：<code>i++ -&gt; i = 3</code></li>
+<li>注意：<strong>无论 for 语句中写的是什么，都会按照这个执行顺序执行。</strong></li>
+</ul>
+</li>
+<li><p>while</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (i &lt; <span class="number">10</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">    i++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>do while（很少用）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'a'</span>);</span><br><span class="line">    i++;</span><br><span class="line">&#125; <span class="keyword">while</span> (i &lt; <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="switch-语句"><a href="#switch-语句" class="headerlink" title="switch 语句"></a>switch 语句</h3><ol>
+<li><p>格式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> (条件) &#123;</span><br><span class="line">    <span class="keyword">case</span> 结果<span class="number">1</span>:                        <span class="comment">// 结果与条件进行判断（比对）</span></span><br><span class="line">        执行语句;                      <span class="comment">// 满足即执行该语句</span></span><br><span class="line">        <span class="keyword">break</span>;                       <span class="comment">// 执行后结束</span></span><br><span class="line">    <span class="keyword">case</span> 结果<span class="number">2</span>: </span><br><span class="line">        执行语句;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> 结果<span class="number">3</span>: </span><br><span class="line">        执行语句;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        执行语句;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>switch 的条件和 case 的结果比对，如果是一样的，就执行</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> date = <span class="built_in">window</span>.prompt(<span class="string">'input'</span>);</span><br><span class="line"><span class="keyword">switch</span> (date) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'monday'</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'tuesday'</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'wednesday'</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'thursday'</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'friday'</span>:</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'working'</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'周六'</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'周日'</span>:</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'relaxing'</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>当 case 的结果是表达式时，比较的就是表达式的返回值</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> age = <span class="number">28</span>,</span><br><span class="line">    greeting;</span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span> (<span class="literal">true</span>) &#123;              		    <span class="comment">// 条件</span></span><br><span class="line">    <span class="keyword">case</span> age &lt; <span class="number">18</span>:              	    <span class="comment">// 结果1</span></span><br><span class="line">        greeting = <span class="string">'同学'</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> age &gt;= <span class="number">18</span> &amp;&amp; age &lt; <span class="number">40</span>: 		    <span class="comment">// 结果2</span></span><br><span class="line">        greeting = <span class="string">'先生'</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> age &gt;= <span class="number">40</span>:</span><br><span class="line">        greeting = <span class="string">'前辈'</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">        greeting = <span class="string">'你好'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(greeting); <span class="comment">// '先生'</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><ol>
+<li><p>break：终止循环。注意，<strong>必须写在循环里面，写在外面会报错</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++)&#123;</span><br><span class="line">    sum += i;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">    <span class="keyword">if</span> (sum &gt; <span class="number">100</span>) &#123;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">        <span class="comment">// 这个 break 能执行是因为最外有一层 for 循环，如果只有 if 语句，是肯定报错的</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>continue：终止本次循环，直接进行下一次循环。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (i % <span class="number">7</span> === <span class="number">0</span> || i % <span class="number">10</span> === <span class="number">7</span>) &#123;</span><br><span class="line">        <span class="keyword">continue</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="编程形式"><a href="#编程形式" class="headerlink" title="编程形式"></a>编程形式</h2><ol>
+<li>面向过程：C</li>
+<li>面向对象：Java、C++</li>
+<li>既面向对象也面向过程：JavaScript </li>
+</ol>
 
         
       </div>
@@ -459,7 +562,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#运算符"><span class="nav-number">1.</span> <span class="nav-text">运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算术运算符"><span class="nav-number">1.1.</span> <span class="nav-text">算术运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#比较运算符"><span class="nav-number">1.2.</span> <span class="nav-text">比较运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑运算符"><span class="nav-number">1.3.</span> <span class="nav-text">逻辑运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他：逗号运算符"><span class="nav-number">1.4.</span> <span class="nav-text">其他：逗号运算符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语句"><span class="nav-number">2.</span> <span class="nav-text">语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#if-条件语句"><span class="nav-number">2.1.</span> <span class="nav-text">if 条件语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for-循环语句"><span class="nav-number">2.2.</span> <span class="nav-text">for 循环语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#switch-语句"><span class="nav-number">2.3.</span> <span class="nav-text">switch 语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#补充"><span class="nav-number">2.4.</span> <span class="nav-text">补充</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编程形式"><span class="nav-number">3.</span> <span class="nav-text">编程形式</span></a></li></ol></div>
             
 
           </div>
