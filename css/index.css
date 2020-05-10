@@ -84,11 +84,11 @@ hr:hover:before {
 }
 hr:before {
   position: absolute;
-  top: -10px;
+  top: -9px;
   left: 5%;
   z-index: 1;
   color: #49b1f5;
-  content: '\f0c4';
+  content: '\f03c';
   font-style: normal;
   font-variant: normal;
   font-size: 20px;
@@ -3732,6 +3732,7 @@ img {
   text-align: center;
   line-height: 36px;
   cursor: pointer;
+  border-radius: 5px;
 }
 .post-reward .reward-button:hover .reward-main {
   display: block;
@@ -4972,6 +4973,8 @@ figure.gallery-group .gallery-group-name:after {
   padding: 1rem;
   width: 30rem;
   background: #f6f8fa;
+  border-radius: 10px;
+  background: #f0f8ff;
 }
 .search-dialog hr {
   margin: 1rem auto;
