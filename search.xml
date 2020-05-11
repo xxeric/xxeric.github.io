@@ -295,7 +295,7 @@
   </entry>
   <entry>
     <title>JavaScript笔记(二)数据类型</title>
-    <url>/post/undefined/</url>
+    <url>/post/5714/</url>
     <content><![CDATA[<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="原始值"><a href="#原始值" class="headerlink" title="原始值"></a>原始值</h3><p>不可改变， 存储在 stack（栈）：先进的后出来。</p>
 <p>值类型：</p>
 <ol>
