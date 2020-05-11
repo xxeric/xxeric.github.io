@@ -541,98 +541,6 @@
       </tags>
   </entry>
   <entry>
-    <title>（一）JavaScript 基础知识</title>
-    <url>/2019/07/03/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
-    <content><![CDATA[<h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><ol>
-<li>Mosaic 是互联网历史上第一个获普遍使用和能够显示图片的网页浏览器。于 1993 年问世。</li>
-<li>浏览器组成：<ul>
-<li>shell （外形）部分</li>
-<li>内核部分：渲染引擎（语法规则和渲染），js 引擎，其他模块</li>
-</ul>
-</li>
-<li>主流浏览器及其内核：<ul>
-<li>IE             -&gt;       Trident</li>
-<li>Chrome      -&gt;      Blink</li>
-<li>Opera       -&gt;      Blink</li>
-<li>Safari      -&gt;      Webkit</li>
-<li>Firefox     -&gt;      Gecko</li>
-</ul>
-</li>
-<li>2001 年的 IE6 浏览器，首次实现对 JavaScript 引擎的优化和分离。</li>
-<li>2008 年 Google 发布最新浏览器 Chrome，它是采用优化后的 JavaScript 引擎，引擎代号 V8，因能把 JavaScript 代码直接转化为机械码来执行，进而以速度快而闻名。</li>
-</ol>
-<h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><ol>
-<li><p>程序设计语言分为解释型和编译型两大类。</p>
-<ul>
-<li>C 或 C++ 等语言需要一个编译器（compiler）。编译器是一种程序，能够把用 Java 等高级语言编写出来的源代码翻译为直接在计算机上执行的文件。</li>
-<li>解释型程序设计语言不需要编译器，它们只需要解释器。对于 JavaScript，浏览器负责完成有关的解释和执行工作。</li>
-</ul>
-</li>
-<li><p>特点：</p>
-<ul>
-<li>解释型语言 — （不需要编译成文件）跨平台。</li>
-<li><strong>单线程</strong> — 同一时间只能干一件事。</li>
-<li>弱类型语言 — 存放的数据类型可变。</li>
-</ul>
-</li>
-<li><p>我们把 JavaScript 中的<strong>核心部分称为 ECMAScript</strong>，加上 BOM（浏览器对象模型）与 DOM（文档对象类型），三者共同组成了 JavaScript。</p>
-<ul>
-<li>ECMA-262 标准规定了这门语言的如下组成部分：语法、类型、语句、关键字、保留字、操作符、对象。</li>
-<li>浏览器对象模型（BOM，Browser Object Model），提供与浏览器交互的方法和接口。</li>
-<li>文档对象内容（DOM，Document Object Model），提供访问和操作网页内容的方法和接口。</li>
-</ul>
-</li>
-<li><p><strong>异步（asynchronous）：同时执行</strong>，类似于有很多条路一起走，可以同时出发。</p>
-</li>
-<li><p><strong>同步（synchronous）：分次执行</strong>，类似于只有一条路走，这个走完了下个才能走。</p>
-</li>
-<li><p>JavaScript 执行队列 -&gt; 执行过程：轮转时间片。</p>
-<ul>
-<li><strong>单线程模拟多线程。</strong></li>
-<li>类似吃饭，吃一口米饭，吃一口茄子，再吃一口排骨，再吃一口米饭，再吃一口米饭，再吃一口茄子，顺序完全随机，在足够快的时间内，肉眼可见菜和饭在同时减少。</li>
-<li>比如 js 引擎要执行任务 1 和任务 2，js 引擎会把任务 1 和任务 2 切成无数个片段，然后把这些片段<strong>随机排成一个队列送入引擎执行</strong>，直到被执行完。</li>
-</ul>
-</li>
-<li><p><strong>JavaScript 可正常计算的范围：小数点前 16 位，后 16 位。</strong></p>
-</li>
-<li><p>JS 计算精度不准，是纯粹的 bug，所以在 JS 中应尽量避免小数操作。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">0.14</span> * <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 14.000000000000002</span></span><br></pre></td></tr></table></figure></li>
-<li><p>如果需要计算，那么采用<code>Math.floor()</code>（向下取整）或<code>Math.ceil()</code>（向上取整）方法。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 向上取整，无论小数是多少，都向前进 1</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">Math</span>.ceil(<span class="number">123.234</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 124</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 向下取整，无论小数是多少，都不要了</span></span><br><span class="line"><span class="keyword">var</span> num1 = <span class="built_in">Math</span>.floor(<span class="number">123.999</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num1); <span class="comment">// 123</span></span><br></pre></td></tr></table></figure></li>
-<li><p><code>Math.random()</code>方法可以随机产生一个 0 ～ 1 之间的开区间的数。</p>
-  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="built_in">Math</span>.random();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 0.4322440432127299</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 0.5216225452503296</span></span><br></pre></td></tr></table></figure></li>
-<li><p><code>toFixed()</code>方法可以把 Number 四舍五入为指定小数位数的数字。</p>
-  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">123.45678</span>;</span><br><span class="line">   </span><br><span class="line">demo = num.toFixed(<span class="number">2</span>);</span><br><span class="line">   </span><br><span class="line"><span class="built_in">console</span>.log(demo); <span class="comment">// 123.46</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>引入 JavaScript：</p>
-<ul>
-<li>页面内嵌<code>&lt;script&gt;&lt;/script&gt;</code>标签</li>
-<li>外部引入<code>&lt;script src=location&gt;&lt;/script&gt;</code></li>
-</ul>
-</li>
-<li><p>页面中，可以存在多个<code>&lt;script&gt;</code>标签，执行顺序从上到下。只要不存在 defer 和 async 属性，浏览器都会按照 它们在页面中出现的先后顺序依次进行解析。</p>
-</li>
-<li><p>注意，如果有外部 js 文件，那么这个 script 标签里如果再写 js 代码，也是不会执行的，会被直接忽略。基于这个特性，在开发时偶尔会用来存储一些代码。</p>
-</li>
-<li><p>在下面再写一个 script 标签，然后里面写代码是可以的。</p>
-</li>
-<li><p>传统的做法是所有<code>&lt;script&gt;</code>标签都放在<code>&lt;head&gt;</code>中，这意味着必须等到全部 js 代码都被下载、解析和执行完成以后，才能开始呈现页面的内容（浏览器在遇到<code>&lt;body&gt;</code>标签时才开始呈现内容）。</p>
-</li>
-<li><p>为了避免这个问题，现代 Web 应用程序一般都把全部 js 引用放在<code>&lt;body&gt;</code>中页面内容的后面。这样，在解析包含的 js 代码之前，页面的内容将完全呈现在浏览器中。而用户也会因为浏览器窗口显示空白页面的时间缩短而感到打开页面的速度加快了。</p>
-</li>
-<li><p>为符合 Web 标准中结构、样式、行为相分离的原则，通常会采用外部引入。</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-        <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>（三）运算符、语句、编程形式</title>
     <url>/2019/07/07/%E8%BF%90%E7%AE%97%E7%AC%A6%E3%80%81%E8%AF%AD%E5%8F%A5%E3%80%81%E7%BC%96%E7%A8%8B%E5%BD%A2%E5%BC%8F/</url>
     <content><![CDATA[<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><ol>
@@ -773,94 +681,6 @@
       </tags>
   </entry>
   <entry>
-    <title>（六）预编译</title>
-    <url>/2019/07/23/%E9%A2%84%E7%BC%96%E8%AF%91/</url>
-    <content><![CDATA[<h2 id="预编译"><a href="#预编译" class="headerlink" title="预编译"></a>预编译</h2><h3 id="JS-运行执行步骤"><a href="#JS-运行执行步骤" class="headerlink" title="JS 运行执行步骤"></a>JS 运行执行步骤</h3><ol>
-<li>语法分析（通篇扫描一遍，看看有没有啥错误）</li>
-<li>预编译</li>
-<li>解释执行</li>
-</ol>
-<h3 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h3><ol>
-<li><p>暗示全局变量（imply global）：任何变量，如果未声明就赋值，那么此变量就为全局对象（window）所有。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// a 未经声明但直接赋值</span></span><br><span class="line">a = <span class="number">123</span>;</span><br><span class="line"><span class="comment">// 即：</span></span><br><span class="line"><span class="built_in">window</span> = &#123;</span><br><span class="line">    a: <span class="number">123</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">window</span>.a = <span class="number">123</span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>所有声明了的全局变量，也为 window 所有。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// b 为声明了的全局变量</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="number">234</span>;</span><br><span class="line"><span class="comment">// 即：</span></span><br><span class="line"><span class="built_in">window</span> = &#123;</span><br><span class="line">    b: <span class="number">234</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">window</span>.b = <span class="number">234</span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>上面两种都是全局对象 window 的属性（属性名+属性值），window 相当于是全局的域。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> c = <span class="number">456</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = b = <span class="number">123</span>;</span><br><span class="line">&#125;</span><br><span class="line">test()</span><br><span class="line"><span class="comment">// 123 赋值给 b</span></span><br><span class="line"><span class="comment">// 声明 a</span></span><br><span class="line"><span class="comment">// b 赋值给 a</span></span><br><span class="line"><span class="comment">// 导致的结果就是：b 未经声明</span></span><br><span class="line"><span class="comment">// 此时：b 归 window 所有</span></span><br><span class="line"><span class="comment">// a 为局部变量</span></span><br><span class="line"><span class="comment">// c 为全局变量，也归 window 所有</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h3 id="预编译过程"><a href="#预编译过程" class="headerlink" title="预编译过程"></a>预编译过程</h3><h4 id="函数内"><a href="#函数内" class="headerlink" title="函数内"></a>函数内</h4><ol>
-<li><p>函数内的预编译发生在函数执行的前一刻。</p>
-</li>
-<li><p>步骤：找形参和变量声明，值为 undefined -&gt; 实参值传给形参 -&gt; 找函数声明。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a</span>) </span>&#123; <span class="comment">// a 形式参数</span></span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">123</span>; <span class="comment">// 变量声明</span></span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;&#125; <span class="comment">// 函数声明</span></span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;&#125; <span class="comment">// 变量声明、函数表达式</span></span><br><span class="line">    <span class="built_in">console</span>.log(b);</span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">d</span>(<span class="params"></span>) </span>&#123;&#125; <span class="comment">// 函数声明</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn(<span class="number">1</span>); <span class="comment">// 1 实际参数</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>创建 AO 对象（Activation Object）：执行期上下文，可理解为作用域。</p>
-</li>
-<li><p>找形式参数和变量声明，将形式参数名和变量名作为 AO 属性名，值为  undefined。（变量声明提升）</p>
-</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">AO = &#123;</span><br><span class="line">    a: <span class="literal">undefined</span>,</span><br><span class="line">    b: <span class="literal">undefined</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>将实际参数和形式参数统一。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">AO = &#123;</span><br><span class="line">    a: <span class="number">1</span>, <span class="comment">//undefined</span></span><br><span class="line">    b: <span class="literal">undefined</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>在函数体里找函数声明，将函数名作为 AO 属性名，值为自身的函数体（函数声明提升）</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">AO = &#123;</span><br><span class="line">    a: <span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;&#125;, <span class="comment">// 1</span></span><br><span class="line">    b: <span class="literal">undefined</span>,</span><br><span class="line">    d: <span class="function"><span class="keyword">function</span> <span class="title">d</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>执行。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">console</span>.log(a); </span><br><span class="line">    <span class="comment">//执行，访问 a，输出此时 AO 对象中 a 的值 -&gt; function a() &#123;&#125;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">123</span>; </span><br><span class="line">    <span class="comment">//var = a 变量声明已提升，忽略。</span></span><br><span class="line">    <span class="comment">//执行赋值操作，将 123 赋值给 a</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">console</span>.log(a); </span><br><span class="line">    <span class="comment">// 输出此时 AO 对象中 a 的值 -&gt; 123</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;&#125; </span><br><span class="line">    <span class="comment">// 已提升（提前执行），忽略</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">console</span>.log(a); </span><br><span class="line">    <span class="comment">// 输出此时 AO 对象中 a 的值 -&gt; 123</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;&#125; </span><br><span class="line">    <span class="comment">//var = b 已提升，忽略。</span></span><br><span class="line">    <span class="comment">//执行赋值操作，将 function ()&#123;&#125; 赋值给 b</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">console</span>.log(b);</span><br><span class="line">    <span class="comment">//输出此时 AO 对象中 b 的值 -&gt; function ()&#123;&#125;</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">d</span>(<span class="params"></span>) </span>&#123;&#125; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// AO = &#123;</span></span><br><span class="line"><span class="comment">//     a : 123, // function a() &#123;&#125;</span></span><br><span class="line"><span class="comment">//     b : function ()&#123;&#125;, // undefined</span></span><br><span class="line"><span class="comment">//     d : function d() &#123;&#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h4 id="全局内"><a href="#全局内" class="headerlink" title="全局内"></a>全局内</h4><ol>
-<li>全局内的预编译发生在全局执行的前一刻。</li>
-<li>步骤：找变量声明，值为 undefined -&gt; 找函数声明。<ul>
-<li>创建 GO 对象（Global Object）：全局执行期上下文，可理解为作用域。（GO 就是 window ）</li>
-<li>找变量声明，将变量名作为 GO 属性名，值为 undefined。（变量声明提升）。</li>
-<li>找函数声明，将函数名作为 GO 属性名，值为自身的函数体（函数声明提升）。</li>
-<li>执行。</li>
-</ul>
-</li>
-<li>GO 发生在全局执行前，AO 发生在函数执行前，如果 AO 内找不到，会直接在 GO 中找。</li>
-</ol>
-<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><ol>
-<li>通过函数声明定义的函数，会提升到脚本块的顶部。</li>
-<li>通过函数声明定义的函数，会成为全局对象的属性。</li>
-<li>通过函数表达式定义的函数，它既不会提升，也不会污染全局对象。</li>
-</ol>
-<h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><ol>
-<li><p>例一：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// GO = &#123;</span></span><br><span class="line"><span class="comment">//     a: 10, // undefined</span></span><br><span class="line"><span class="comment">//     c: 234,</span></span><br><span class="line"><span class="comment">//     test: function test()&#123;...&#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(b); <span class="comment">// undefined</span></span><br><span class="line">    <span class="keyword">if</span> (a) &#123;</span><br><span class="line">        <span class="keyword">var</span> b = <span class="number">100</span>; <span class="comment">// 预编译环节，不管是否执行，只先拿出所有该拿的：var = b;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(b); <span class="comment">// undefined</span></span><br><span class="line">    c = <span class="number">234</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(c); <span class="comment">// 234</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"></span><br><span class="line"><span class="comment">// AO = &#123;</span></span><br><span class="line"><span class="comment">//     b: undefined</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">test();</span><br><span class="line">a = <span class="number">10</span>;</span><br><span class="line"><span class="built_in">console</span>.log(c); <span class="comment">// 234</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>例二：</p>
- <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// GO = &#123;</span></span><br><span class="line"><span class="comment">//     a: 100, // undefined</span></span><br><span class="line"><span class="comment">//     demo: function demo(e)&#123;&#125;,</span></span><br><span class="line"><span class="comment">//     f: 123</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">a = <span class="number">100</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">demo</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">e</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">    <span class="built_in">arguments</span>[<span class="number">0</span>] = <span class="number">2</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(e); <span class="comment">// 2</span></span><br><span class="line">    <span class="keyword">if</span> (a) &#123;</span><br><span class="line">        <span class="keyword">var</span> b = <span class="number">123</span>;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">c</span>(<span class="params"></span>) </span>&#123;&#125; <span class="comment">// if 语句中不能声明 function</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> c;</span><br><span class="line">    a = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">var</span> a;</span><br><span class="line">    <span class="built_in">console</span>.log(b); <span class="comment">// undefined</span></span><br><span class="line">    f = <span class="number">123</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(c); <span class="comment">// undefined</span></span><br><span class="line">    <span class="built_in">console</span>.log(a); <span class="comment">// 10</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"></span><br><span class="line"><span class="comment">// AO = &#123;</span></span><br><span class="line"><span class="comment">//     e: 2, // function e()&#123;&#125; // 1 // undefined</span></span><br><span class="line"><span class="comment">//     b: undefined,</span></span><br><span class="line"><span class="comment">//     c: undefined,</span></span><br><span class="line"><span class="comment">//     a: 10//undefined</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">demo(<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 100</span></span><br><span class="line"><span class="built_in">console</span>.log(f); <span class="comment">// 123</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>例三：</p>
- <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 会进行预编译，所以不会按照视觉上的先后顺序运行</span></span><br><span class="line"><span class="comment">// 两个相同的函数，提升后第一个函数会被第二个函数覆盖掉</span></span><br><span class="line"><span class="comment">// 最终都是第二个函数进行的调用</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// GO = &#123;</span></span><br><span class="line"><span class="comment">//     x: 1, // undefined</span></span><br><span class="line"><span class="comment">//     y: 4, // 0, // undefined</span></span><br><span class="line"><span class="comment">//     z: 4, // 0,</span></span><br><span class="line"><span class="comment">//     add: function add(n)&#123;return n = n + 3&#125; // function add(n)&#123;return n = n + 1&#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>, y = z = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span>  n = n + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">y = add(x); <span class="comment">// 1 + 3 -&gt; y = 4</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> n = n + <span class="number">3</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">z = add(x); <span class="comment">// 1 + 3 -&gt; z = 4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// AO = &#123;</span></span><br><span class="line"><span class="comment">//     n: x // undefined</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(x, y, z); <span class="comment">// 1, 4, 4</span></span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-        <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>（七）闭包</title>
     <url>/2019/07/28/%E9%97%AD%E5%8C%85/</url>
     <content><![CDATA[<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ol>
@@ -962,6 +782,186 @@
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Deng</span>(<span class="params">name, wife</span>)</span>&#123;</span><br><span class="line">    </span><br><span class="line">  <span class="keyword">var</span> prepareWife = <span class="string">'zhang'</span>; <span class="comment">// 构造函数内声明并赋值的变量</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">  <span class="keyword">this</span>.wife = wife;</span><br><span class="line">  <span class="keyword">this</span>.divorce = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.wife = prepareWife;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">this</span>.changePrepareWife = <span class="function"><span class="keyword">function</span> (<span class="params">target</span>) </span>&#123;</span><br><span class="line">    prepareWife = tatget;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">this</span>.sayPrepareWife = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(prepareWife);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> deng = <span class="keyword">new</span> Deng(<span class="string">'deng'</span>, <span class="string">'liu'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(deng.prepareWife); <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line">deng.sayPrepareWife(); <span class="comment">// zhang</span></span><br></pre></td></tr></table></figure>
 <h3 id="模块化开发"><a href="#模块化开发" class="headerlink" title="模块化开发"></a>模块化开发</h3></li>
 <li><p>实现模块化开发，防止污染全局变量。（详见命名空间）</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>（一）JavaScript 基础知识</title>
+    <url>/2019/07/03/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
+    <content><![CDATA[<h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><ol>
+<li>Mosaic 是互联网历史上第一个获普遍使用和能够显示图片的网页浏览器。于 1993 年问世。</li>
+<li>浏览器组成：<ul>
+<li>shell （外形）部分</li>
+<li>内核部分：渲染引擎（语法规则和渲染），js 引擎，其他模块</li>
+</ul>
+</li>
+<li>主流浏览器及其内核：<ul>
+<li>IE             -&gt;       Trident</li>
+<li>Chrome      -&gt;      Blink</li>
+<li>Opera       -&gt;      Blink</li>
+<li>Safari      -&gt;      Webkit</li>
+<li>Firefox     -&gt;      Gecko</li>
+</ul>
+</li>
+<li>2001 年的 IE6 浏览器，首次实现对 JavaScript 引擎的优化和分离。</li>
+<li>2008 年 Google 发布最新浏览器 Chrome，它是采用优化后的 JavaScript 引擎，引擎代号 V8，因能把 JavaScript 代码直接转化为机械码来执行，进而以速度快而闻名。</li>
+</ol>
+<h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><ol>
+<li><p>程序设计语言分为解释型和编译型两大类。</p>
+<ul>
+<li>C 或 C++ 等语言需要一个编译器（compiler）。编译器是一种程序，能够把用 Java 等高级语言编写出来的源代码翻译为直接在计算机上执行的文件。</li>
+<li>解释型程序设计语言不需要编译器，它们只需要解释器。对于 JavaScript，浏览器负责完成有关的解释和执行工作。</li>
+</ul>
+</li>
+<li><p>特点：</p>
+<ul>
+<li>解释型语言 — （不需要编译成文件）跨平台。</li>
+<li><strong>单线程</strong> — 同一时间只能干一件事。</li>
+<li>弱类型语言 — 存放的数据类型可变。</li>
+</ul>
+</li>
+<li><p>我们把 JavaScript 中的<strong>核心部分称为 ECMAScript</strong>，加上 BOM（浏览器对象模型）与 DOM（文档对象类型），三者共同组成了 JavaScript。</p>
+<ul>
+<li>ECMA-262 标准规定了这门语言的如下组成部分：语法、类型、语句、关键字、保留字、操作符、对象。</li>
+<li>浏览器对象模型（BOM，Browser Object Model），提供与浏览器交互的方法和接口。</li>
+<li>文档对象内容（DOM，Document Object Model），提供访问和操作网页内容的方法和接口。</li>
+</ul>
+</li>
+<li><p><strong>异步（asynchronous）：同时执行</strong>，类似于有很多条路一起走，可以同时出发。</p>
+</li>
+<li><p><strong>同步（synchronous）：分次执行</strong>，类似于只有一条路走，这个走完了下个才能走。</p>
+</li>
+<li><p>JavaScript 执行队列 -&gt; 执行过程：轮转时间片。</p>
+<ul>
+<li><strong>单线程模拟多线程。</strong></li>
+<li>类似吃饭，吃一口米饭，吃一口茄子，再吃一口排骨，再吃一口米饭，再吃一口米饭，再吃一口茄子，顺序完全随机，在足够快的时间内，肉眼可见菜和饭在同时减少。</li>
+<li>比如 js 引擎要执行任务 1 和任务 2，js 引擎会把任务 1 和任务 2 切成无数个片段，然后把这些片段<strong>随机排成一个队列送入引擎执行</strong>，直到被执行完。</li>
+</ul>
+</li>
+<li><p><strong>JavaScript 可正常计算的范围：小数点前 16 位，后 16 位。</strong></p>
+</li>
+<li><p>JS 计算精度不准，是纯粹的 bug，所以在 JS 中应尽量避免小数操作。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">0.14</span> * <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 14.000000000000002</span></span><br></pre></td></tr></table></figure></li>
+<li><p>如果需要计算，那么采用<code>Math.floor()</code>（向下取整）或<code>Math.ceil()</code>（向上取整）方法。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 向上取整，无论小数是多少，都向前进 1</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">Math</span>.ceil(<span class="number">123.234</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 124</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 向下取整，无论小数是多少，都不要了</span></span><br><span class="line"><span class="keyword">var</span> num1 = <span class="built_in">Math</span>.floor(<span class="number">123.999</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num1); <span class="comment">// 123</span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>Math.random()</code>方法可以随机产生一个 0 ～ 1 之间的开区间的数。</p>
+  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="built_in">Math</span>.random();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 0.4322440432127299</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 0.5216225452503296</span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>toFixed()</code>方法可以把 Number 四舍五入为指定小数位数的数字。</p>
+  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">123.45678</span>;</span><br><span class="line">   </span><br><span class="line">demo = num.toFixed(<span class="number">2</span>);</span><br><span class="line">   </span><br><span class="line"><span class="built_in">console</span>.log(demo); <span class="comment">// 123.46</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>引入 JavaScript：</p>
+<ul>
+<li>页面内嵌<code>&lt;script&gt;&lt;/script&gt;</code>标签</li>
+<li>外部引入<code>&lt;script src=location&gt;&lt;/script&gt;</code></li>
+</ul>
+</li>
+<li><p>页面中，可以存在多个<code>&lt;script&gt;</code>标签，执行顺序从上到下。只要不存在 defer 和 async 属性，浏览器都会按照 它们在页面中出现的先后顺序依次进行解析。</p>
+</li>
+<li><p>注意，如果有外部 js 文件，那么这个 script 标签里如果再写 js 代码，也是不会执行的，会被直接忽略。基于这个特性，在开发时偶尔会用来存储一些代码。</p>
+</li>
+<li><p>在下面再写一个 script 标签，然后里面写代码是可以的。</p>
+</li>
+<li><p>传统的做法是所有<code>&lt;script&gt;</code>标签都放在<code>&lt;head&gt;</code>中，这意味着必须等到全部 js 代码都被下载、解析和执行完成以后，才能开始呈现页面的内容（浏览器在遇到<code>&lt;body&gt;</code>标签时才开始呈现内容）。</p>
+</li>
+<li><p>为了避免这个问题，现代 Web 应用程序一般都把全部 js 引用放在<code>&lt;body&gt;</code>中页面内容的后面。这样，在解析包含的 js 代码之前，页面的内容将完全呈现在浏览器中。而用户也会因为浏览器窗口显示空白页面的时间缩短而感到打开页面的速度加快了。</p>
+</li>
+<li><p>为符合 Web 标准中结构、样式、行为相分离的原则，通常会采用外部引入。</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>（六）预编译</title>
+    <url>/2019/07/23/%E9%A2%84%E7%BC%96%E8%AF%91/</url>
+    <content><![CDATA[<h2 id="预编译"><a href="#预编译" class="headerlink" title="预编译"></a>预编译</h2><h3 id="JS-运行执行步骤"><a href="#JS-运行执行步骤" class="headerlink" title="JS 运行执行步骤"></a>JS 运行执行步骤</h3><ol>
+<li>语法分析（通篇扫描一遍，看看有没有啥错误）</li>
+<li>预编译</li>
+<li>解释执行</li>
+</ol>
+<h3 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h3><ol>
+<li><p>暗示全局变量（imply global）：任何变量，如果未声明就赋值，那么此变量就为全局对象（window）所有。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// a 未经声明但直接赋值</span></span><br><span class="line">a = <span class="number">123</span>;</span><br><span class="line"><span class="comment">// 即：</span></span><br><span class="line"><span class="built_in">window</span> = &#123;</span><br><span class="line">    a: <span class="number">123</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">window</span>.a = <span class="number">123</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>所有声明了的全局变量，也为 window 所有。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// b 为声明了的全局变量</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="number">234</span>;</span><br><span class="line"><span class="comment">// 即：</span></span><br><span class="line"><span class="built_in">window</span> = &#123;</span><br><span class="line">    b: <span class="number">234</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">window</span>.b = <span class="number">234</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>上面两种都是全局对象 window 的属性（属性名+属性值），window 相当于是全局的域。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> c = <span class="number">456</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = b = <span class="number">123</span>;</span><br><span class="line">&#125;</span><br><span class="line">test()</span><br><span class="line"><span class="comment">// 123 赋值给 b</span></span><br><span class="line"><span class="comment">// 声明 a</span></span><br><span class="line"><span class="comment">// b 赋值给 a</span></span><br><span class="line"><span class="comment">// 导致的结果就是：b 未经声明</span></span><br><span class="line"><span class="comment">// 此时：b 归 window 所有</span></span><br><span class="line"><span class="comment">// a 为局部变量</span></span><br><span class="line"><span class="comment">// c 为全局变量，也归 window 所有</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="预编译过程"><a href="#预编译过程" class="headerlink" title="预编译过程"></a>预编译过程</h3><h4 id="函数内"><a href="#函数内" class="headerlink" title="函数内"></a>函数内</h4><ol>
+<li><p>函数内的预编译发生在函数执行的前一刻。</p>
+</li>
+<li><p>步骤：找形参和变量声明，值为 undefined -&gt; 实参值传给形参 -&gt; 找函数声明。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a</span>) </span>&#123; <span class="comment">// a 形式参数</span></span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">123</span>; <span class="comment">// 变量声明</span></span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;&#125; <span class="comment">// 函数声明</span></span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;&#125; <span class="comment">// 变量声明、函数表达式</span></span><br><span class="line">    <span class="built_in">console</span>.log(b);</span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">d</span>(<span class="params"></span>) </span>&#123;&#125; <span class="comment">// 函数声明</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn(<span class="number">1</span>); <span class="comment">// 1 实际参数</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>创建 AO 对象（Activation Object）：执行期上下文，可理解为作用域。</p>
+</li>
+<li><p>找形式参数和变量声明，将形式参数名和变量名作为 AO 属性名，值为  undefined。（变量声明提升）</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">AO = &#123;</span><br><span class="line">    a: <span class="literal">undefined</span>,</span><br><span class="line">    b: <span class="literal">undefined</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>将实际参数和形式参数统一。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">AO = &#123;</span><br><span class="line">    a: <span class="number">1</span>, <span class="comment">//undefined</span></span><br><span class="line">    b: <span class="literal">undefined</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在函数体里找函数声明，将函数名作为 AO 属性名，值为自身的函数体（函数声明提升）</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">AO = &#123;</span><br><span class="line">    a: <span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;&#125;, <span class="comment">// 1</span></span><br><span class="line">    b: <span class="literal">undefined</span>,</span><br><span class="line">    d: <span class="function"><span class="keyword">function</span> <span class="title">d</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>执行。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">console</span>.log(a); </span><br><span class="line">    <span class="comment">//执行，访问 a，输出此时 AO 对象中 a 的值 -&gt; function a() &#123;&#125;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">123</span>; </span><br><span class="line">    <span class="comment">//var = a 变量声明已提升，忽略。</span></span><br><span class="line">    <span class="comment">//执行赋值操作，将 123 赋值给 a</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">console</span>.log(a); </span><br><span class="line">    <span class="comment">// 输出此时 AO 对象中 a 的值 -&gt; 123</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;&#125; </span><br><span class="line">    <span class="comment">// 已提升（提前执行），忽略</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">console</span>.log(a); </span><br><span class="line">    <span class="comment">// 输出此时 AO 对象中 a 的值 -&gt; 123</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;&#125; </span><br><span class="line">    <span class="comment">//var = b 已提升，忽略。</span></span><br><span class="line">    <span class="comment">//执行赋值操作，将 function ()&#123;&#125; 赋值给 b</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">console</span>.log(b);</span><br><span class="line">    <span class="comment">//输出此时 AO 对象中 b 的值 -&gt; function ()&#123;&#125;</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">d</span>(<span class="params"></span>) </span>&#123;&#125; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// AO = &#123;</span></span><br><span class="line"><span class="comment">//     a : 123, // function a() &#123;&#125;</span></span><br><span class="line"><span class="comment">//     b : function ()&#123;&#125;, // undefined</span></span><br><span class="line"><span class="comment">//     d : function d() &#123;&#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h4 id="全局内"><a href="#全局内" class="headerlink" title="全局内"></a>全局内</h4><ol>
+<li>全局内的预编译发生在全局执行的前一刻。</li>
+<li>步骤：找变量声明，值为 undefined -&gt; 找函数声明。<ul>
+<li>创建 GO 对象（Global Object）：全局执行期上下文，可理解为作用域。（GO 就是 window ）</li>
+<li>找变量声明，将变量名作为 GO 属性名，值为 undefined。（变量声明提升）。</li>
+<li>找函数声明，将函数名作为 GO 属性名，值为自身的函数体（函数声明提升）。</li>
+<li>执行。</li>
+</ul>
+</li>
+<li>GO 发生在全局执行前，AO 发生在函数执行前，如果 AO 内找不到，会直接在 GO 中找。</li>
+</ol>
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><ol>
+<li>通过函数声明定义的函数，会提升到脚本块的顶部。</li>
+<li>通过函数声明定义的函数，会成为全局对象的属性。</li>
+<li>通过函数表达式定义的函数，它既不会提升，也不会污染全局对象。</li>
+</ol>
+<h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><ol>
+<li><p>例一：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// GO = &#123;</span></span><br><span class="line"><span class="comment">//     a: 10, // undefined</span></span><br><span class="line"><span class="comment">//     c: 234,</span></span><br><span class="line"><span class="comment">//     test: function test()&#123;...&#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(b); <span class="comment">// undefined</span></span><br><span class="line">    <span class="keyword">if</span> (a) &#123;</span><br><span class="line">        <span class="keyword">var</span> b = <span class="number">100</span>; <span class="comment">// 预编译环节，不管是否执行，只先拿出所有该拿的：var = b;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(b); <span class="comment">// undefined</span></span><br><span class="line">    c = <span class="number">234</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(c); <span class="comment">// 234</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"></span><br><span class="line"><span class="comment">// AO = &#123;</span></span><br><span class="line"><span class="comment">//     b: undefined</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">test();</span><br><span class="line">a = <span class="number">10</span>;</span><br><span class="line"><span class="built_in">console</span>.log(c); <span class="comment">// 234</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>例二：</p>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// GO = &#123;</span></span><br><span class="line"><span class="comment">//     a: 100, // undefined</span></span><br><span class="line"><span class="comment">//     demo: function demo(e)&#123;&#125;,</span></span><br><span class="line"><span class="comment">//     f: 123</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">a = <span class="number">100</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">demo</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">e</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">    <span class="built_in">arguments</span>[<span class="number">0</span>] = <span class="number">2</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(e); <span class="comment">// 2</span></span><br><span class="line">    <span class="keyword">if</span> (a) &#123;</span><br><span class="line">        <span class="keyword">var</span> b = <span class="number">123</span>;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">c</span>(<span class="params"></span>) </span>&#123;&#125; <span class="comment">// if 语句中不能声明 function</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> c;</span><br><span class="line">    a = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">var</span> a;</span><br><span class="line">    <span class="built_in">console</span>.log(b); <span class="comment">// undefined</span></span><br><span class="line">    f = <span class="number">123</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(c); <span class="comment">// undefined</span></span><br><span class="line">    <span class="built_in">console</span>.log(a); <span class="comment">// 10</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"></span><br><span class="line"><span class="comment">// AO = &#123;</span></span><br><span class="line"><span class="comment">//     e: 2, // function e()&#123;&#125; // 1 // undefined</span></span><br><span class="line"><span class="comment">//     b: undefined,</span></span><br><span class="line"><span class="comment">//     c: undefined,</span></span><br><span class="line"><span class="comment">//     a: 10//undefined</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">demo(<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 100</span></span><br><span class="line"><span class="built_in">console</span>.log(f); <span class="comment">// 123</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>例三：</p>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 会进行预编译，所以不会按照视觉上的先后顺序运行</span></span><br><span class="line"><span class="comment">// 两个相同的函数，提升后第一个函数会被第二个函数覆盖掉</span></span><br><span class="line"><span class="comment">// 最终都是第二个函数进行的调用</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// GO = &#123;</span></span><br><span class="line"><span class="comment">//     x: 1, // undefined</span></span><br><span class="line"><span class="comment">//     y: 4, // 0, // undefined</span></span><br><span class="line"><span class="comment">//     z: 4, // 0,</span></span><br><span class="line"><span class="comment">//     add: function add(n)&#123;return n = n + 3&#125; // function add(n)&#123;return n = n + 1&#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>, y = z = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span>  n = n + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">y = add(x); <span class="comment">// 1 + 3 -&gt; y = 4</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> n = n + <span class="number">3</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">z = add(x); <span class="comment">// 1 + 3 -&gt; z = 4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// AO = &#123;</span></span><br><span class="line"><span class="comment">//     n: x // undefined</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(x, y, z); <span class="comment">// 1, 4, 4</span></span><br></pre></td></tr></table></figure>
+
+
 </li>
 </ol>
 ]]></content>
