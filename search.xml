@@ -113,6 +113,119 @@
       </tags>
   </entry>
   <entry>
+    <title>（七）闭包</title>
+    <url>/2019/07/28/%E4%B8%83%E3%80%81%E9%97%AD%E5%8C%85/</url>
+    <content><![CDATA[<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ol>
+<li>内部的函数被保存到外部，一定生成闭包。</li>
+<li>该函数在外部执行时，一定能调用它原来的没被保存出去时的函数环境里的变量。</li>
+</ol>
+<h2 id="后果"><a href="#后果" class="headerlink" title="后果"></a>后果</h2><ol>
+<li>当内部函数被保存到外部时，将会生成闭包。闭包会导致原有作用链不释放，造成内存泄漏 Memory leak（过多占用内存）。</li>
+</ol>
+<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><ol>
+<li><p>例一：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123; <span class="comment">// a 定义并开始执行  </span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123; <span class="comment">// b 定义      </span></span><br><span class="line">        <span class="keyword">var</span> bbb = <span class="number">234</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(aaa);</span><br><span class="line">    &#125;   </span><br><span class="line">    <span class="keyword">var</span> aaa = <span class="number">123</span>;</span><br><span class="line">    <span class="keyword">return</span> b; <span class="comment">// b 作为 a 的结果被保存出去，此时 b 带着 a 的作用域链（b 只被定义，没被执行）   </span></span><br><span class="line">&#125; <span class="comment">// a 执行完成，它与自己的 AO 链接被砍断（引用地址销毁）</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> glob = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">var</span> demo = a(); <span class="comment">// a 执行后的结果是 b，存到 demo 中</span></span><br><span class="line">demo(); <span class="comment">// 执行 b，执行结果为 123</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>例二：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">    <span class="keyword">var</span> num = <span class="number">100</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        num ++;  </span><br><span class="line">        <span class="built_in">console</span>.log(num);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> demo = a(); <span class="comment">// 把 b 的地址引用赋值给 demo</span></span><br><span class="line">demo(); <span class="comment">// 101</span></span><br><span class="line">demo() ;<span class="comment">// 102</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>b 被保存出去的时候带着的是 a 的作用域链。</li>
+<li>demo 第一次执行时，增加 b 的 AO 到作用域链第 0 位，然后依次向下去找 num。</li>
+<li>num = 100 在 b 继承的 aAO 里面，所以将其中的 num 修改为 101。</li>
+<li>执行完成后，b 的 AO 被销毁，其他的作用域链 b 依然带着。</li>
+<li>b 第二次执行时，是相同的操作，此时 num 的基础值是 101，执行 b 后 num ++ = 102</li>
+</ul>
+</li>
+</ol>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><ol>
+<li>定义一个空数组 <code>arr = []</code>  (1*)</li>
+<li>for 循环将十条数据添加到数组 arr 中，每条数据都是一个 function  (2*)<ul>
+<li><code>arr[i]</code>中的 i 会跟着 for 循环中的 i 变动</li>
+<li>而函数<code>function (){console.log(i)}</code>没有在当前执行，所以函数体内部的 i 不会随之变动，这个 i 在<strong>函数执行时才会赋值</strong></li>
+<li><code>arr[i] = 函数</code>，数组位置会马上变现：<code>arr[0],arr[1]...</code>，函数<code>function()(...)</code>只是单纯赋值给数组，当前不会被执行： <code>arr[0] = function(){console.log(i);}</code> ……</li>
+<li>i = 10 时，for 循环终止</li>
+</ul>
+</li>
+<li>将 arr 返回到外部，这==十个函数带着 test 的作用域链==被保存出去  (3*)<ul>
+<li><code>arr = [function(){console.log(i);}, function(){console.log(i);},..., function(){console.log(i);}]</code></li>
+</ul>
+</li>
+<li>test 函数执行完成，它与自己的 AO 链接被砍断（地址引用销毁），此时 i 为 10  (4*)</li>
+<li>分别执行保存出去的十个函数  (5*)</li>
+<li>这十个函数都与 test 函数形成了闭包，它们共用的是 test 的作用域链（变量<code>arr</code>、<code>i</code>），所以在外部访问 i 变量时，访问的是 test 里的 i （也就是同一个 i ），它们自己的函数内部没有变量。</li>
+<li>此时的 i 变量，是在 test 函数执行完成后的 i ，即 i = 10</li>
+<li>arr 中的十个函数都是为了输出 i，在外部去访问 i 时，i 为 10，所以会输出十个 10</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> arr = [];                                       <span class="comment">// 1*</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;                        <span class="comment">// 2*</span></span><br><span class="line">        arr[i] = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;                                         <span class="comment">// 3*</span></span><br><span class="line">&#125;                                                       <span class="comment">// 4*</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> myArr = test();</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; <span class="number">10</span>; j++) &#123;</span><br><span class="line">    myArr[j]();                                         <span class="comment">// 5*</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 结果：10 10 10 10 10 10 10 10 10 10</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="解决：立即执行函数"><a href="#解决：立即执行函数" class="headerlink" title="解决：立即执行函数"></a>解决：立即执行函数</h3><ol>
+<li><p>引入立即执行函数<code>(function (j){...}(i));</code>   (1*)</p>
+</li>
+<li><p>for 循环执行，i = 0 时，立即执行函数中的实参 i 为 0，赋值给形参 j，此时 j = 0，依此类推，每次 i 的值都会被赋到相应的 j 上面  (2*)</p>
+<ul>
+<li>for 循环执行 10 次，会产生 10 个独立的不同的立即执行函数</li>
+<li><code>arr[0] = function(){console.log(j);}</code>、<code>arr[1] = function(){console.log(j);}</code>……</li>
+<li>同样，立即执行函数内的函数<code>function (){...}</code>没有在当前执行</li>
+<li>i = 10 时，for 循环终止</li>
+</ul>
+</li>
+<li><p>将 arr 返回到外部，十个函数带着各自的立即执行函数的作用域链被保存出去  (3*)</p>
+<ul>
+<li><code>arr = [function(){console.log(j);}, function(){console.log(j);},..., function(){console.log(j);}]</code></li>
+</ul>
+</li>
+<li><p>test 函数执行完成，它与自己的 AO 链接被砍断（地址引用销毁），此时 i 为 10  (4*)</p>
+</li>
+<li><p>分别执行这十个函数  (5*)</p>
+</li>
+<li><p>被保存出去的十个函数都与各自的立即执行函数形成了闭包，它们带出去的是各自的立即执行函数<code>(function(j){...}(i));</code>的作用域链（变量<code>j</code>、<code>arr</code>、<code>i</code>），<code>i</code>和<code>arr</code>在 test 函数的 AO 中，<code>j</code>在立即执行函数的 AO 中。所以在外部访问 i 变量时，访问的依然是 test 函数的 i ，而 j 变量则是各自立即执行函数里的 j</p>
+</li>
+<li><p>i = 0 时，j = 0，即第一个立即执行函数中的 j 为 0，执行完成后销毁。i = 1 时，又是一个全新的立即执行函数，此时 j = 1。依此类推，被保存出去的函数，对应的是不同的 j ，相同的 i</p>
+</li>
+<li><p>关键点：将每一次 i 的值立马套现到 j 里面，然后让每个函数带着不同的 j 走</p>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> arr = [];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123; </span><br><span class="line">        (<span class="function"><span class="keyword">function</span> (<span class="params">j</span>) </span>&#123;                                 <span class="comment">// 1*</span></span><br><span class="line">            arr[j] = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;(i));                                          <span class="comment">// 2*</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;                                         <span class="comment">// 3*</span></span><br><span class="line">&#125;                                                       <span class="comment">// 4*</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> myArr = test();</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> x = <span class="number">0</span>; x &lt; <span class="number">10</span>; x++)&#123;</span><br><span class="line">    myArr[x]();                                         <span class="comment">// 5*</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 结果：0 1 2 3 4 5 6 7 8 9</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><h3 id="实现共有变量"><a href="#实现共有变量" class="headerlink" title="实现共有变量"></a>实现共有变量</h3><ol>
+<li><p>如：函数累加器。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">demo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        count ++; <span class="comment">// demo 函数中没有变量，这个是针对 add 函数里的 count 变量的操作</span></span><br><span class="line">        <span class="built_in">console</span>.log(count);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> demo;</span><br><span class="line">&#125;</span><br><span class="line">      </span><br><span class="line"><span class="keyword">var</span> counter = add();</span><br><span class="line">counter();<span class="comment">// 1</span></span><br><span class="line">counter();<span class="comment">// 2</span></span><br><span class="line">counter();<span class="comment">// 3</span></span><br><span class="line">counter();<span class="comment">// 4</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="做缓存（存储结构）"><a href="#做缓存（存储结构）" class="headerlink" title="做缓存（存储结构）"></a>做缓存（存储结构）</h3><ol>
+<li><p>函数 a 和 b 被保存出去的时候，带着的是同一套作用域链（都是 test 的，在同一个房间，同一个地址引用）</p>
+</li>
+<li><p>a 执行 时 num 被修改为 101，那么 b 作用域链中的 num 也会变为 101</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> num = <span class="number">100</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">a</span> (<span class="params"></span>) </span>&#123; </span><br><span class="line">      <span class="comment">// a defined   a.[[scope]]    0: testAO</span></span><br><span class="line">      <span class="comment">//                            1: GO</span></span><br><span class="line">        num ++;</span><br><span class="line">        <span class="built_in">console</span>.log(num);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">b</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// b defined   b.[[scope]]     0: testAO</span></span><br><span class="line">      <span class="comment">//                             1: GO</span></span><br><span class="line">        num --;</span><br><span class="line">        <span class="built_in">console</span>.log(num);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> [a,b];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> myArr = test();</span><br><span class="line"></span><br><span class="line">myArr[<span class="number">0</span>](); <span class="comment">// a 函数执行 -&gt; 结果 101</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// a doing   a.[[scope]]     0: aAO</span></span><br><span class="line"><span class="comment">//                           1: testAO *</span></span><br><span class="line"><span class="comment">//                           2: GO</span></span><br><span class="line"></span><br><span class="line">myArr[<span class="number">1</span>](); <span class="comment">// b 函数执行 -&gt; 结果 100</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// b doing   b.[[scope]]     0: bAO</span></span><br><span class="line"><span class="comment">//                           1: testAO *</span></span><br><span class="line"><span class="comment">//                           2: GO</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// * b 使用的 testAO 是 a 执行后修改的 testAO</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>被保存出去的函数内部没有定义变量，修改的都是 test 函数里的变量 food</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">eater</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> food = <span class="string">'apple'</span>;</span><br><span class="line">    <span class="keyword">var</span> obj = &#123;</span><br><span class="line">        eatFood : <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(food != <span class="string">''</span>)&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'I am eating '</span> + food);</span><br><span class="line">                food = <span class="string">''</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'Nothing!'</span>);</span><br><span class="line">            &#125; </span><br><span class="line">        &#125;,</span><br><span class="line">        pushFood : <span class="function"><span class="keyword">function</span> (<span class="params">myFood</span>) </span>&#123;</span><br><span class="line">            food = myFood;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person = eater();</span><br><span class="line"></span><br><span class="line">person.eatFood(); <span class="comment">// I am eating apple</span></span><br><span class="line"></span><br><span class="line">person.eatFood(); <span class="comment">// Nothing!</span></span><br><span class="line"></span><br><span class="line">person.pushFood(<span class="string">'banana'</span>);</span><br><span class="line">person.eatFood(); <span class="comment">// I am eating banana</span></span><br><span class="line"></span><br><span class="line">person.eatFood(); <span class="comment">// Nothing!</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="实现封装，属性私有化"><a href="#实现封装，属性私有化" class="headerlink" title="实现封装，属性私有化"></a>实现封装，属性私有化</h3><ol>
+<li><p>隐式对象<code>this</code>被保存出去，它包含的三个方法（函数）<code>divorce</code>、<code>changePrepareWife</code>以及<code>sayPrepareWife</code>带着同一套作用域链出去（函数<code>Deng</code>的）。</p>
+</li>
+<li><p>变量<code>prepareWife</code>在函数外部是无法访问到的，但是函数内的方法可以直接使用它。它是对象和原有函数形成闭包后存在的一个私有变量。</p>
+</li>
+<li><p>这样就实现了私有化。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Deng</span>(<span class="params">name, wife</span>)</span>&#123;</span><br><span class="line">    </span><br><span class="line">  <span class="keyword">var</span> prepareWife = <span class="string">'zhang'</span>; <span class="comment">// 构造函数内声明并赋值的变量</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">  <span class="keyword">this</span>.wife = wife;</span><br><span class="line">  <span class="keyword">this</span>.divorce = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.wife = prepareWife;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">this</span>.changePrepareWife = <span class="function"><span class="keyword">function</span> (<span class="params">target</span>) </span>&#123;</span><br><span class="line">    prepareWife = tatget;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">this</span>.sayPrepareWife = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(prepareWife);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> deng = <span class="keyword">new</span> Deng(<span class="string">'deng'</span>, <span class="string">'liu'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(deng.prepareWife); <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line">deng.sayPrepareWife(); <span class="comment">// zhang</span></span><br></pre></td></tr></table></figure>
+<h3 id="模块化开发"><a href="#模块化开发" class="headerlink" title="模块化开发"></a>模块化开发</h3></li>
+<li><p>实现模块化开发，防止污染全局变量。（详见命名空间）</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>（三）运算符、语句、编程形式</title>
     <url>/2019/07/07/%E4%B8%89%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E3%80%81%E8%AF%AD%E5%8F%A5%E3%80%81%E7%BC%96%E7%A8%8B%E5%BD%A2%E5%BC%8F/</url>
     <content><![CDATA[<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><ol>
@@ -242,119 +355,6 @@
 <li>面向过程：C</li>
 <li>面向对象：Java、C++</li>
 <li>既面向对象也面向过程：JavaScript </li>
-</ol>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-        <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>（七）闭包</title>
-    <url>/2019/07/28/%E4%B8%83%E3%80%81%E9%97%AD%E5%8C%85/</url>
-    <content><![CDATA[<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ol>
-<li>内部的函数被保存到外部，一定生成闭包。</li>
-<li>该函数在外部执行时，一定能调用它原来的没被保存出去时的函数环境里的变量。</li>
-</ol>
-<h2 id="后果"><a href="#后果" class="headerlink" title="后果"></a>后果</h2><ol>
-<li>当内部函数被保存到外部时，将会生成闭包。闭包会导致原有作用链不释放，造成内存泄漏 Memory leak（过多占用内存）。</li>
-</ol>
-<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><ol>
-<li><p>例一：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123; <span class="comment">// a 定义并开始执行  </span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123; <span class="comment">// b 定义      </span></span><br><span class="line">        <span class="keyword">var</span> bbb = <span class="number">234</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(aaa);</span><br><span class="line">    &#125;   </span><br><span class="line">    <span class="keyword">var</span> aaa = <span class="number">123</span>;</span><br><span class="line">    <span class="keyword">return</span> b; <span class="comment">// b 作为 a 的结果被保存出去，此时 b 带着 a 的作用域链（b 只被定义，没被执行）   </span></span><br><span class="line">&#125; <span class="comment">// a 执行完成，它与自己的 AO 链接被砍断（引用地址销毁）</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> glob = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">var</span> demo = a(); <span class="comment">// a 执行后的结果是 b，存到 demo 中</span></span><br><span class="line">demo(); <span class="comment">// 执行 b，执行结果为 123</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>例二：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">    <span class="keyword">var</span> num = <span class="number">100</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        num ++;  </span><br><span class="line">        <span class="built_in">console</span>.log(num);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> demo = a(); <span class="comment">// 把 b 的地址引用赋值给 demo</span></span><br><span class="line">demo(); <span class="comment">// 101</span></span><br><span class="line">demo() ;<span class="comment">// 102</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>b 被保存出去的时候带着的是 a 的作用域链。</li>
-<li>demo 第一次执行时，增加 b 的 AO 到作用域链第 0 位，然后依次向下去找 num。</li>
-<li>num = 100 在 b 继承的 aAO 里面，所以将其中的 num 修改为 101。</li>
-<li>执行完成后，b 的 AO 被销毁，其他的作用域链 b 依然带着。</li>
-<li>b 第二次执行时，是相同的操作，此时 num 的基础值是 101，执行 b 后 num ++ = 102</li>
-</ul>
-</li>
-</ol>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><ol>
-<li>定义一个空数组 <code>arr = []</code>  (1*)</li>
-<li>for 循环将十条数据添加到数组 arr 中，每条数据都是一个 function  (2*)<ul>
-<li><code>arr[i]</code>中的 i 会跟着 for 循环中的 i 变动</li>
-<li>而函数<code>function (){console.log(i)}</code>没有在当前执行，所以函数体内部的 i 不会随之变动，这个 i 在<strong>函数执行时才会赋值</strong></li>
-<li><code>arr[i] = 函数</code>，数组位置会马上变现：<code>arr[0],arr[1]...</code>，函数<code>function()(...)</code>只是单纯赋值给数组，当前不会被执行： <code>arr[0] = function(){console.log(i);}</code> ……</li>
-<li>i = 10 时，for 循环终止</li>
-</ul>
-</li>
-<li>将 arr 返回到外部，这==十个函数带着 test 的作用域链==被保存出去  (3*)<ul>
-<li><code>arr = [function(){console.log(i);}, function(){console.log(i);},..., function(){console.log(i);}]</code></li>
-</ul>
-</li>
-<li>test 函数执行完成，它与自己的 AO 链接被砍断（地址引用销毁），此时 i 为 10  (4*)</li>
-<li>分别执行保存出去的十个函数  (5*)</li>
-<li>这十个函数都与 test 函数形成了闭包，它们共用的是 test 的作用域链（变量<code>arr</code>、<code>i</code>），所以在外部访问 i 变量时，访问的是 test 里的 i （也就是同一个 i ），它们自己的函数内部没有变量。</li>
-<li>此时的 i 变量，是在 test 函数执行完成后的 i ，即 i = 10</li>
-<li>arr 中的十个函数都是为了输出 i，在外部去访问 i 时，i 为 10，所以会输出十个 10</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> arr = [];                                       <span class="comment">// 1*</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;                        <span class="comment">// 2*</span></span><br><span class="line">        arr[i] = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;                                         <span class="comment">// 3*</span></span><br><span class="line">&#125;                                                       <span class="comment">// 4*</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> myArr = test();</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; <span class="number">10</span>; j++) &#123;</span><br><span class="line">    myArr[j]();                                         <span class="comment">// 5*</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 结果：10 10 10 10 10 10 10 10 10 10</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="解决：立即执行函数"><a href="#解决：立即执行函数" class="headerlink" title="解决：立即执行函数"></a>解决：立即执行函数</h3><ol>
-<li><p>引入立即执行函数<code>(function (j){...}(i));</code>   (1*)</p>
-</li>
-<li><p>for 循环执行，i = 0 时，立即执行函数中的实参 i 为 0，赋值给形参 j，此时 j = 0，依此类推，每次 i 的值都会被赋到相应的 j 上面  (2*)</p>
-<ul>
-<li>for 循环执行 10 次，会产生 10 个独立的不同的立即执行函数</li>
-<li><code>arr[0] = function(){console.log(j);}</code>、<code>arr[1] = function(){console.log(j);}</code>……</li>
-<li>同样，立即执行函数内的函数<code>function (){...}</code>没有在当前执行</li>
-<li>i = 10 时，for 循环终止</li>
-</ul>
-</li>
-<li><p>将 arr 返回到外部，十个函数带着各自的立即执行函数的作用域链被保存出去  (3*)</p>
-<ul>
-<li><code>arr = [function(){console.log(j);}, function(){console.log(j);},..., function(){console.log(j);}]</code></li>
-</ul>
-</li>
-<li><p>test 函数执行完成，它与自己的 AO 链接被砍断（地址引用销毁），此时 i 为 10  (4*)</p>
-</li>
-<li><p>分别执行这十个函数  (5*)</p>
-</li>
-<li><p>被保存出去的十个函数都与各自的立即执行函数形成了闭包，它们带出去的是各自的立即执行函数<code>(function(j){...}(i));</code>的作用域链（变量<code>j</code>、<code>arr</code>、<code>i</code>），<code>i</code>和<code>arr</code>在 test 函数的 AO 中，<code>j</code>在立即执行函数的 AO 中。所以在外部访问 i 变量时，访问的依然是 test 函数的 i ，而 j 变量则是各自立即执行函数里的 j</p>
-</li>
-<li><p>i = 0 时，j = 0，即第一个立即执行函数中的 j 为 0，执行完成后销毁。i = 1 时，又是一个全新的立即执行函数，此时 j = 1。依此类推，被保存出去的函数，对应的是不同的 j ，相同的 i</p>
-</li>
-<li><p>关键点：将每一次 i 的值立马套现到 j 里面，然后让每个函数带着不同的 j 走</p>
- <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> arr = [];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123; </span><br><span class="line">        (<span class="function"><span class="keyword">function</span> (<span class="params">j</span>) </span>&#123;                                 <span class="comment">// 1*</span></span><br><span class="line">            arr[j] = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;(i));                                          <span class="comment">// 2*</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;                                         <span class="comment">// 3*</span></span><br><span class="line">&#125;                                                       <span class="comment">// 4*</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> myArr = test();</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> x = <span class="number">0</span>; x &lt; <span class="number">10</span>; x++)&#123;</span><br><span class="line">    myArr[x]();                                         <span class="comment">// 5*</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 结果：0 1 2 3 4 5 6 7 8 9</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><h3 id="实现共有变量"><a href="#实现共有变量" class="headerlink" title="实现共有变量"></a>实现共有变量</h3><ol>
-<li><p>如：函数累加器。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">demo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        count ++; <span class="comment">// demo 函数中没有变量，这个是针对 add 函数里的 count 变量的操作</span></span><br><span class="line">        <span class="built_in">console</span>.log(count);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> demo;</span><br><span class="line">&#125;</span><br><span class="line">      </span><br><span class="line"><span class="keyword">var</span> counter = add();</span><br><span class="line">counter();<span class="comment">// 1</span></span><br><span class="line">counter();<span class="comment">// 2</span></span><br><span class="line">counter();<span class="comment">// 3</span></span><br><span class="line">counter();<span class="comment">// 4</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h3 id="做缓存（存储结构）"><a href="#做缓存（存储结构）" class="headerlink" title="做缓存（存储结构）"></a>做缓存（存储结构）</h3><ol>
-<li><p>函数 a 和 b 被保存出去的时候，带着的是同一套作用域链（都是 test 的，在同一个房间，同一个地址引用）</p>
-</li>
-<li><p>a 执行 时 num 被修改为 101，那么 b 作用域链中的 num 也会变为 101</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> num = <span class="number">100</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">a</span> (<span class="params"></span>) </span>&#123; </span><br><span class="line">      <span class="comment">// a defined   a.[[scope]]    0: testAO</span></span><br><span class="line">      <span class="comment">//                            1: GO</span></span><br><span class="line">        num ++;</span><br><span class="line">        <span class="built_in">console</span>.log(num);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">b</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// b defined   b.[[scope]]     0: testAO</span></span><br><span class="line">      <span class="comment">//                             1: GO</span></span><br><span class="line">        num --;</span><br><span class="line">        <span class="built_in">console</span>.log(num);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> [a,b];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> myArr = test();</span><br><span class="line"></span><br><span class="line">myArr[<span class="number">0</span>](); <span class="comment">// a 函数执行 -&gt; 结果 101</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// a doing   a.[[scope]]     0: aAO</span></span><br><span class="line"><span class="comment">//                           1: testAO *</span></span><br><span class="line"><span class="comment">//                           2: GO</span></span><br><span class="line"></span><br><span class="line">myArr[<span class="number">1</span>](); <span class="comment">// b 函数执行 -&gt; 结果 100</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// b doing   b.[[scope]]     0: bAO</span></span><br><span class="line"><span class="comment">//                           1: testAO *</span></span><br><span class="line"><span class="comment">//                           2: GO</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// * b 使用的 testAO 是 a 执行后修改的 testAO</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>被保存出去的函数内部没有定义变量，修改的都是 test 函数里的变量 food</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">eater</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> food = <span class="string">'apple'</span>;</span><br><span class="line">    <span class="keyword">var</span> obj = &#123;</span><br><span class="line">        eatFood : <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(food != <span class="string">''</span>)&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'I am eating '</span> + food);</span><br><span class="line">                food = <span class="string">''</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'Nothing!'</span>);</span><br><span class="line">            &#125; </span><br><span class="line">        &#125;,</span><br><span class="line">        pushFood : <span class="function"><span class="keyword">function</span> (<span class="params">myFood</span>) </span>&#123;</span><br><span class="line">            food = myFood;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person = eater();</span><br><span class="line"></span><br><span class="line">person.eatFood(); <span class="comment">// I am eating apple</span></span><br><span class="line"></span><br><span class="line">person.eatFood(); <span class="comment">// Nothing!</span></span><br><span class="line"></span><br><span class="line">person.pushFood(<span class="string">'banana'</span>);</span><br><span class="line">person.eatFood(); <span class="comment">// I am eating banana</span></span><br><span class="line"></span><br><span class="line">person.eatFood(); <span class="comment">// Nothing!</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h3 id="实现封装，属性私有化"><a href="#实现封装，属性私有化" class="headerlink" title="实现封装，属性私有化"></a>实现封装，属性私有化</h3><ol>
-<li><p>隐式对象<code>this</code>被保存出去，它包含的三个方法（函数）<code>divorce</code>、<code>changePrepareWife</code>以及<code>sayPrepareWife</code>带着同一套作用域链出去（函数<code>Deng</code>的）。</p>
-</li>
-<li><p>变量<code>prepareWife</code>在函数外部是无法访问到的，但是函数内的方法可以直接使用它。它是对象和原有函数形成闭包后存在的一个私有变量。</p>
-</li>
-<li><p>这样就实现了私有化。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Deng</span>(<span class="params">name, wife</span>)</span>&#123;</span><br><span class="line">    </span><br><span class="line">  <span class="keyword">var</span> prepareWife = <span class="string">'zhang'</span>; <span class="comment">// 构造函数内声明并赋值的变量</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">  <span class="keyword">this</span>.wife = wife;</span><br><span class="line">  <span class="keyword">this</span>.divorce = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.wife = prepareWife;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">this</span>.changePrepareWife = <span class="function"><span class="keyword">function</span> (<span class="params">target</span>) </span>&#123;</span><br><span class="line">    prepareWife = tatget;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">this</span>.sayPrepareWife = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(prepareWife);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> deng = <span class="keyword">new</span> Deng(<span class="string">'deng'</span>, <span class="string">'liu'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(deng.prepareWife); <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line">deng.sayPrepareWife(); <span class="comment">// zhang</span></span><br></pre></td></tr></table></figure>
-<h3 id="模块化开发"><a href="#模块化开发" class="headerlink" title="模块化开发"></a>模块化开发</h3></li>
-<li><p>实现模块化开发，防止污染全局变量。（详见命名空间）</p>
-</li>
 </ol>
 ]]></content>
       <categories>
