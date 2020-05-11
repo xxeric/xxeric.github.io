@@ -71,6 +71,7 @@
 <h2 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h2><p>验证完成后，点击站点地图，添加新的站点地图，即之前生成的<code>sitemap.xml</code>，点击提交。</p>
 <img src="https://i.loli.net/2020/05/11/dNSwzD3PH18TYMl.jpg" style="width: 70%;margin-left:0">
 
+<p>点击网址检查，输入博客链接，检索数据完成后，点击请求编入索引。</p>
 <blockquote>
 <p>至此，就可以安心等待 Google 进行收录了。</p>
 </blockquote>
