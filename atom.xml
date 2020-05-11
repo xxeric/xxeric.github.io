@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hexo 增加 Google 收录</title>
-    <link href="https://ccnyms.github.io/2020/05/01/hexo%E5%A2%9E%E5%8A%A0Google%E6%94%B6%E5%BD%95/"/>
-    <id>https://ccnyms.github.io/2020/05/01/hexo%E5%A2%9E%E5%8A%A0Google%E6%94%B6%E5%BD%95/</id>
+    <link href="https://ccnyms.github.io/post/7dd6"/>
+    <id>https://ccnyms.github.io/post/7dd6</id>
     <published>2020-05-01T03:43:20.000Z</published>
     <updated>2020-05-11T07:12:37.916Z</updated>
     
@@ -47,8 +47,8 @@
   
   <entry>
     <title>（七）闭包</title>
-    <link href="https://ccnyms.github.io/2019/07/28/%E9%97%AD%E5%8C%85/"/>
-    <id>https://ccnyms.github.io/2019/07/28/%E9%97%AD%E5%8C%85/</id>
+    <link href="https://ccnyms.github.io/post/undefined"/>
+    <id>https://ccnyms.github.io/post/undefined</id>
     <published>2019-07-28T12:08:33.000Z</published>
     <updated>2020-05-11T03:29:56.735Z</updated>
     
@@ -72,8 +72,8 @@
   
   <entry>
     <title>（六）预编译</title>
-    <link href="https://ccnyms.github.io/2019/07/23/%E9%A2%84%E7%BC%96%E8%AF%91/"/>
-    <id>https://ccnyms.github.io/2019/07/23/%E9%A2%84%E7%BC%96%E8%AF%91/</id>
+    <link href="https://ccnyms.github.io/post/undefined"/>
+    <id>https://ccnyms.github.io/post/undefined</id>
     <published>2019-07-23T09:49:09.000Z</published>
     <updated>2020-05-11T03:29:27.460Z</updated>
     
@@ -97,8 +97,8 @@
   
   <entry>
     <title>（五）函数</title>
-    <link href="https://ccnyms.github.io/2019/07/20/%E5%87%BD%E6%95%B0/"/>
-    <id>https://ccnyms.github.io/2019/07/20/%E5%87%BD%E6%95%B0/</id>
+    <link href="https://ccnyms.github.io/post/undefined"/>
+    <id>https://ccnyms.github.io/post/undefined</id>
     <published>2019-07-20T08:21:35.000Z</published>
     <updated>2020-05-11T03:30:14.542Z</updated>
     
@@ -122,8 +122,8 @@
   
   <entry>
     <title>（四）typeof、类型转换、进制</title>
-    <link href="https://ccnyms.github.io/2019/07/09/typeof%E3%80%81%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E3%80%81%E8%BF%9B%E5%88%B6/"/>
-    <id>https://ccnyms.github.io/2019/07/09/typeof%E3%80%81%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E3%80%81%E8%BF%9B%E5%88%B6/</id>
+    <link href="https://ccnyms.github.io/post/undefined"/>
+    <id>https://ccnyms.github.io/post/undefined</id>
     <published>2019-07-09T04:53:29.000Z</published>
     <updated>2020-05-11T03:30:08.361Z</updated>
     
@@ -147,8 +147,8 @@
   
   <entry>
     <title>（三）运算符、语句、编程形式</title>
-    <link href="https://ccnyms.github.io/2019/07/07/%E8%BF%90%E7%AE%97%E7%AC%A6%E3%80%81%E8%AF%AD%E5%8F%A5%E3%80%81%E7%BC%96%E7%A8%8B%E5%BD%A2%E5%BC%8F/"/>
-    <id>https://ccnyms.github.io/2019/07/07/%E8%BF%90%E7%AE%97%E7%AC%A6%E3%80%81%E8%AF%AD%E5%8F%A5%E3%80%81%E7%BC%96%E7%A8%8B%E5%BD%A2%E5%BC%8F/</id>
+    <link href="https://ccnyms.github.io/post/undefined"/>
+    <id>https://ccnyms.github.io/post/undefined</id>
     <published>2019-07-07T02:34:03.000Z</published>
     <updated>2020-05-11T03:30:01.991Z</updated>
     
@@ -172,8 +172,8 @@
   
   <entry>
     <title>（二）变量、值类型、语句基本规则</title>
-    <link href="https://ccnyms.github.io/2019/07/05/%E5%8F%98%E9%87%8F%E3%80%81%E5%80%BC%E7%B1%BB%E5%9E%8B%E3%80%81%E8%AF%AD%E5%8F%A5%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%88%99/"/>
-    <id>https://ccnyms.github.io/2019/07/05/%E5%8F%98%E9%87%8F%E3%80%81%E5%80%BC%E7%B1%BB%E5%9E%8B%E3%80%81%E8%AF%AD%E5%8F%A5%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%88%99/</id>
+    <link href="https://ccnyms.github.io/post/undefined"/>
+    <id>https://ccnyms.github.io/post/undefined</id>
     <published>2019-07-05T06:58:11.000Z</published>
     <updated>2020-05-11T03:29:51.020Z</updated>
     
@@ -196,17 +196,17 @@
   </entry>
   
   <entry>
-    <title>（一）JavaScript 基础知识</title>
-    <link href="https://ccnyms.github.io/2019/07/03/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
-    <id>https://ccnyms.github.io/2019/07/03/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</id>
+    <title>JavaScript笔记(一) 基础知识</title>
+    <link href="https://ccnyms.github.io/post/undefined"/>
+    <id>https://ccnyms.github.io/post/undefined</id>
     <published>2019-07-03T13:17:25.000Z</published>
-    <updated>2020-05-11T03:29:38.876Z</updated>
+    <updated>2020-05-11T10:07:01.642Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><ol><li>Mosaic 是互联网历史上第一个获普遍使用和能够显示图片的网页浏览器。于 1993 年问世。</li><li>浏览器组成：<ul><li>shell （外形）部分</li><li>内核部分：渲染引擎（语法规则和渲染），js 引擎，其他模块</li></ul></li><li>主流浏览器及其内核：<ul><li>IE             -&gt;       Trident</li><li>Chrome      -&gt;      Blink</li><li>Opera       -&gt;      Blink</li><li>Safari      -&gt;      Webkit</li><li>Firefox     -&gt;      Gecko</li></ul></li><li>2001 年的 IE6 浏览器，首次实现对 JavaScript 引擎的优化和分离。</li><li>2008 年 Google 发布最新浏览器 Chrome，它是采用优化后的 JavaScript 引擎，引擎代号 V8，因能把 JavaScript 代码直接转化为机械码来执行，进而以速度快而闻名。</li></ol><h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><ol><li><p>程序设计语言分为解释型和编译型两大类。</p><ul><li>C 或 C++ 等语言需要一个编译器（compiler）。编译器是一种程序，能够把用 Java 等高级语言编写出来的源代码翻译为直接在计算机上执行的文件。</li><li>解释型程序设计语言不需要编译器，它们只需要解释器。对于 JavaScript，浏览器负责完成有关的解释和执行工作。</li></ul></li><li><p>特点：</p><ul><li>解释型语言 — （不需要编译成文件）跨平台。</li><li><strong>单线程</strong> — 同一时间只能干一件事。</li><li>弱类型语言 — 存放的数据类型可变。</li></ul></li><li><p>我们把 JavaScript 中的<strong>核心部分称为 ECMAScript</strong>，加上 BOM（浏览器对象模型）与 DOM（文档对象类型），三者共同组成了 JavaScript。</p><ul><li>ECMA-262 标准规定了这门语言的如下组成部分：语法、类型、语句、关键字、保留字、操作符、对象。</li><li>浏览器对象模型（BOM，Browser Object Model），提供与浏览器交互的方法和接口。</li><li>文档对象内容（DOM，Document Object Model），提供访问和操作网页内容的方法和接口。</li></ul></li><li><p><strong>异步（asynchronous）：同时执行</strong>，类似于有很多条路一起走，可以同时出发。</p></li><li><p><strong>同步（synchronous）：分次执行</strong>，类似于只有一条路走，这个走完了下个才能走。</p></li><li><p>JavaScript 执行队列 -&gt; 执行过程：轮转时间片。</p><ul><li><strong>单线程模拟多线程。</strong></li><li>类似吃饭，吃一口米饭，吃一口茄子，再吃一口排骨，再吃一口米饭，再吃一口米饭，再吃一口茄子，顺序完全随机，在足够快的时间内，肉眼可见菜和饭在同时减少。</li><li>比如 js 引擎要执行任务 1 和任务 2，js 引擎会把任务 1 和任务 2 切成无数个片段，然后把这些片段<strong>随机排成一个队列送入引擎执行</strong>，直到被执行完。</li></ul></li><li><p><strong>JavaScript 可正常计算的范围：小数点前 16 位，后 16 位。</strong></p></li><li><p>JS 计算精度不准，是纯粹的 bug，所以在 JS 中应尽量避免小数操作。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">0.14</span> * <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 14.000000000000002</span></span><br></pre></td></tr></table></figure></li><li><p>如果需要计算，那么采用<code>Math.floor()</code>（向下取整）或<code>Math.ceil()</code>（向上取整）方法。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 向上取整，无论小数是多少，都向前进 1</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">Math</span>.ceil(<span class="number">123.234</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 124</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 向下取整，无论小数是多少，都不要了</span></span><br><span class="line"><span class="keyword">var</span> num1 = <span class="built_in">Math</span>.floor(<span class="number">123.999</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num1); <span class="comment">// 123</span></span><br></pre></td></tr></table></figure></li><li><p><code>Math.random()</code>方法可以随机产生一个 0 ～ 1 之间的开区间的数。</p>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="built_in">Math</span>.random();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 0.4322440432127299</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 0.5216225452503296</span></span><br></pre></td></tr></table></figure></li><li><p><code>toFixed()</code>方法可以把 Number 四舍五入为指定小数位数的数字。</p>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">123.45678</span>;</span><br><span class="line">   </span><br><span class="line">demo = num.toFixed(<span class="number">2</span>);</span><br><span class="line">   </span><br><span class="line"><span class="built_in">console</span>.log(demo); <span class="comment">// 123.46</span></span><br></pre></td></tr></table></figure></li><li><p>引入 JavaScript：</p><ul><li>页面内嵌<code>&lt;script&gt;&lt;/script&gt;</code>标签</li><li>外部引入<code>&lt;script src=location&gt;&lt;/script&gt;</code></li></ul></li><li><p>页面中，可以存在多个<code>&lt;script&gt;</code>标签，执行顺序从上到下。只要不存在 defer 和 async 属性，浏览器都会按照 它们在页面中出现的先后顺序依次进行解析。</p></li><li><p>注意，如果有外部 js 文件，那么这个 script 标签里如果再写 js 代码，也是不会执行的，会被直接忽略。基于这个特性，在开发时偶尔会用来存储一些代码。</p></li><li><p>在下面再写一个 script 标签，然后里面写代码是可以的。</p></li><li><p>传统的做法是所有<code>&lt;script&gt;</code>标签都放在<code>&lt;head&gt;</code>中，这意味着必须等到全部 js 代码都被下载、解析和执行完成以后，才能开始呈现页面的内容（浏览器在遇到<code>&lt;body&gt;</code>标签时才开始呈现内容）。</p></li><li><p>为了避免这个问题，现代 Web 应用程序一般都把全部 js 引用放在<code>&lt;body&gt;</code>中页面内容的后面。这样，在解析包含的 js 代码之前，页面的内容将完全呈现在浏览器中。而用户也会因为浏览器窗口显示空白页面的时间缩短而感到打开页面的速度加快了。</p></li><li><p>为符合 Web 标准中结构、样式、行为相分离的原则，通常会采用外部引入。</p></li></ol>]]></content>
+    <content type="html"><![CDATA[<h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><p>Mosaic 是互联网历史上第一个获普遍使用和能够显示图片的网页浏览器。于 1993 年问世。</p><p>浏览器组成：</p><ul><li>shell （外形）部分</li><li>内核部分：渲染引擎（语法规则和渲染），js 引擎，其他模块</li></ul><p>主流浏览器及其内核：</p><ul><li>IE          -&gt;       Trident</li><li>Chrome      -&gt;      Blink</li><li>Opera       -&gt;      Blink</li><li>Safari      -&gt;      Webkit</li><li>Firefox     -&gt;      Gecko</li></ul><p>2001 年的 IE6 浏览器，首次实现对 JavaScript 引擎的优化和分离。</p><p>2008 年 Google 发布最新浏览器 Chrome，它是采用优化后的 JavaScript 引擎，引擎代号 V8，因能把 JavaScript 代码直接转化为机械码来执行，进而以速度快而闻名。</p><h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><p>程序设计语言分为解释型和编译型两大类。</p><ul><li>C 或 C++ 等语言需要一个编译器（compiler）。编译器是一种程序，能够把用 Java 等高级语言编写出来的源代码翻译为直接在计算机上执行的文件。</li><li>解释型程序设计语言不需要编译器，它们只需要解释器。对于 JavaScript，浏览器负责完成有关的解释和执行工作。</li></ul><p>特点：</p><ul><li>解释型语言 — （不需要编译成文件）跨平台。</li><li><strong>单线程</strong> — 同一时间只能干一件事。</li><li>弱类型语言 — 存放的数据类型可变。</li></ul><p>我们把 JavaScript 中的<strong>核心部分称为 ECMAScript</strong>，加上 BOM（浏览器对象模型）与 DOM（文档对象类型），三者共同组成了 JavaScript。</p><ul><li>ECMA-262 标准规定了这门语言的如下组成部分：语法、类型、语句、关键字、保留字、操作符、对象。</li><li>浏览器对象模型（BOM，Browser Object Model），提供与浏览器交互的方法和接口。</li><li>文档对象内容（DOM，Document Object Model），提供访问和操作网页内容的方法和接口。</li></ul><p>异步（asynchronous）：同时执行，类似于有很多条路一起走，可以同时出发。</p><p>同步（synchronous）：分次执行，类似于只有一条路走，这个走完了下个才能走。</p><p>JavaScript 执行队列 -&gt; 执行过程：轮转时间片。</p><ul><li>单线程模拟多线程。</li><li>类似吃饭，吃一口米饭，吃一口茄子，再吃一口排骨，再吃一口米饭，再吃一口米饭，再吃一口茄子，顺序完全随机，在足够快的时间内，肉眼可见菜和饭在同时减少。</li><li>比如 js 引擎要执行任务 1 和任务 2，js 引擎会把任务 1 和任务 2 切成无数个片段，然后把这些片段随机排成一个队列送入引擎执行，直到被执行完。</li></ul><p>JavaScript 可正常计算的范围：小数点前 16 位，后 16 位。</p><p>JS 计算精度不准，是纯粹的 bug，所以在 JS 中应尽量避免小数操作。<br>   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">0.14</span> * <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 14.000000000000002</span></span><br></pre></td></tr></table></figure></p><p>如果需要计算，那么采用<code>Math.floor()</code>（向下取整）或<code>Math.ceil()</code>（向上取整）方法。<br>   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 向上取整，无论小数是多少，都向前进 1</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">Math</span>.ceil(<span class="number">123.234</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 124</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 向下取整，无论小数是多少，都不要了</span></span><br><span class="line"><span class="keyword">var</span> num1 = <span class="built_in">Math</span>.floor(<span class="number">123.999</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num1); <span class="comment">// 123</span></span><br></pre></td></tr></table></figure></p><p><code>Math.random()</code>方法可以随机产生一个 0 ～ 1 之间的开区间的数。<br>      <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="built_in">Math</span>.random();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 0.4322440432127299</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 0.5216225452503296</span></span><br></pre></td></tr></table></figure></p><p><code>toFixed()</code>方法可以把 Number 四舍五入为指定小数位数的数字。<br>      <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">123.45678</span>;</span><br><span class="line">   </span><br><span class="line">demo = num.toFixed(<span class="number">2</span>);</span><br><span class="line">   </span><br><span class="line"><span class="built_in">console</span>.log(demo); <span class="comment">// 123.46</span></span><br></pre></td></tr></table></figure></p><p>引入 JavaScript：<br>      - 页面内嵌<code>&lt;script&gt;&lt;/script&gt;</code>标签<br>      - 外部引入<code>&lt;script src=location&gt;&lt;/script&gt;</code></p><p>页面中，可以存在多个<code>&lt;script&gt;</code>标签，执行顺序从上到下。只要不存在 defer 和 async 属性，浏览器都会按照 它们在页面中出现的先后顺序依次进行解析。</p><p>注意，如果有外部 js 文件，那么这个 script 标签里如果再写 js 代码，也是不会执行的，会被直接忽略。基于这个特性，在开发时偶尔会用来存储一些代码。</p><p>在下面再写一个 script 标签，然后里面写代码是可以的。</p><p>传统的做法是所有<code>&lt;script&gt;</code>标签都放在<code>&lt;head&gt;</code>中，这意味着必须等到全部 js 代码都被下载、解析和执行完成以后，才能开始呈现页面的内容（浏览器在遇到<code>&lt;body&gt;</code>标签时才开始呈现内容）。</p><p>为了避免这个问题，现代 Web 应用程序一般都把全部 js 引用放在<code>&lt;body&gt;</code>中页面内容的后面。这样，在解析包含的 js 代码之前，页面的内容将完全呈现在浏览器中。而用户也会因为浏览器窗口显示空白页面的时间缩短而感到打开页面的速度加快了。</p><p>为符合 Web 标准中结构、样式、行为相分离的原则，通常会采用外部引入。</p>]]></content>
     
     <summary type="html">
     
-      关于浏览器与 JavaScript 的起源
+      浏览器以及 JavaScript 的起源
     
     </summary>
     
@@ -222,8 +222,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://ccnyms.github.io/2019/02/26/hello-world/"/>
-    <id>https://ccnyms.github.io/2019/02/26/hello-world/</id>
+    <link href="https://ccnyms.github.io/post/3eeb"/>
+    <id>https://ccnyms.github.io/post/3eeb</id>
     <published>2019-02-26T04:54:59.517Z</published>
     <updated>2019-02-27T12:45:32.319Z</updated>
     
