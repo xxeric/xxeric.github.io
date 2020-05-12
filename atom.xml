@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://ccnyms.github.io/"/>
+  <link href="https://cnlmx.top/"/>
   <updated>2020-05-11T10:41:04.115Z</updated>
-  <id>https://ccnyms.github.io/</id>
+  <id>https://cnlmx.top/</id>
   
   <author>
     <name>cnlmx</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hexo 增加 Google 收录</title>
-    <link href="https://ccnyms.github.io/post/7dd6/"/>
-    <id>https://ccnyms.github.io/post/7dd6/</id>
+    <link href="https://cnlmx.top/post/7dd6/"/>
+    <id>https://cnlmx.top/post/7dd6/</id>
     <published>2020-05-01T03:43:20.000Z</published>
     <updated>2020-05-11T10:41:04.115Z</updated>
     
@@ -32,23 +32,23 @@
     </summary>
     
     
-      <category term="Blog" scheme="https://ccnyms.github.io/categories/Blog/"/>
+      <category term="Blog" scheme="https://cnlmx.top/categories/Blog/"/>
     
-      <category term="Hexo" scheme="https://ccnyms.github.io/categories/Blog/Hexo/"/>
+      <category term="Hexo" scheme="https://cnlmx.top/categories/Blog/Hexo/"/>
     
     
-      <category term="Hexo" scheme="https://ccnyms.github.io/tags/Hexo/"/>
+      <category term="Hexo" scheme="https://cnlmx.top/tags/Hexo/"/>
     
-      <category term="Blog" scheme="https://ccnyms.github.io/tags/Blog/"/>
+      <category term="Blog" scheme="https://cnlmx.top/tags/Blog/"/>
     
-      <category term="Google" scheme="https://ccnyms.github.io/tags/Google/"/>
+      <category term="Google" scheme="https://cnlmx.top/tags/Google/"/>
     
   </entry>
   
   <entry>
     <title>JavaScript笔记(四)闭包</title>
-    <link href="https://ccnyms.github.io/post/1f0e/"/>
-    <id>https://ccnyms.github.io/post/1f0e/</id>
+    <link href="https://cnlmx.top/post/1f0e/"/>
+    <id>https://cnlmx.top/post/1f0e/</id>
     <published>2019-07-28T12:08:33.000Z</published>
     <updated>2020-05-12T01:26:44.404Z</updated>
     
@@ -61,19 +61,19 @@
     </summary>
     
     
-      <category term="JavaScript" scheme="https://ccnyms.github.io/categories/JavaScript/"/>
+      <category term="JavaScript" scheme="https://cnlmx.top/categories/JavaScript/"/>
     
     
-      <category term="JavaScript" scheme="https://ccnyms.github.io/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="https://cnlmx.top/tags/JavaScript/"/>
     
-      <category term="前端" scheme="https://ccnyms.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="https://cnlmx.top/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
   <entry>
     <title>JavaScript笔记(三)函数</title>
-    <link href="https://ccnyms.github.io/post/b323/"/>
-    <id>https://ccnyms.github.io/post/b323/</id>
+    <link href="https://cnlmx.top/post/b323/"/>
+    <id>https://cnlmx.top/post/b323/</id>
     <published>2019-07-20T08:21:35.000Z</published>
     <updated>2020-05-11T14:40:45.213Z</updated>
     
@@ -86,19 +86,19 @@
     </summary>
     
     
-      <category term="JavaScript" scheme="https://ccnyms.github.io/categories/JavaScript/"/>
+      <category term="JavaScript" scheme="https://cnlmx.top/categories/JavaScript/"/>
     
     
-      <category term="JavaScript" scheme="https://ccnyms.github.io/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="https://cnlmx.top/tags/JavaScript/"/>
     
-      <category term="前端" scheme="https://ccnyms.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="https://cnlmx.top/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
   <entry>
     <title>JavaScript笔记(二)数据类型</title>
-    <link href="https://ccnyms.github.io/post/5714/"/>
-    <id>https://ccnyms.github.io/post/5714/</id>
+    <link href="https://cnlmx.top/post/5714/"/>
+    <id>https://cnlmx.top/post/5714/</id>
     <published>2019-07-09T04:53:29.000Z</published>
     <updated>2020-05-11T14:54:33.987Z</updated>
     
@@ -111,19 +111,19 @@
     </summary>
     
     
-      <category term="JavaScript" scheme="https://ccnyms.github.io/categories/JavaScript/"/>
+      <category term="JavaScript" scheme="https://cnlmx.top/categories/JavaScript/"/>
     
     
-      <category term="JavaScript" scheme="https://ccnyms.github.io/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="https://cnlmx.top/tags/JavaScript/"/>
     
-      <category term="前端" scheme="https://ccnyms.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="https://cnlmx.top/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
   <entry>
     <title>JavaScript笔记(一)基础知识</title>
-    <link href="https://ccnyms.github.io/post/d459/"/>
-    <id>https://ccnyms.github.io/post/d459/</id>
+    <link href="https://cnlmx.top/post/d459/"/>
+    <id>https://cnlmx.top/post/d459/</id>
     <published>2019-07-03T13:17:25.000Z</published>
     <updated>2020-05-11T14:24:59.077Z</updated>
     
@@ -136,19 +136,19 @@
     </summary>
     
     
-      <category term="JavaScript" scheme="https://ccnyms.github.io/categories/JavaScript/"/>
+      <category term="JavaScript" scheme="https://cnlmx.top/categories/JavaScript/"/>
     
     
-      <category term="JavaScript" scheme="https://ccnyms.github.io/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="https://cnlmx.top/tags/JavaScript/"/>
     
-      <category term="前端" scheme="https://ccnyms.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="https://cnlmx.top/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="https://ccnyms.github.io/post/3eeb/"/>
-    <id>https://ccnyms.github.io/post/3eeb/</id>
+    <link href="https://cnlmx.top/post/3eeb/"/>
+    <id>https://cnlmx.top/post/3eeb/</id>
     <published>2019-02-26T04:54:59.517Z</published>
     <updated>2020-05-11T10:19:07.246Z</updated>
     
