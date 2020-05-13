@@ -49,10 +49,10 @@
 </blockquote>
 <h2 id="Google-站长工具配置"><a href="#Google-站长工具配置" class="headerlink" title="Google 站长工具配置"></a>Google 站长工具配置</h2><p>进入<a href="https://search.google.com/search-console/about" target="_blank" rel="noopener">Google Search Console</a>，点击立即使用，登录谷歌账号。</p>
 <p>添加资源，选择资源类型：网址前缀，输入博客地址，然后点击继续。</p>
-<img src="https://i.loli.net/2020/05/11/H3sq1hpXfRJrlQk.png" style="width: 65%;margin-left:0">
+<img src="https://cdn.jsdelivr.net/gh/ccnyms/Picture/img/googles01.webp" style="width: 65%;margin-left:0">
 
 <p>验证所有权，选择 HTML 标记验证，点击复制。</p>
-<img src="https://i.loli.net/2020/05/11/T2wH6CnxY3gq9uy.jpg" style="width: 60%;margin-left:0">
+<img src="https://cdn.jsdelivr.net/gh/ccnyms/Picture/img/googles02.webp" style="width: 60%;margin-left:0">
 
 <h2 id="主题文件配置"><a href="#主题文件配置" class="headerlink" title="主题文件配置"></a>主题文件配置</h2><p><code>_config.yml</code>文件中找到<code>google_site_verification</code>，设置为<code>true</code></p>
 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment">####    站長驗證    ####</span></span><br><span class="line"><span class="comment"># Google Webmaster tools verification setting</span></span><br><span class="line"><span class="comment"># See: https://www.google.com/webmasters/</span></span><br><span class="line"><span class="attr">google_site_verification:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
@@ -69,7 +69,7 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"google-site-verification"</span> <span class="attr">content</span>=<span class="string">"G_wF-veta_pkYSiXBTlXtpO4vVoCyOOkoLA_ZKlHyIs"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>确保验证标记出现，回到 Google 的验证页面，点击验证。</p>
 <h2 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h2><p>验证完成后，点击站点地图，添加新的站点地图，即之前生成的<code>sitemap.xml</code>，点击提交。</p>
-<img src="https://i.loli.net/2020/05/11/dNSwzD3PH18TYMl.jpg" style="width: 70%;margin-left:0">
+<img src="https://cdn.jsdelivr.net/gh/ccnyms/Picture/img/googles03.webp" style="width: 70%;margin-left:0">
 
 
 <blockquote>
@@ -284,6 +284,240 @@
    <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (i % <span class="number">7</span> === <span class="number">0</span> || i % <span class="number">10</span> === <span class="number">7</span>) &#123;</span><br><span class="line">        <span class="keyword">continue</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JavaScript笔记(二)数据类型</title>
+    <url>/post/5714/</url>
+    <content><![CDATA[<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="原始值"><a href="#原始值" class="headerlink" title="原始值"></a>原始值</h3><p>不可改变， 存储在 stack（栈）：先进的后出来。</p>
+<p>值类型：</p>
+<ol>
+<li>Number — 数字</li>
+<li>Boolean — 布尔</li>
+<li>String — 字符串</li>
+<li>undefined — 未定义（未被赋值的变量值输出时会有这个结果）</li>
+<li>null — 空（可以用来占位）</li>
+</ol>
+<h3 id="引用值"><a href="#引用值" class="headerlink" title="引用值"></a>引用值</h3><p>存储在 heap（堆）：怎么进的怎么出。</p>
+<p>值类型：</p>
+<ol>
+<li>Array — 数组</li>
+<li>Object — 对象</li>
+<li>Function — 函数</li>
+<li>RegExp — 正则</li>
+<li>Date — 日期</li>
+</ol>
+<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><p>原始值和引用值唯一的不同是赋值形式不同。</p>
+<p>原始值以值的拷贝方式赋值，原值是不可变的。操作都在副本上。引用值以引用的拷贝方式赋值，原值是可变的。引用的是地址，操作还是在原来的地方，除非换一个地址（赋新值）。</p>
+<h4 id="原始值-1"><a href="#原始值-1" class="headerlink" title="原始值"></a>原始值</h4><p>一旦赋值，不可更改。无论是原值增删，还是新的赋值，都会直接存放到新的地方，原值不动。在操作上，表现为原始值和对应栈名复制一份到新的地方，同时之前的对应栈名初始化，值不动，增删和新赋值都在副本上进行。如：</p>
+<ul>
+<li>在栈内存中声明一个叫 num 的房间，放入值 1</li>
+<li>在栈内存中声明一个叫 num1 的房间，拷贝 num 的值 1 放入 num1</li>
+<li>将 num 及其值 1 拷贝到一个新的房间，然后修改值为 2，原来的房间名初始化为 1005，原值 1 依然留在该房间，不会发生变化</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">1</span>,</span><br><span class="line">      num1 = num;</span><br><span class="line">num = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num1); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="引用值-1"><a href="#引用值-1" class="headerlink" title="引用值"></a>引用值</h4><p>赋值之后，如果是在原值上增删，会直接修改原值。如果是新的赋值，就会直接存放到新的地方，原值不动。</p>
+<p>原值增删：</p>
+<ul>
+<li>在栈内存中声明一个叫 arr 的房间，在堆内存中一个房间里放入值 [1, 2]，然后 arr 房间内放入这个值的==堆内存地址==<code>heap1001</code></li>
+<li>在栈内存中声明一个叫 arr1 的房间，然后直接拷贝 arr 房间内存放的地址<code>heap1001</code>，获得 arr 的值</li>
+<li>此时 arr 与 arr1 指向同一个值的地址<code>heap1001</code></li>
+<li>arr 增加新值 3，直接在<code>heap1001</code>存放的值里增加，变为 [1, 2, 3]</li>
+<li>此时 arr 与 arr1 共同指向的值变为 [1, 2, 3]</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>],</span><br><span class="line">   arr1 = arr;</span><br><span class="line">arr.push(<span class="number">3</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.write(arr1); <span class="comment">// [1, 2, 3]</span></span><br></pre></td></tr></table></figure>
+
+<p>赋新值：</p>
+<ul>
+<li>在栈内存中声明一个叫 arr 的房间，在堆内存中一个房间里放入值 [1, 2]，然后 arr 房间内放入堆内存地址<code>heap1001</code></li>
+<li>在栈内存中声明一个叫 arr1 的房间，然后直接拷贝 arr 房间内存放的地址，获得 arr 的值</li>
+<li>此时 arr 与 arr1 指向同一个值的地址<code>heap1001</code></li>
+<li>arr 赋新值，在堆内存中另一个房间里放入新值 [1, 2, 3]，然后 arr 房间内删除原来的地址<code>heap1001</code>，放入这个新值的堆内存地址<code>heap1002</code></li>
+<li>此时 arr 指向的值为 [1, 2, 3]，arr1 指向的值为 [1, 2]</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>],</span><br><span class="line">   arr1 = arr;</span><br><span class="line">arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="built_in">document</span>.write(arr1); <span class="comment">// [1, 2]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="typeof-操作符"><a href="#typeof-操作符" class="headerlink" title="typeof 操作符"></a>typeof 操作符</h2><p>作用：区分数据类型（六种）</p>
+<ul>
+<li>number</li>
+<li>string</li>
+<li>boolean</li>
+<li>undefined</li>
+<li>object（泛指引用值，数组 array 和 null 都属于此类）</li>
+<li>function  </li>
+</ul>
+<p>原始值：<code>number/string/boolean/undefined/null</code></p>
+<p>引用值：<code>array/object/function</code></p>
+<blockquote>
+<p>null 最初是作为代替空对象的形式出现（给对象占位），所以它的数据类型是 object</p>
+</blockquote>
+<p>写法：<code>typeof()</code> 或者 <code>typeof 内容</code></p>
+   <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num)); <span class="comment">// function</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> mul = <span class="literal">null</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> mul); <span class="comment">// object</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [];</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(arr)); <span class="comment">// objcet</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>任何变量未经声明就使用的话，会直接报错。<br>如果放入 typeof 操作符中，不会报错，会直接返回<code>undefined</code>。<br>这个返回值<code>undefined</code>的类型是字符串。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(a),<span class="keyword">typeof</span>(<span class="keyword">typeof</span>(a))); <span class="comment">// undefined string</span></span><br></pre></td></tr></table></figure>
+
+<p>任何情况下，返回的六种类型的值都是字符串类型。</p>
+   <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'abc'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(str), <span class="keyword">typeof</span>(<span class="keyword">typeof</span>(str))); <span class="comment">// string string</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> bool = <span class="literal">true</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(bool), <span class="keyword">typeof</span>(<span class="keyword">typeof</span>(bool))); <span class="comment">// boolean string</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">7</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num), <span class="keyword">typeof</span>(<span class="keyword">typeof</span>(num))); <span class="comment">// number string</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> obj, <span class="keyword">typeof</span>(<span class="keyword">typeof</span> obj)); <span class="comment">// object string</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> fn, <span class="keyword">typeof</span>(<span class="keyword">typeof</span> fn)); <span class="comment">// function string</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="literal">undefined</span>, <span class="keyword">typeof</span>(<span class="keyword">typeof</span> <span class="literal">undefined</span>)); <span class="comment">// undefined string</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><h3 id="显示"><a href="#显示" class="headerlink" title="显示"></a>显示</h3><p>Number( )：将括号里的内容转换成数字/数。</p>
+<ul>
+<li><code>undefined、字符串（除了字符串类型的数字）、NaN-&gt; NaN</code> </li>
+<li><code>true -&gt; 1</code></li>
+<li><code>false、&quot;&quot;、null -&gt; 0</code></li>
+<li><code>&quot;123&quot; -&gt; 123（字符串类型的数字直接转换类型，数值不变）</code></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="built_in">Number</span>(<span class="literal">true</span>); <span class="comment">// 布尔类型</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num),num); <span class="comment">// number 1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">Number</span>(<span class="string">'true'</span>); <span class="comment">// 字符串类型</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num),num); <span class="comment">// number NaN</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="string">'123abc'</span>)); <span class="comment">// NaN</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="literal">null</span>)); <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+
+<p>parseInt (string, radix)：（integer：整数）</p>
+<ul>
+<li>第一个作用：string 参数，转换成整值（如果前面是数字，从数字位开始看，直到非数字位截止，返回数字位）</li>
+<li>第二个作用：radix 进制，以此进制为基底，将值转换为十进制，取值：2～36，选填。划重点：你填的多少，进制就是多少。从你填的转为十进制。目标进制（你填写的进制） &lt;==&gt; 十进制</li>
+<li>常见转换：<ul>
+<li><code>&quot;123.7&quot;-&gt; 123</code> </li>
+<li><code>&quot;123abc&quot; -&gt; 123（首位是数字的话，从数字位开始看，在非数字位截断）</code></li>
+<li><code>其他 -&gt; NaN</code></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="built_in">parseInt</span>(<span class="literal">true</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num) + <span class="string">': '</span> + num); <span class="comment">// number: NaN</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">'123.9'</span>)); <span class="comment">// 123</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">'123abc'</span>)); <span class="comment">// 123</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">parseInt</span>(<span class="string">'abc123'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num) + <span class="string">': '</span> + num); <span class="comment">// number: NaN</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">parseInt</span>(<span class="string">'a'</span>,<span class="number">16</span>); <span class="comment">// a 目前为十六进制数，要转化为十进制数</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num) + <span class="string">': '</span> + num); <span class="comment">// number: 10</span></span><br></pre></td></tr></table></figure>
+
+<p>parseFloat(string)：类似 parseInt 方法，转换成浮点数（正常的小数）。</p>
+   <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="built_in">parseFloat</span>(<span class="string">'123.45'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num) + <span class="string">': '</span> + num); <span class="comment">// number: 123.45</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">parseFloat</span>(<span class="string">'123.45abc'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num) + <span class="string">': '</span> + num); <span class="comment">// number: 123.45</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">parseFloat</span>(<span class="string">'abc123.45'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num) + <span class="string">': '</span> + num); <span class="comment">// number : NaN</span></span><br></pre></td></tr></table></figure>
+
+<p>参数.toString(radix)：将参数转换成字符串</p>
+<ul>
+<li>radix 进制，以十进制为基底，转换成填写的进制，选填。<br>十进制&lt;==&gt;目标进制（你填写的进制）划重点：你填的多少，就是想要多少。从十进制转为你填的。</li>
+<li>undefined 和 null 不能用该方法，使用会直接报错（因为它俩没有原型，而其他原始值经过包装类后成为原始值对象，都有原型）</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> demo = <span class="number">123</span>;</span><br><span class="line"><span class="keyword">var</span> num = demo.toString();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num) + <span class="string">': '</span> + num); <span class="comment">// string: 123</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> demo = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> num = demo.toString(<span class="number">16</span>);<span class="comment">// 10 目前为十进制数，要转化为十六进制</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num) + <span class="string">': '</span> + num); <span class="comment">// string: a</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如果直接使用<code>123.toString()</code>是不可以的，会直接报错。因为系统会首先将这个语句识别为浮点型，数学计算的点<code>.</code>优先级最高，所以识别成浮点数，小数点后是字母是肯定报错的。</p>
+</blockquote>
+   <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">123.</span>toString();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 报错，Uncaught SyntaxError: Invalid or unexpected token</span></span><br></pre></td></tr></table></figure>
+
+<p>String( )：将括号里的内容转换成字符串</p>
+   <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="built_in">String</span>(<span class="number">123</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num) + <span class="string">': '</span> + num); <span class="comment">// string: 123</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">String</span>(<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num)+<span class="string">': '</span>+num); <span class="comment">// string: true</span></span><br></pre></td></tr></table></figure>
+
+<p>Boolean( )：转换成布尔值</p>
+<ul>
+<li>undefined / null / NaN / “” / 0 / false  -&gt; false </li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="built_in">Boolean</span>(<span class="string">''</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num) + <span class="string">': '</span> + num); <span class="comment">// boolean: false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">Boolean</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num) + <span class="string">': '</span> + num); <span class="comment">// boolean: false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">Boolean</span>(<span class="string">'0'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num) + <span class="string">': '</span> + num); <span class="comment">// boolean: true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="隐式"><a href="#隐式" class="headerlink" title="隐式"></a>隐式</h3><p>内部原理：调用显示类型转换。原理：调用 Number( ) 方法转为数字，然后和 NaN 比对。</p>
+<p><code>isNaN()</code> ：判断参数是不是 NaN，返回结果为 boolean 类型。</p>
+<ul>
+<li>常用转换：NaN / undefined / 字符串（除了字符串类型的数字） -&gt; NaN</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="literal">NaN</span>)); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="number">123</span>)); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="string">'123'</span>)); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="string">'aa'</span>)); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="literal">undefined</span>)); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="literal">null</span>)); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<p><code>++/--</code>、<code>+/-</code>（一元正负）：转换为 number 类型。</p>
+<ul>
+<li>原理：调用 Number( )。</li>
+<li>一元正负，只有一边有参数，如”+ a” / “- b”</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">'abc'</span>;</span><br><span class="line">a++;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(a), a);<span class="comment">// number NaN</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = <span class="string">'123'</span>;</span><br><span class="line">b++;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(b), b);<span class="comment">// number 124</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c = <span class="literal">null</span>;</span><br><span class="line">c--;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(c), c);<span class="comment">// number -1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> d = +<span class="string">'abc'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(d), d);<span class="comment">//number NaN</span></span><br></pre></td></tr></table></figure>
+
+<p><code>+</code> (加号)：</p>
+<ul>
+<li>若加号两边存在一个字符串，将另一个也转为字符串，转为 string 类型。调用 String 方法。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span> +<span class="string">'abc'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(a), a);<span class="comment">// string 1abc</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>其他情况下（number / undefined / null / boolean），转为 number 类型。调用 Number 方法。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="literal">false</span> + <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(a), a);<span class="comment">// number 1</span></span><br></pre></td></tr></table></figure>
+
+<p><code>-、*、/、%</code>：转为 number 类型。原理：调用 Number 方法</p>
+   <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">'1'</span> * <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(a), a);<span class="comment">// number 1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = <span class="literal">null</span> / <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(b), b);<span class="comment">// number 0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c = <span class="string">'abc'</span> - <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(c), c);<span class="comment">// number NaN</span></span><br></pre></td></tr></table></figure>
+
+<p><code>&amp;&amp;、||</code>：过程中转为 boolean 类型进行比较，结果返回表达式的值（值本身是什么类型就返回什么类型）。</p>
+<p><code>!</code>：结果返回 boolean 类型。</p>
+   <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="string">'abc'</span> &amp;&amp; <span class="number">2</span>; </span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num), num);<span class="comment">// number 2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="string">'abc'</span> &amp;&amp; <span class="string">'def'</span>; </span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num), num);<span class="comment">// string def</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="literal">null</span> &amp;&amp; <span class="number">4</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num), num);<span class="comment">// object null</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = !!<span class="string">'a'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num), num);<span class="comment">// boolean true</span></span><br></pre></td></tr></table></figure>
+
+<p><code>&lt;、&gt;、&lt;=、&gt;=</code> ：</p>
+<ul>
+<li>两边都是字符串时，比较 asc 码，返回 boolean 类型。</li>
+<li>其他情况下，调用 Number( )，先转换为数字进行比较，结果返回 boolean 类型。</li>
+<li>undefined 和 null 除外，见特殊情况。</li>
+</ul>
+<p><code>==、!=</code> ：若两边均为对象，对比它们的引用是否相同，返回 boolean 类型。其他情况下，调用 Number 方法，两边转为数字进行比较，结果返回 boolean 类型。</p>
+   <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 引用值，两个不同的地址引用（不同房间）：</span></span><br><span class="line"><span class="built_in">console</span>.log(&#123;&#125; == &#123;&#125;); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 同一个地址引用：</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> obj1 = obj;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj == obj1); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>特殊情况：</p>
+<ul>
+<li>undefined 和 null 既不大于 0，也不小于 0，更不等于 0。</li>
+<li><code>undefined == null</code></li>
+<li><code>NaN !== NaN</code></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="literal">undefined</span> &gt; <span class="number">0</span>); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">undefined</span> &lt; <span class="number">0</span>); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">undefined</span> == <span class="number">0</span>); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">null</span> &gt; <span class="number">0</span>); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">null</span> &lt; <span class="number">0</span>); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">null</span> == <span class="number">0</span>); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">undefined</span> == <span class="literal">null</span>);<span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">NaN</span> == <span class="literal">NaN</span>);<span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<p>例：</p>
+   <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// false == 0, true == 1, 0 &gt; 1 -&gt; false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">false</span> &gt; <span class="literal">true</span>); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 先判断 1 &gt; 10 -&gt; false, false == 0, 0 &gt; 0 -&gt; false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span> &gt; <span class="number">10</span> &gt; <span class="number">0</span>); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2 &gt; 3 -&gt; false, false == 0, 0 &lt; 1 -&gt; true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">2</span> &gt; <span class="number">3</span> &lt; <span class="number">1</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>不发生类型转换：</p>
+<ul>
+<li><code>===</code></li>
+<li><code>!==</code></li>
+</ul>
+<h3 id="常用转换汇总"><a href="#常用转换汇总" class="headerlink" title="常用转换汇总"></a>常用转换汇总</h3><p>Boolean()：undefined、null、NaN、””、0、false  -&gt; false</p>
+<p>Number()：（千方百计变成数字）</p>
+<ul>
+<li>undefined / 字符串（除了字符串类型的数字）/ NaN -&gt; NaN</li>
+<li>true -&gt; 1</li>
+<li>false / “” / null -&gt; 0</li>
+<li>“123” -&gt; 123 （字符串类型的数字直接转换类型，数值不变）</li>
+</ul>
+<p>parseInt (string, radix)：（只要整数，不管其他）</p>
+<ul>
+<li>“123.7” -&gt; 123</li>
+<li>“123abc” -&gt; 123（首位是数字的话，从数字位开始看，在非数字位截断）</li>
+<li>其他 -&gt; NaN</li>
+</ul>
+<p>例 1：关于 parseInt() 方法</p>
+   <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">parseInt</span>(<span class="string">'123abc'</span>), <span class="built_in">parseInt</span>(<span class="string">'123abc'</span>)); <span class="comment">// number 123</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">'123.7'</span>)); <span class="comment">// 123</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">parseInt</span>(<span class="literal">undefined</span>), <span class="built_in">parseInt</span>(<span class="literal">undefined</span>)); <span class="comment">// number NaN</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="literal">null</span>)); <span class="comment">// NaN</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="literal">NaN</span>)); <span class="comment">// NaN</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">'abc123'</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">''</span>)); <span class="comment">// NaN</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="literal">true</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="literal">false</span>)); <span class="comment">// NaN</span></span><br></pre></td></tr></table></figure>
+
+
+<p>例 2：</p>
+   <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="literal">false</span> + <span class="number">1</span>; </span><br><span class="line"><span class="comment">// 0 + 1</span></span><br><span class="line"><span class="built_in">console</span>.log(str); <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> demo = <span class="literal">false</span> == <span class="number">1</span>; </span><br><span class="line"><span class="comment">// 0 !== 1 -&gt; false</span></span><br><span class="line"><span class="built_in">console</span>.log(demo); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">11</span> + <span class="string">'11'</span> * <span class="number">2</span> == <span class="number">33</span>);<span class="comment">// true</span></span><br><span class="line"><span class="comment">//          11 + 		22</span></span><br></pre></td></tr></table></figure>
+
+<p>例 3:</p>
+   <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(a) &amp;&amp; -<span class="literal">true</span> + (+<span class="literal">undefined</span>) + <span class="string">''</span>); <span class="comment">// 'NaN'</span></span><br><span class="line"><span class="comment">// 左边：typeof(a) -&gt; 'undefined'</span></span><br><span class="line"><span class="comment">// &amp;&amp; 优先级低于算术运算符，放在最后处理</span></span><br><span class="line"><span class="comment">// 右边：-true + (+undefined) + '' -&gt; -1 + NaN + '' -&gt; NaN + '' -&gt; 'NaN'</span></span><br><span class="line"><span class="comment">// 'undefined' &amp;&amp; 'NaN'</span></span><br><span class="line"><span class="comment">// 一真返二</span></span><br><span class="line"><span class="comment">// 'NaN'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">typeof</span>(a) &amp;&amp; -<span class="literal">true</span> + (+<span class="literal">undefined</span>) + <span class="string">''</span>)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'是否能输出'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 条件内返回的是字符串的'NaN'，为 true，可以执行</span></span><br></pre></td></tr></table></figure>
+
+<p>例 4:</p>
+   <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">!!<span class="string">' '</span> + !!<span class="string">''</span> - !!<span class="literal">false</span> || <span class="built_in">console</span>.log(<span class="string">'能吗？'</span>);</span><br><span class="line"><span class="comment">// 左边：true + false - false -&gt; 1 + 0 - 0 = 1</span></span><br><span class="line"><span class="comment">// 1 为真，会直接返回 1，|| 后面的语句不会执行</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="进制"><a href="#进制" class="headerlink" title="进制"></a>进制</h2><h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>进制也就是进位计数制，是人为定义的带进位的计数方法。对于任何一种进制—— X 进制，就表示每一位置上的数运算时都是逢 X 进一位。 </p>
+<p>十进制是逢十进一，十六进制是逢十六进一，二进制就是逢二进一，以此类推，X 进制就是逢 X 进位。</p>
+<p>比如十六进制：1, 2, 3, 4, 5, 6, 7, 8, 9, a, b, c, d, e, f。如果 f + 1，那么按照逢十六进一的规则，个位数变为 0，然后向前进一位，十位数变为 1。那么：f + 1 = 10，这里的 10（一零），就代表十进制里的 16。</p>
+<p>比如二进制：0, 1。如果 1 + 1，按照逢二进一的规则，个位数变为 0 ，十位数变为 1，1 + 1 = 10，这里的 10（一零），代表十进制里的 2。</p>
+<h3 id="转换"><a href="#转换" class="headerlink" title="转换"></a>转换</h3><blockquote>
+<p>十进制 -&gt; X 进制：除。数除以 X，得商，接着用商除 X，直到商为 0，余数倒过来写。<br>X 进制 -&gt; 十进制：乘。从数的个位开始，依次乘以 X 的 0 次方，1 次方……，最后加起来。</p>
+</blockquote>
+<p>十进制 -&gt; 十六进制</p>
+   <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">10 进制数：33</span><br><span class="line"></span><br><span class="line">33 / 16 = 2 ...... 1</span><br><span class="line"> 2 / 16 = 0 ...... 2</span><br><span class="line"></span><br><span class="line">转换成 16 进制数：21</span><br></pre></td></tr></table></figure>
+
+<p>十六进制 -&gt; 十进制</p>
+   <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">16 进制数：21</span><br><span class="line"></span><br><span class="line">1 * 16⁰ + 2 * 16¹ = 33</span><br><span class="line"></span><br><span class="line">转换成 10 进制数：33</span><br></pre></td></tr></table></figure>
+
+<p>十进制 -&gt; 八进制</p>
+   <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">10 进制数：19</span><br><span class="line"></span><br><span class="line">19 / 8 = 2 ...... 3</span><br><span class="line"> 2 / 8 = 0 ...... 2</span><br><span class="line"></span><br><span class="line">转换成 8 进制数：23</span><br></pre></td></tr></table></figure>
+
+<p>八进制 -&gt; 十进制<br>   <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">8 进制数：23</span><br><span class="line"></span><br><span class="line">3 * 8⁰ + 2 * 8¹ = 19</span><br><span class="line"></span><br><span class="line">转换成 10 进制数：19</span><br></pre></td></tr></table></figure></p>
+<p>十进制 -&gt; 二进制<br>   <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">10 进制数：46</span><br><span class="line"></span><br><span class="line">46 / 2 = 23 ...... 0</span><br><span class="line">23 / 2 = 11 ...... 1</span><br><span class="line">11 / 2 =  5 ...... 1</span><br><span class="line">5  / 2 =  2 ...... 1</span><br><span class="line">2  / 2 =  1 ...... 0</span><br><span class="line">1  / 2 =  0 ...... 1</span><br><span class="line"></span><br><span class="line">转换成 2 进制数：101110</span><br></pre></td></tr></table></figure></p>
+<p>二进制 -&gt; 十进制<br>   <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">2 进制数：101110</span><br><span class="line"></span><br><span class="line">0 * 2⁰ + 1 * 2¹ + 1 * 2² + 1 * 2³ + 0 * 2⁴ + 1 * 2⁵ = 46</span><br><span class="line"></span><br><span class="line">转换成 10 进制数：46</span><br></pre></td></tr></table></figure></p>
 ]]></content>
       <categories>
         <category>JavaScript</category>
@@ -556,240 +790,6 @@
 <p>这样就实现了私有化。</p>
    <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">Deng</span>(<span class="params">name, wife</span>)</span>&#123;</span><br><span class="line">     </span><br><span class="line">     <span class="keyword">var</span> prepareWife = <span class="string">'zhang'</span>; <span class="comment">// 构造函数内声明并赋值的变量</span></span><br><span class="line"></span><br><span class="line">     <span class="keyword">this</span>.name = name;</span><br><span class="line">     <span class="keyword">this</span>.wife = wife;</span><br><span class="line">     <span class="keyword">this</span>.divorce = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">         <span class="keyword">this</span>.wife = prepareWife;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">this</span>.changePrepareWife = <span class="function"><span class="keyword">function</span> (<span class="params">target</span>) </span>&#123;</span><br><span class="line">         prepareWife = target;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">this</span>.sayPrepareWife = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">         <span class="built_in">console</span>.log(prepareWife);</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> deng = <span class="keyword">new</span> Deng(<span class="string">'deng'</span>, <span class="string">'liu'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(deng.prepareWife); <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line">deng.sayPrepareWife(); <span class="comment">// zhang</span></span><br></pre></td></tr></table></figure>
 <h4 id="模块化开发"><a href="#模块化开发" class="headerlink" title="模块化开发"></a>模块化开发</h4><p>实现模块化开发，防止污染全局变量。（详见命名空间）</p>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-        <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JavaScript笔记(二)数据类型</title>
-    <url>/post/5714/</url>
-    <content><![CDATA[<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="原始值"><a href="#原始值" class="headerlink" title="原始值"></a>原始值</h3><p>不可改变， 存储在 stack（栈）：先进的后出来。</p>
-<p>值类型：</p>
-<ol>
-<li>Number — 数字</li>
-<li>Boolean — 布尔</li>
-<li>String — 字符串</li>
-<li>undefined — 未定义（未被赋值的变量值输出时会有这个结果）</li>
-<li>null — 空（可以用来占位）</li>
-</ol>
-<h3 id="引用值"><a href="#引用值" class="headerlink" title="引用值"></a>引用值</h3><p>存储在 heap（堆）：怎么进的怎么出。</p>
-<p>值类型：</p>
-<ol>
-<li>Array — 数组</li>
-<li>Object — 对象</li>
-<li>Function — 函数</li>
-<li>RegExp — 正则</li>
-<li>Date — 日期</li>
-</ol>
-<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><p>原始值和引用值唯一的不同是赋值形式不同。</p>
-<p>原始值以值的拷贝方式赋值，原值是不可变的。操作都在副本上。引用值以引用的拷贝方式赋值，原值是可变的。引用的是地址，操作还是在原来的地方，除非换一个地址（赋新值）。</p>
-<h4 id="原始值-1"><a href="#原始值-1" class="headerlink" title="原始值"></a>原始值</h4><p>一旦赋值，不可更改。无论是原值增删，还是新的赋值，都会直接存放到新的地方，原值不动。在操作上，表现为原始值和对应栈名复制一份到新的地方，同时之前的对应栈名初始化，值不动，增删和新赋值都在副本上进行。如：</p>
-<ul>
-<li>在栈内存中声明一个叫 num 的房间，放入值 1</li>
-<li>在栈内存中声明一个叫 num1 的房间，拷贝 num 的值 1 放入 num1</li>
-<li>将 num 及其值 1 拷贝到一个新的房间，然后修改值为 2，原来的房间名初始化为 1005，原值 1 依然留在该房间，不会发生变化</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">1</span>,</span><br><span class="line">      num1 = num;</span><br><span class="line">num = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num1); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="引用值-1"><a href="#引用值-1" class="headerlink" title="引用值"></a>引用值</h4><p>赋值之后，如果是在原值上增删，会直接修改原值。如果是新的赋值，就会直接存放到新的地方，原值不动。</p>
-<p>原值增删：</p>
-<ul>
-<li>在栈内存中声明一个叫 arr 的房间，在堆内存中一个房间里放入值 [1, 2]，然后 arr 房间内放入这个值的==堆内存地址==<code>heap1001</code></li>
-<li>在栈内存中声明一个叫 arr1 的房间，然后直接拷贝 arr 房间内存放的地址<code>heap1001</code>，获得 arr 的值</li>
-<li>此时 arr 与 arr1 指向同一个值的地址<code>heap1001</code></li>
-<li>arr 增加新值 3，直接在<code>heap1001</code>存放的值里增加，变为 [1, 2, 3]</li>
-<li>此时 arr 与 arr1 共同指向的值变为 [1, 2, 3]</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>],</span><br><span class="line">   arr1 = arr;</span><br><span class="line">arr.push(<span class="number">3</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.write(arr1); <span class="comment">// [1, 2, 3]</span></span><br></pre></td></tr></table></figure>
-
-<p>赋新值：</p>
-<ul>
-<li>在栈内存中声明一个叫 arr 的房间，在堆内存中一个房间里放入值 [1, 2]，然后 arr 房间内放入堆内存地址<code>heap1001</code></li>
-<li>在栈内存中声明一个叫 arr1 的房间，然后直接拷贝 arr 房间内存放的地址，获得 arr 的值</li>
-<li>此时 arr 与 arr1 指向同一个值的地址<code>heap1001</code></li>
-<li>arr 赋新值，在堆内存中另一个房间里放入新值 [1, 2, 3]，然后 arr 房间内删除原来的地址<code>heap1001</code>，放入这个新值的堆内存地址<code>heap1002</code></li>
-<li>此时 arr 指向的值为 [1, 2, 3]，arr1 指向的值为 [1, 2]</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>],</span><br><span class="line">   arr1 = arr;</span><br><span class="line">arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="built_in">document</span>.write(arr1); <span class="comment">// [1, 2]</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="typeof-操作符"><a href="#typeof-操作符" class="headerlink" title="typeof 操作符"></a>typeof 操作符</h2><p>作用：区分数据类型（六种）</p>
-<ul>
-<li>number</li>
-<li>string</li>
-<li>boolean</li>
-<li>undefined</li>
-<li>object（泛指引用值，数组 array 和 null 都属于此类）</li>
-<li>function  </li>
-</ul>
-<p>原始值：<code>number/string/boolean/undefined/null</code></p>
-<p>引用值：<code>array/object/function</code></p>
-<blockquote>
-<p>null 最初是作为代替空对象的形式出现（给对象占位），所以它的数据类型是 object</p>
-</blockquote>
-<p>写法：<code>typeof()</code> 或者 <code>typeof 内容</code></p>
-   <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num)); <span class="comment">// function</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> mul = <span class="literal">null</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> mul); <span class="comment">// object</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [];</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(arr)); <span class="comment">// objcet</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>任何变量未经声明就使用的话，会直接报错。<br>如果放入 typeof 操作符中，不会报错，会直接返回<code>undefined</code>。<br>这个返回值<code>undefined</code>的类型是字符串。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(a),<span class="keyword">typeof</span>(<span class="keyword">typeof</span>(a))); <span class="comment">// undefined string</span></span><br></pre></td></tr></table></figure>
-
-<p>任何情况下，返回的六种类型的值都是字符串类型。</p>
-   <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'abc'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(str), <span class="keyword">typeof</span>(<span class="keyword">typeof</span>(str))); <span class="comment">// string string</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> bool = <span class="literal">true</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(bool), <span class="keyword">typeof</span>(<span class="keyword">typeof</span>(bool))); <span class="comment">// boolean string</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">7</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num), <span class="keyword">typeof</span>(<span class="keyword">typeof</span>(num))); <span class="comment">// number string</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> obj, <span class="keyword">typeof</span>(<span class="keyword">typeof</span> obj)); <span class="comment">// object string</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> fn, <span class="keyword">typeof</span>(<span class="keyword">typeof</span> fn)); <span class="comment">// function string</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="literal">undefined</span>, <span class="keyword">typeof</span>(<span class="keyword">typeof</span> <span class="literal">undefined</span>)); <span class="comment">// undefined string</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><h3 id="显示"><a href="#显示" class="headerlink" title="显示"></a>显示</h3><p>Number( )：将括号里的内容转换成数字/数。</p>
-<ul>
-<li><code>undefined、字符串（除了字符串类型的数字）、NaN-&gt; NaN</code> </li>
-<li><code>true -&gt; 1</code></li>
-<li><code>false、&quot;&quot;、null -&gt; 0</code></li>
-<li><code>&quot;123&quot; -&gt; 123（字符串类型的数字直接转换类型，数值不变）</code></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="built_in">Number</span>(<span class="literal">true</span>); <span class="comment">// 布尔类型</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num),num); <span class="comment">// number 1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">Number</span>(<span class="string">'true'</span>); <span class="comment">// 字符串类型</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num),num); <span class="comment">// number NaN</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="string">'123abc'</span>)); <span class="comment">// NaN</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="literal">null</span>)); <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
-
-<p>parseInt (string, radix)：（integer：整数）</p>
-<ul>
-<li>第一个作用：string 参数，转换成整值（如果前面是数字，从数字位开始看，直到非数字位截止，返回数字位）</li>
-<li>第二个作用：radix 进制，以此进制为基底，将值转换为十进制，取值：2～36，选填。划重点：你填的多少，进制就是多少。从你填的转为十进制。目标进制（你填写的进制） &lt;==&gt; 十进制</li>
-<li>常见转换：<ul>
-<li><code>&quot;123.7&quot;-&gt; 123</code> </li>
-<li><code>&quot;123abc&quot; -&gt; 123（首位是数字的话，从数字位开始看，在非数字位截断）</code></li>
-<li><code>其他 -&gt; NaN</code></li>
-</ul>
-</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="built_in">parseInt</span>(<span class="literal">true</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num) + <span class="string">': '</span> + num); <span class="comment">// number: NaN</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">'123.9'</span>)); <span class="comment">// 123</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">'123abc'</span>)); <span class="comment">// 123</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">parseInt</span>(<span class="string">'abc123'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num) + <span class="string">': '</span> + num); <span class="comment">// number: NaN</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">parseInt</span>(<span class="string">'a'</span>,<span class="number">16</span>); <span class="comment">// a 目前为十六进制数，要转化为十进制数</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num) + <span class="string">': '</span> + num); <span class="comment">// number: 10</span></span><br></pre></td></tr></table></figure>
-
-<p>parseFloat(string)：类似 parseInt 方法，转换成浮点数（正常的小数）。</p>
-   <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="built_in">parseFloat</span>(<span class="string">'123.45'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num) + <span class="string">': '</span> + num); <span class="comment">// number: 123.45</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">parseFloat</span>(<span class="string">'123.45abc'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num) + <span class="string">': '</span> + num); <span class="comment">// number: 123.45</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">parseFloat</span>(<span class="string">'abc123.45'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num) + <span class="string">': '</span> + num); <span class="comment">// number : NaN</span></span><br></pre></td></tr></table></figure>
-
-<p>参数.toString(radix)：将参数转换成字符串</p>
-<ul>
-<li>radix 进制，以十进制为基底，转换成填写的进制，选填。<br>十进制&lt;==&gt;目标进制（你填写的进制）划重点：你填的多少，就是想要多少。从十进制转为你填的。</li>
-<li>undefined 和 null 不能用该方法，使用会直接报错（因为它俩没有原型，而其他原始值经过包装类后成为原始值对象，都有原型）</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> demo = <span class="number">123</span>;</span><br><span class="line"><span class="keyword">var</span> num = demo.toString();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num) + <span class="string">': '</span> + num); <span class="comment">// string: 123</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> demo = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> num = demo.toString(<span class="number">16</span>);<span class="comment">// 10 目前为十进制数，要转化为十六进制</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num) + <span class="string">': '</span> + num); <span class="comment">// string: a</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>如果直接使用<code>123.toString()</code>是不可以的，会直接报错。因为系统会首先将这个语句识别为浮点型，数学计算的点<code>.</code>优先级最高，所以识别成浮点数，小数点后是字母是肯定报错的。</p>
-</blockquote>
-   <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">123.</span>toString();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 报错，Uncaught SyntaxError: Invalid or unexpected token</span></span><br></pre></td></tr></table></figure>
-
-<p>String( )：将括号里的内容转换成字符串</p>
-   <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="built_in">String</span>(<span class="number">123</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num) + <span class="string">': '</span> + num); <span class="comment">// string: 123</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">String</span>(<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num)+<span class="string">': '</span>+num); <span class="comment">// string: true</span></span><br></pre></td></tr></table></figure>
-
-<p>Boolean( )：转换成布尔值</p>
-<ul>
-<li>undefined / null / NaN / “” / 0 / false  -&gt; false </li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="built_in">Boolean</span>(<span class="string">''</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num) + <span class="string">': '</span> + num); <span class="comment">// boolean: false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">Boolean</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num) + <span class="string">': '</span> + num); <span class="comment">// boolean: false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">Boolean</span>(<span class="string">'0'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num) + <span class="string">': '</span> + num); <span class="comment">// boolean: true</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="隐式"><a href="#隐式" class="headerlink" title="隐式"></a>隐式</h3><p>内部原理：调用显示类型转换。原理：调用 Number( ) 方法转为数字，然后和 NaN 比对。</p>
-<p><code>isNaN()</code> ：判断参数是不是 NaN，返回结果为 boolean 类型。</p>
-<ul>
-<li>常用转换：NaN / undefined / 字符串（除了字符串类型的数字） -&gt; NaN</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="literal">NaN</span>)); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="number">123</span>)); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="string">'123'</span>)); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="string">'aa'</span>)); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="literal">undefined</span>)); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="literal">null</span>)); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-
-<p><code>++/--</code>、<code>+/-</code>（一元正负）：转换为 number 类型。</p>
-<ul>
-<li>原理：调用 Number( )。</li>
-<li>一元正负，只有一边有参数，如”+ a” / “- b”</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">'abc'</span>;</span><br><span class="line">a++;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(a), a);<span class="comment">// number NaN</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = <span class="string">'123'</span>;</span><br><span class="line">b++;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(b), b);<span class="comment">// number 124</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c = <span class="literal">null</span>;</span><br><span class="line">c--;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(c), c);<span class="comment">// number -1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> d = +<span class="string">'abc'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(d), d);<span class="comment">//number NaN</span></span><br></pre></td></tr></table></figure>
-
-<p><code>+</code> (加号)：</p>
-<ul>
-<li>若加号两边存在一个字符串，将另一个也转为字符串，转为 string 类型。调用 String 方法。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span> +<span class="string">'abc'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(a), a);<span class="comment">// string 1abc</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>其他情况下（number / undefined / null / boolean），转为 number 类型。调用 Number 方法。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="literal">false</span> + <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(a), a);<span class="comment">// number 1</span></span><br></pre></td></tr></table></figure>
-
-<p><code>-、*、/、%</code>：转为 number 类型。原理：调用 Number 方法</p>
-   <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">'1'</span> * <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(a), a);<span class="comment">// number 1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = <span class="literal">null</span> / <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(b), b);<span class="comment">// number 0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c = <span class="string">'abc'</span> - <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(c), c);<span class="comment">// number NaN</span></span><br></pre></td></tr></table></figure>
-
-<p><code>&amp;&amp;、||</code>：过程中转为 boolean 类型进行比较，结果返回表达式的值（值本身是什么类型就返回什么类型）。</p>
-<p><code>!</code>：结果返回 boolean 类型。</p>
-   <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="string">'abc'</span> &amp;&amp; <span class="number">2</span>; </span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num), num);<span class="comment">// number 2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="string">'abc'</span> &amp;&amp; <span class="string">'def'</span>; </span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num), num);<span class="comment">// string def</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="literal">null</span> &amp;&amp; <span class="number">4</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num), num);<span class="comment">// object null</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = !!<span class="string">'a'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(num), num);<span class="comment">// boolean true</span></span><br></pre></td></tr></table></figure>
-
-<p><code>&lt;、&gt;、&lt;=、&gt;=</code> ：</p>
-<ul>
-<li>两边都是字符串时，比较 asc 码，返回 boolean 类型。</li>
-<li>其他情况下，调用 Number( )，先转换为数字进行比较，结果返回 boolean 类型。</li>
-<li>undefined 和 null 除外，见特殊情况。</li>
-</ul>
-<p><code>==、!=</code> ：若两边均为对象，对比它们的引用是否相同，返回 boolean 类型。其他情况下，调用 Number 方法，两边转为数字进行比较，结果返回 boolean 类型。</p>
-   <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 引用值，两个不同的地址引用（不同房间）：</span></span><br><span class="line"><span class="built_in">console</span>.log(&#123;&#125; == &#123;&#125;); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 同一个地址引用：</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> obj1 = obj;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj == obj1); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-<p>特殊情况：</p>
-<ul>
-<li>undefined 和 null 既不大于 0，也不小于 0，更不等于 0。</li>
-<li><code>undefined == null</code></li>
-<li><code>NaN !== NaN</code></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="literal">undefined</span> &gt; <span class="number">0</span>); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">undefined</span> &lt; <span class="number">0</span>); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">undefined</span> == <span class="number">0</span>); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">null</span> &gt; <span class="number">0</span>); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">null</span> &lt; <span class="number">0</span>); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">null</span> == <span class="number">0</span>); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">undefined</span> == <span class="literal">null</span>);<span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">NaN</span> == <span class="literal">NaN</span>);<span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-
-<p>例：</p>
-   <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// false == 0, true == 1, 0 &gt; 1 -&gt; false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">false</span> &gt; <span class="literal">true</span>); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 先判断 1 &gt; 10 -&gt; false, false == 0, 0 &gt; 0 -&gt; false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span> &gt; <span class="number">10</span> &gt; <span class="number">0</span>); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2 &gt; 3 -&gt; false, false == 0, 0 &lt; 1 -&gt; true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">2</span> &gt; <span class="number">3</span> &lt; <span class="number">1</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-<p>不发生类型转换：</p>
-<ul>
-<li><code>===</code></li>
-<li><code>!==</code></li>
-</ul>
-<h3 id="常用转换汇总"><a href="#常用转换汇总" class="headerlink" title="常用转换汇总"></a>常用转换汇总</h3><p>Boolean()：undefined、null、NaN、””、0、false  -&gt; false</p>
-<p>Number()：（千方百计变成数字）</p>
-<ul>
-<li>undefined / 字符串（除了字符串类型的数字）/ NaN -&gt; NaN</li>
-<li>true -&gt; 1</li>
-<li>false / “” / null -&gt; 0</li>
-<li>“123” -&gt; 123 （字符串类型的数字直接转换类型，数值不变）</li>
-</ul>
-<p>parseInt (string, radix)：（只要整数，不管其他）</p>
-<ul>
-<li>“123.7” -&gt; 123</li>
-<li>“123abc” -&gt; 123（首位是数字的话，从数字位开始看，在非数字位截断）</li>
-<li>其他 -&gt; NaN</li>
-</ul>
-<p>例 1：关于 parseInt() 方法</p>
-   <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">parseInt</span>(<span class="string">'123abc'</span>), <span class="built_in">parseInt</span>(<span class="string">'123abc'</span>)); <span class="comment">// number 123</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">'123.7'</span>)); <span class="comment">// 123</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">parseInt</span>(<span class="literal">undefined</span>), <span class="built_in">parseInt</span>(<span class="literal">undefined</span>)); <span class="comment">// number NaN</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="literal">null</span>)); <span class="comment">// NaN</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="literal">NaN</span>)); <span class="comment">// NaN</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">'abc123'</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">''</span>)); <span class="comment">// NaN</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="literal">true</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="literal">false</span>)); <span class="comment">// NaN</span></span><br></pre></td></tr></table></figure>
-
-
-<p>例 2：</p>
-   <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="literal">false</span> + <span class="number">1</span>; </span><br><span class="line"><span class="comment">// 0 + 1</span></span><br><span class="line"><span class="built_in">console</span>.log(str); <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> demo = <span class="literal">false</span> == <span class="number">1</span>; </span><br><span class="line"><span class="comment">// 0 !== 1 -&gt; false</span></span><br><span class="line"><span class="built_in">console</span>.log(demo); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">11</span> + <span class="string">'11'</span> * <span class="number">2</span> == <span class="number">33</span>);<span class="comment">// true</span></span><br><span class="line"><span class="comment">//          11 + 		22</span></span><br></pre></td></tr></table></figure>
-
-<p>例 3:</p>
-   <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(a) &amp;&amp; -<span class="literal">true</span> + (+<span class="literal">undefined</span>) + <span class="string">''</span>); <span class="comment">// 'NaN'</span></span><br><span class="line"><span class="comment">// 左边：typeof(a) -&gt; 'undefined'</span></span><br><span class="line"><span class="comment">// &amp;&amp; 优先级低于算术运算符，放在最后处理</span></span><br><span class="line"><span class="comment">// 右边：-true + (+undefined) + '' -&gt; -1 + NaN + '' -&gt; NaN + '' -&gt; 'NaN'</span></span><br><span class="line"><span class="comment">// 'undefined' &amp;&amp; 'NaN'</span></span><br><span class="line"><span class="comment">// 一真返二</span></span><br><span class="line"><span class="comment">// 'NaN'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">typeof</span>(a) &amp;&amp; -<span class="literal">true</span> + (+<span class="literal">undefined</span>) + <span class="string">''</span>)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'是否能输出'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 条件内返回的是字符串的'NaN'，为 true，可以执行</span></span><br></pre></td></tr></table></figure>
-
-<p>例 4:</p>
-   <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">!!<span class="string">' '</span> + !!<span class="string">''</span> - !!<span class="literal">false</span> || <span class="built_in">console</span>.log(<span class="string">'能吗？'</span>);</span><br><span class="line"><span class="comment">// 左边：true + false - false -&gt; 1 + 0 - 0 = 1</span></span><br><span class="line"><span class="comment">// 1 为真，会直接返回 1，|| 后面的语句不会执行</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="进制"><a href="#进制" class="headerlink" title="进制"></a>进制</h2><h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>进制也就是进位计数制，是人为定义的带进位的计数方法。对于任何一种进制—— X 进制，就表示每一位置上的数运算时都是逢 X 进一位。 </p>
-<p>十进制是逢十进一，十六进制是逢十六进一，二进制就是逢二进一，以此类推，X 进制就是逢 X 进位。</p>
-<p>比如十六进制：1, 2, 3, 4, 5, 6, 7, 8, 9, a, b, c, d, e, f。如果 f + 1，那么按照逢十六进一的规则，个位数变为 0，然后向前进一位，十位数变为 1。那么：f + 1 = 10，这里的 10（一零），就代表十进制里的 16。</p>
-<p>比如二进制：0, 1。如果 1 + 1，按照逢二进一的规则，个位数变为 0 ，十位数变为 1，1 + 1 = 10，这里的 10（一零），代表十进制里的 2。</p>
-<h3 id="转换"><a href="#转换" class="headerlink" title="转换"></a>转换</h3><blockquote>
-<p>十进制 -&gt; X 进制：除。数除以 X，得商，接着用商除 X，直到商为 0，余数倒过来写。<br>X 进制 -&gt; 十进制：乘。从数的个位开始，依次乘以 X 的 0 次方，1 次方……，最后加起来。</p>
-</blockquote>
-<p>十进制 -&gt; 十六进制</p>
-   <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">10 进制数：33</span><br><span class="line"></span><br><span class="line">33 / 16 = 2 ...... 1</span><br><span class="line"> 2 / 16 = 0 ...... 2</span><br><span class="line"></span><br><span class="line">转换成 16 进制数：21</span><br></pre></td></tr></table></figure>
-
-<p>十六进制 -&gt; 十进制</p>
-   <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">16 进制数：21</span><br><span class="line"></span><br><span class="line">1 * 16⁰ + 2 * 16¹ = 33</span><br><span class="line"></span><br><span class="line">转换成 10 进制数：33</span><br></pre></td></tr></table></figure>
-
-<p>十进制 -&gt; 八进制</p>
-   <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">10 进制数：19</span><br><span class="line"></span><br><span class="line">19 / 8 = 2 ...... 3</span><br><span class="line"> 2 / 8 = 0 ...... 2</span><br><span class="line"></span><br><span class="line">转换成 8 进制数：23</span><br></pre></td></tr></table></figure>
-
-<p>八进制 -&gt; 十进制<br>   <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">8 进制数：23</span><br><span class="line"></span><br><span class="line">3 * 8⁰ + 2 * 8¹ = 19</span><br><span class="line"></span><br><span class="line">转换成 10 进制数：19</span><br></pre></td></tr></table></figure></p>
-<p>十进制 -&gt; 二进制<br>   <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">10 进制数：46</span><br><span class="line"></span><br><span class="line">46 / 2 = 23 ...... 0</span><br><span class="line">23 / 2 = 11 ...... 1</span><br><span class="line">11 / 2 =  5 ...... 1</span><br><span class="line">5  / 2 =  2 ...... 1</span><br><span class="line">2  / 2 =  1 ...... 0</span><br><span class="line">1  / 2 =  0 ...... 1</span><br><span class="line"></span><br><span class="line">转换成 2 进制数：101110</span><br></pre></td></tr></table></figure></p>
-<p>二进制 -&gt; 十进制<br>   <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">2 进制数：101110</span><br><span class="line"></span><br><span class="line">0 * 2⁰ + 1 * 2¹ + 1 * 2² + 1 * 2³ + 0 * 2⁴ + 1 * 2⁵ = 46</span><br><span class="line"></span><br><span class="line">转换成 10 进制数：46</span><br></pre></td></tr></table></figure></p>
 ]]></content>
       <categories>
         <category>JavaScript</category>
