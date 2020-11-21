@@ -782,17 +782,17 @@ $(function () {
 
 
 // 背景图 webp 格式兼容
-var side = document.getElementsByClassName("full_page")[0];
-function checkWebp() {
-	try{
-		return(document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') == 0);
-	}catch(err) {
-		return false;
-	}
-};
+// var side = document.getElementsByClassName("full_page")[0];
+// function checkWebp() {
+// 	try{
+// 		return(document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') == 0);
+// 	}catch(err) {
+// 		return false;
+// 	}
+// };
 
-if(checkWebp()) {
-	side.style.backgroundImage = "url('https://gitee.com/cnlmx/blogImg/raw/master/img/bg.webp')";
-} else {
-	side.style.backgroundImage = "url('https://gitee.com/cnlmx/blogImg/raw/master/img/bg.jpg')";
-}
+// if(checkWebp()) {
+// 	side.style.backgroundImage = "url('https://gitee.com/cnlmx/blogImg/raw/master/img/bg.webp')";
+// } else {
+// 	side.style.backgroundImage = "url('https://gitee.com/cnlmx/blogImg/raw/master/img/bg.jpg')";
+// }
