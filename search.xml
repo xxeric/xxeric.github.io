@@ -935,10 +935,8 @@
   <entry>
     <title>如何使用 Webpack 5.x 搭建一个项目</title>
     <url>/post/0/</url>
-    <content><![CDATA[<blockquote>
-<p>2020 年 10 月 10 日，Webpack 5 正式发布。</p>
-</blockquote>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h2 id="使用版本"><a href="#使用版本" class="headerlink" title="使用版本"></a>使用版本</h2><p>本文撰写之初，所使用版本：</p>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h2 id="使用版本"><a href="#使用版本" class="headerlink" title="使用版本"></a>使用版本</h2><p>2020 年 10 月 10 日，Webpack 5 正式发布。</p>
+<p>本文撰写之初，所使用版本：</p>
 <ol>
 <li>Webpack 5.28.0</li>
 <li>Webpack-cli 4.6.0</li>
@@ -950,12 +948,10 @@
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir 2048_game</span><br><span class="line">cd 2048_game</span><br></pre></td></tr></table></figure></div>
 
 <p>然后进行初始化：</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">npm init</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">npm init</span><br><span class="line"></span><br><span class="line"># 或全部使用默认值</span><br><span class="line"></span><br><span class="line">npm init -y</span><br></pre></td></tr></table></figure></div>
 
-<p>初始化命令会进行一些简单问题的询问，比如项目名称、作者信息等，以此来创建 package.json 文件，后续可以在该文件内进行修改。</p>
-<p>指令后加上 <code>-y</code>，表示所有选项都为 yes，全部使用默认值：</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">npm init -y</span><br></pre></td></tr></table></figure></div>
-
+<p>执行初始化命令后，终端会进行一些简单问题的询问，比如项目名称、作者信息等，以此来创建 package.json 文件，后续可以在该文件内进行修改。</p>
+<p>指令后加上 <code>-y</code>，表示所有选项都为 yes，全部使用默认值。</p>
 <h1 id="安装-webpack"><a href="#安装-webpack" class="headerlink" title="安装 webpack"></a>安装 webpack</h1><p>webpack：核心包，包含了 webpack 构建过程中要用到的所有 api。</p>
 <p>webpack-cli：提供一个简单的 cli 命令，它调用了 webpack 核心包的 api，来完成构建过程。</p>
 <p>安装 webpack、webpack-cli：</p>
@@ -993,8 +989,8 @@
 
 <p><code>webpack.config.js</code> 中进行配置：</p>
 <ol>
-<li><code>contentBase</code>：为哪一个文件夹提供本地服务，默认是根文件夹，填写<code>./dist</code></li>
-<li><code>inline</code>：页面实时刷新</li>
+<li><code>contentBase</code>：为哪一个文件夹提供本地服务，默认是根文件夹</li>
+<li><code>inline</code>：启动页面实时刷新</li>
 <li><code>compress</code>：启动 gzip 压缩，让文件更小，打开速度更快</li>
 </ol>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  devServer: &#123;</span><br><span class="line">    contentBase: <span class="string">&#x27;./dist&#x27;</span>,</span><br><span class="line">    inline: <span class="literal">true</span>,</span><br><span class="line">    compress: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
@@ -1018,17 +1014,17 @@
 <li>下载：npm 安装需要使用的 loader</li>
 <li>配置：在 <code>webpack.config.js</code> 中的 <code>module</code> 关键字下进行配置</li>
 </ol>
-<p>某类资源使用多个<code>loader</code>时，执行顺序从右往左。</p>
+<p>某个文件类型使用多个<code>loader</code>时，执行顺序从右往左。</p>
 <h3 id="样式资源"><a href="#样式资源" class="headerlink" title="样式资源"></a>样式资源</h3><p>loader：<code>css-loader</code>、<code>style-loader</code></p>
-<p>如果还要使用预处理器比如 less，那就还需要 <code>less-loader</code></p>
+<p>如果还要使用预处理器比如 less，那就还需要 <code>less-loader</code> 和 <code>less</code></p>
 <p>作用：</p>
 <ol>
-<li><code>css-loader</code>：解析 CSS 文件后，使用 import 加载，并且返回 CSS 代码。只负责将 css 文件进行加载。</li>
-<li><code>style-loader</code>：将 css 样式通过 <code>&lt;style&gt;</code> 标签方式注入到页面中。</li>
+<li><code>css-loader</code>：将 css 文件变成 commonjs 模块加载到 js 中，里面内容是样式字符串。</li>
+<li><code>style-loader</code>：创建一个 <code>&lt;style&gt;</code> 标签，将 js 中的样式资源插入进去，然后添加到 <code>&lt;head&gt;</code> 中生效。</li>
 <li><code>less-loader</code>：加载和转译 less 文件。</li>
 </ol>
 <p>下载：</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">npm i css-loader style-loader -D</span><br><span class="line"></span><br><span class="line"># 如果还有 less 文件需处理</span><br><span class="line">npm i less-loader -D</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">npm i css-loader style-loader -D</span><br><span class="line"></span><br><span class="line"># 如果还有 less 文件需处理</span><br><span class="line">npm i less less-loader -D</span><br></pre></td></tr></table></figure></div>
 
 <p>配置：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">        use: [<span class="string">&#x27;style-loader&#x27;</span>, <span class="string">&#x27;css-loader&#x27;</span>],</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.less$/</span>,</span><br><span class="line">        use: [<span class="string">&#x27;style-loader&#x27;</span>, <span class="string">&#x27;css-loader&#x27;</span>, <span class="string">&#x27;less-loader&#x27;</span>],</span><br><span class="line">      &#125;,</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
@@ -1082,6 +1078,11 @@
 <h2 id="插件配置"><a href="#插件配置" class="headerlink" title="插件配置"></a>插件配置</h2><p>plugin 是对 webpack 现有功能的各种扩展，比如打包优化，文件压缩等。</p>
 <h3 id="打包-html-文件"><a href="#打包-html-文件" class="headerlink" title="打包 html 文件"></a>打包 html 文件</h3><p>目前我们的 <code>index.html</code> 文件是存放在项目的根目录下的。</p>
 <p>在真实发布项目时，发布的是 <code>dist</code> 文件夹中的内容，但是现在 <code>dist</code> 文件夹中还没有 <code>index.html</code> 文件，所以我们需要先把它打包进来。</p>
+<p>作用：</p>
+<ol>
+<li>自动生成一个 index.html 文件</li>
+<li>将打包的 js 文件，自动通过 <code>script</code> 标签插入到 <code>body</code> 中</li>
+</ol>
 <p>安装：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">npm i html-webpack-plugin -D</span><br></pre></td></tr></table></figure></div>
 
@@ -1092,11 +1093,6 @@
 </ol>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">&#x27;html-webpack-plugin&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">      template: <span class="string">&#x27;index.html&#x27;</span>,</span><br><span class="line">      favicon: <span class="string">&#x27;favicon.ico&#x27;</span></span><br><span class="line">    &#125;)</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
-<p>作用：</p>
-<ol>
-<li>自动生成一个 index.html 文件(可以指定模板来生成)</li>
-<li>将打包的 js 文件，自动通过<code>script</code>标签插入到<code>body</code>中</li>
-</ol>
 <p>网站图标 favicon 文件需放在根目录下，不需要在源文件里引入，它会自动寻找并打包。</p>
 <p>重新打包：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">npx webpack</span><br></pre></td></tr></table></figure></div>
@@ -1121,7 +1117,7 @@
 </ol>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> FriendlyErrorsWebpackPlugin = <span class="built_in">require</span>(<span class="string">&#x27;@soda/friendly-errors-webpack-plugin&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> FriendlyErrorsWebpackPlugin(&#123;&#125;),</span><br><span class="line">  ],</span><br><span class="line">  devServer: &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    quiet: <span class="literal">true</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  stats: <span class="string">&#x27;errors-only&#x27;</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
-<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>以上就是使用 webpack5 搭建一个项目的基本配置了，后续还有进阶配置，比如生产环境和开发环境的分离，还有不同环境下的优化，我们在下篇文章继续讨论。</p>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>以上就是使用 webpack5 搭建一个项目的基本配置了，后续还有进阶配置，比如生产环境和开发环境的分离，还有不同环境下的优化配置，我们在下篇文章继续讨论。</p>
 ]]></content>
       <categories>
         <category>工具</category>
