@@ -21,6 +21,281 @@
 ]]></content>
   </entry>
   <entry>
+    <title>Hexo 增加 Google 收录</title>
+    <url>/post/7dd6/</url>
+    <content><![CDATA[<blockquote>
+<p>博客搭建完成后，一直疏于维护，直到最近开始重新管理，然后发现 Google 没有收录，所以决定自己提交申请。</p>
+</blockquote>
+<h2 id="根目录配置"><a href="#根目录配置" class="headerlink" title="根目录配置"></a>根目录配置</h2><p>博客根目录下执行命令</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure></div>
+
+<p><code>_config.yml</code>末尾添加如下代码</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Yml"><figure class="iseeu highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 自动生成 sitemap</span></span><br><span class="line"><span class="attr">sitemap:</span> </span><br><span class="line"><span class="attr">path:</span> <span class="string">sitemap.xml</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+<p><code>_config.yml</code>中查找如下代码，把 url 改为自己的博客地址</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Yml"><figure class="iseeu highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># URL</span></span><br><span class="line"><span class="comment">## If your site is put in a subdirectory, set url as &#x27;http://yoursite.com/child&#x27; and root as &#x27;/child/&#x27;</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">https://cnlmx.github.io/</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span></span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p>注意是博客根目录下的<code>_config.yml</code>文件。</p>
+</blockquote>
+<p>编译</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure></div>
+<blockquote>
+<p>查看博客根目录下的 public 文件夹，如果发现<code>sitemap.xml</code>文件即生成成功。</p>
+</blockquote>
+<p>在根目录<code>source</code>文件夹下增加<code>robots.txt</code>文件，<code>Sitemap</code>修改为自己的链接。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line"># hexo robots.txt</span><br><span class="line">User-agent: *</span><br><span class="line">Allow: &#x2F;</span><br><span class="line">Allow: &#x2F;home&#x2F;</span><br><span class="line">Allow: &#x2F;about&#x2F;</span><br><span class="line">Allow: &#x2F;archives&#x2F;</span><br><span class="line">Allow: &#x2F;categories&#x2F;</span><br><span class="line">Allow: &#x2F;tags&#x2F;</span><br><span class="line">Disallow: &#x2F;js&#x2F;</span><br><span class="line">Disallow: &#x2F;css&#x2F;</span><br><span class="line">Disallow: &#x2F;fonts&#x2F;</span><br><span class="line">Disallow: &#x2F;vendors&#x2F;</span><br><span class="line">Disallow: &#x2F;fancybox&#x2F;</span><br><span class="line"></span><br><span class="line">Sitemap: https:&#x2F;&#x2F;cnlmx.github.io&#x2F;sitemap.xml</span><br></pre></td></tr></table></figure></div>
+<blockquote>
+<p>robots.txt 可以告诉搜索引擎哪些网页可以收录，哪些不允许收录。</p>
+</blockquote>
+<h2 id="Google-站长工具配置"><a href="#Google-站长工具配置" class="headerlink" title="Google 站长工具配置"></a>Google 站长工具配置</h2><p>进入<a href="https://search.google.com/search-console/about">Google Search Console</a>，点击立即使用，登录谷歌账号。</p>
+<p>添加资源，选择资源类型：网址前缀，输入博客地址，然后点击继续。</p>
+<img src="https://gitee.com/cnlmx/blogImg/raw/master/img/googles01.webp" style="width: 65%;margin-left:0">
+
+<p>验证所有权，选择 HTML 标记验证，点击复制。</p>
+<img src="https://gitee.com/cnlmx/blogImg/raw/master/img/googles02.jpg" style="width: 60%;margin-left:0">
+
+<h2 id="主题文件配置"><a href="#主题文件配置" class="headerlink" title="主题文件配置"></a>主题文件配置</h2><p><code>_config.yml</code>文件中找到<code>google_site_verification</code>，设置为<code>true</code></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Yml"><figure class="iseeu highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment">####    站長驗證    ####</span></span><br><span class="line"><span class="comment"># Google Webmaster tools verification setting</span></span><br><span class="line"><span class="comment"># See: https://www.google.com/webmasters/</span></span><br><span class="line"><span class="attr">google_site_verification:</span> <span class="literal">true</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p>注意是主题目录下的<code>_config.yml</code>文件。</p>
+</blockquote>
+<p>配置<code>themes/Butterfly/layout/includes/head/site_verification.pug</code>文件，用之前复制的代码替换第二行。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">if theme.google_site_verification</span><br><span class="line">meta(name&#x3D;&quot;google-site-verification&quot; content&#x3D;theme.google_site_verification)</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+<p>生成静态文件并部署</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>打开博客首页，开启控制台查看<code>&lt;head&gt;</code>标签是否加入了 Google 的验证标记。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;google-site-verification&quot;</span> <span class="attr">content</span>=<span class="string">&quot;G_wF-veta_pkYSiXBTlXtpO4vVoCyOOkoLA_ZKlHyIs&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+<p>确保验证标记出现，回到 Google 的验证页面，点击验证。</p>
+<h2 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h2><p>验证完成后，点击站点地图，添加新的站点地图，即之前生成的<code>sitemap.xml</code>，点击提交。</p>
+<img src="https://gitee.com/cnlmx/blogImg/raw/master/img/googles03.webp" style="width: 70%;margin-left:0">
+
+
+<blockquote>
+<p>至此，就可以安心等待 Google 进行收录了。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Blog</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Blog</tag>
+        <tag>Google</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ECMAScript笔记(一)基础知识</title>
+    <url>/post/d459/</url>
+    <content><![CDATA[<h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><p>Mosaic 是互联网历史上第一个获普遍使用和能够显示图片的网页浏览器。于 1993 年问世。</p>
+<p>浏览器组成：</p>
+<ol>
+<li>shell （外形）部分</li>
+<li>内核部分：渲染引擎（语法规则和渲染），js 引擎，其他模块</li>
+</ol>
+<p>主流浏览器及其内核：</p>
+<ol>
+<li>IE          -&gt;       Trident</li>
+<li>Chrome      -&gt;      Blink</li>
+<li>Opera       -&gt;      Blink</li>
+<li>Safari      -&gt;      Webkit</li>
+<li>Firefox     -&gt;      Gecko</li>
+</ol>
+<p>2001 年的 IE6 浏览器，首次实现对 JavaScript 引擎的优化和分离。</p>
+<p>2008 年 Google 发布最新浏览器 Chrome，它是采用优化后的 JavaScript 引擎，引擎代号 V8，因能把 JavaScript 代码直接转化为机械码来执行，进而以速度快而闻名。</p>
+<h2 id="了解-JavaScript"><a href="#了解-JavaScript" class="headerlink" title="了解 JavaScript"></a>了解 JavaScript</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>编译型：C、C++ 等语言需要一个编译器（compiler）。编译器是一种程序，能够把用 Java 等高级语言编写出来的源代码翻译为直接在计算机上执行的文件。</p>
+<p>解释型：不需要编译器，它们只需要解释器。对于 JavaScript，浏览器负责完成有关的解释和执行工作。</p>
+<h3 id="编程形式"><a href="#编程形式" class="headerlink" title="编程形式"></a>编程形式</h3><ol>
+<li><p>面向过程：C</p>
+</li>
+<li><p>面向对象：Java、C++</p>
+</li>
+<li><p>既面向对象也面向过程：JavaScript </p>
+</li>
+</ol>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ol>
+<li><p>解释型语言 — （不需要编译成文件）跨平台。</p>
+</li>
+<li><p>单线程 — 同一时间只能干一件事。</p>
+</li>
+<li><p>弱类型语言 — 存放的数据类型可变。</p>
+</li>
+</ol>
+<h3 id="组成部分"><a href="#组成部分" class="headerlink" title="组成部分"></a>组成部分</h3><p>我们把 JavaScript 中的核心部分称为 ECMAScript，加上 BOM（浏览器对象模型）与 DOM（文档对象类型），三者共同组成了 JavaScript。</p>
+<ol>
+<li>ECMA-262 标准规定了这门语言的如下组成部分：语法、类型、语句、关键字、保留字、操作符、对象。</li>
+<li>浏览器对象模型（BOM，Browser Object Model），提供与浏览器交互的方法和接口。</li>
+<li>文档对象内容（DOM，Document Object Model），提供访问和操作网页内容的方法和接口。</li>
+</ol>
+<h3 id="执行队列"><a href="#执行队列" class="headerlink" title="执行队列"></a>执行队列</h3><p>执行队列（过程）：轮转时间片。</p>
+<ol>
+<li>单线程模拟多线程。</li>
+<li>类似吃饭，吃一口米饭，吃一口茄子，再吃一口排骨，再吃一口米饭，再吃一口米饭，再吃一口茄子，顺序完全随机，在足够快的时间内，肉眼可见菜和饭在同时减少。</li>
+<li>比如 js 引擎要执行任务 1 和任务 2，js 引擎会把任务 1 和任务 2 切成无数个片段，然后把这些片段随机排成一个队列送入引擎执行，直到被执行完。</li>
+</ol>
+<blockquote>
+<p>异步（asynchronous）：同时执行，类似于有很多条路一起走，可以同时出发。<br>同步（synchronous）：分次执行，类似于只有一条路走，这个走完了下个才能走。</p>
+</blockquote>
+<h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><p>引入方法：</p>
+<ol>
+<li><p>页面内嵌<code>&lt;script&gt;&lt;/script&gt;</code>标签</p>
+</li>
+<li><p>外部引入<code>&lt;script src=location&gt;&lt;/script&gt;</code></p>
+</li>
+</ol>
+<p>页面中，可以存在多个<code>&lt;script&gt;</code>标签，执行顺序从上到下。只要不存在 defer 和 async 属性，浏览器都会按照 它们在页面中出现的先后顺序依次进行解析。</p>
+<p>传统的做法是所有<code>&lt;script&gt;</code>标签都放在<code>&lt;head&gt;</code>中，这意味着必须等到全部 js 代码都被下载、解析和执行完成以后，才能开始呈现页面的内容（浏览器在遇到<code>&lt;body&gt;</code>标签时才开始呈现内容）。</p>
+<p>为了避免这个问题，现代 Web 应用程序一般都把全部 js 引用放在<code>&lt;body&gt;</code>中页面内容的后面。这样，在解析包含的 js 代码之前，页面的内容将完全呈现在浏览器中。而用户也会因为浏览器窗口显示空白页面的时间缩短而感到打开页面的速度加快了。</p>
+<p>为符合 Web 标准中结构、样式、行为相分离的原则，通常会采用外部引入。</p>
+<blockquote>
+<p>如果有外部 js 文件，那么这个 script 标签里如果再写 js 代码，也是不会执行的，会被直接忽略。<br>基于这个特性，在开发时偶尔会用来存储一些代码。<br>在下面再写一个 script 标签，然后里面写代码是可以的。</p>
+</blockquote>
+<h2 id="计算"><a href="#计算" class="headerlink" title="计算"></a>计算</h2><p>JavaScript 可正常计算的范围：小数点前 16 位，后 16 位。</p>
+<p>js 计算精度不准，是纯粹的 bug，所以在 js 中应尽量避免小数操作。<br>   <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">0.14</span> * <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 14.000000000000002</span></span><br></pre></td></tr></table></figure></div></p>
+<p>如果需要计算，那么采用<code>Math.floor()</code>（向下取整）或<code>Math.ceil()</code>（向上取整）方法。<br>   <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 向上取整，无论小数是多少，都向前进 1</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">Math</span>.ceil(<span class="number">123.234</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 124</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 向下取整，无论小数是多少，都不要了</span></span><br><span class="line"><span class="keyword">var</span> num1 = <span class="built_in">Math</span>.floor(<span class="number">123.999</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num1); <span class="comment">// 123</span></span><br></pre></td></tr></table></figure></div></p>
+<p><code>Math.random()</code>方法可以随机产生一个 0 ～ 1 之间的开区间的数。</p>
+   <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="built_in">Math</span>.random();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 0.4322440432127299</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 0.5216225452503296</span></span><br></pre></td></tr></table></figure></div>
+
+<p><code>toFixed()</code>方法可以把 Number 四舍五入为指定小数位数的数字。</p>
+   <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">123.45678</span>;</span><br><span class="line">   </span><br><span class="line">demo = num.toFixed(<span class="number">2</span>);</span><br><span class="line">   </span><br><span class="line"><span class="built_in">console</span>.log(demo); <span class="comment">// 123.46</span></span><br></pre></td></tr></table></figure></div>
+
+
+<h2 id="变量（variable）"><a href="#变量（variable）" class="headerlink" title="变量（variable）"></a>变量（variable）</h2><p>变量声明</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 声明、赋值分解</span></span><br><span class="line"><span class="keyword">var</span> a;</span><br><span class="line">a = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 单一 var</span></span><br><span class="line"><span class="keyword">var</span> c = <span class="number">2</span>,</span><br><span class="line">    b = <span class="number">4</span>;</span><br></pre></td></tr></table></figure></div>
+
+<p>开发规范：单一 var 模式，每个变量用逗号隔开，同时换行。</p>
+<p>命名规则：</p>
+<ol>
+<li>变量名必须以<code>英文字母</code>、<code>_</code>、<code>$</code>开头</li>
+<li>变量名可以包括<code>英文字母</code>、<code>_</code>、<code>$</code>、<code>数字</code></li>
+<li>不可以用系统的关键字、保留字作为变量名。</li>
+</ol>
+<h2 id="语句基本规则"><a href="#语句基本规则" class="headerlink" title="语句基本规则"></a>语句基本规则</h2><p>语句后面要用分号<code>;</code>结束。注意，下列三种语句不用加分号：</p>
+<ol>
+<li>函数： function test() {}</li>
+<li>for 循环：for() {}</li>
+<li>if 语句：if() {}</li>
+</ol>
+<p>一个 HTML 文件中可以放多个 JS 代码块，代码块内的规则可以互通。如果某个代码块内出现 JS 语法错误，会引发该代码块内的后续代码终止，但不会影响其他 JS 代码块，目前有两种错误：</p>
+<ol>
+<li>低级错误：语法解析错误，整个代码块都不会执行。<br>如：使用了中文标点符号：Uncaught Syntax Error: ……</li>
+<li>逻辑错误：标准错误，会执行到该代码块最后一行正确代码再终止。<br>如：没有声明变量，直接使用：Uncaught Reference Error: ……</li>
+</ol>
+<p>书写格式要规范，<code>=</code> <code>+</code> <code>/</code> <code>-</code>两边都应该有空格。</p>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><p><code>+</code>:</p>
+<ul>
+<li>数学运算。</li>
+<li>字符串连接：任何数据类型加字符串都等于字符串。</li>
+</ul>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 从左至右运算</span></span><br><span class="line"><span class="comment">// 1+1 数字运算，得 2</span></span><br><span class="line"><span class="comment">// 2+&#x27;a&#x27; 字符串连接，得 2a</span></span><br><span class="line"><span class="comment">// &#x27;2a&#x27;+1 字符串连接，得 2a1</span></span><br><span class="line"><span class="comment">// 同理可得 2a11</span></span><br><span class="line"><span class="keyword">var</span> result = <span class="number">1</span> + <span class="number">1</span> + <span class="string">&#x27;a&#x27;</span> + <span class="number">1</span> + <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(result); <span class="comment">// 2a11</span></span><br></pre></td></tr></table></figure></div>
+
+
+<p><code>-、*、/、%、=、()</code></p>
+<p><code>+=、-=、/=、*=、%=</code></p>
+<p><code>++</code>。先加加（减减）还是后加加（减减）是针对当前语句来说的。<code>++</code>放后面，意为先执行该条语句，然后再加加。<code>++</code>放前面，意为先加加，然后再执行该条语句。</p>
+   <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a++); <span class="comment">// 10</span></span><br><span class="line"><span class="comment">// 意为先执行 console.log(a)，执行完后 a++</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//此时再看 a 的值，就是加完之后的了</span></span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 11</span></span><br></pre></td></tr></table></figure></div>
+
+   <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> b = ++a - <span class="number">1</span> + a++; </span><br><span class="line"></span><br><span class="line"><span class="comment">// ++a 先加后执行，10 + 1 = 11，a 的值变为 11</span></span><br><span class="line"><span class="comment">// a++ 先执行后加，a 现在的值为 11 ，故 a++ = 11</span></span><br><span class="line"><span class="comment">// b = 11 - 1 + 11 = 21</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(b);<span class="comment">// 21</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// a 两次自增，故值为 12</span></span><br><span class="line"><span class="built_in">console</span>.log(a);<span class="comment">// 12</span></span><br></pre></td></tr></table></figure></div>
+
+<p><code>--</code>。注意：有前自增（自减）操作符时，要先加加（减减），再执行该条语句。</p>
+   <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> b = a-- + --a; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 先算 --a，先减后执行，a = 1，自减后 a = 0</span></span><br><span class="line"><span class="comment">// 再算 a--，先执行后减，a = 0，故 a-- = 0</span></span><br><span class="line"><span class="comment">// b = 0 + 0 = 0</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(b);<span class="comment">// 0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// a 两次自减，故值为 -1</span></span><br><span class="line"><span class="built_in">console</span>.log(a);<span class="comment">// -1</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h3><p><code>&gt;</code>、<code>&lt;</code>、<code>==</code>、<code>&gt;=</code>、<code>&lt;=</code>、<code>!=</code></p>
+<p>比较结果为 boolean 值：true / false。</p>
+<blockquote>
+<p><code>==</code>是等于，而<code>=</code>是赋值。</p>
+</blockquote>
+<p>字符串的比较规则为 asc 码。如“A”的 asc 码为 65 ，“a”的 asc 码为 97。</p>
+<p>字符串比较是按照顺序来的，如果运算符左边的字符串中顺位第一的字符小于右边字符串的第一位字符，那么左边直接就是小于右边；如果第一位相等，那就再看第二位。</p>
+   <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 读作字符串一零 &gt; 字符串二</span></span><br><span class="line"><span class="keyword">var</span> result = <span class="string">&#x27;10&#x27;</span> &gt; <span class="string">&#x27;2&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(result); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 字符串‘1’的 asc 码为 49</span></span><br><span class="line"><span class="comment">// 字符串‘2’的 asc 码为 50</span></span><br><span class="line"><span class="comment">// 字符串‘3’的 asc 码为 51</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result = <span class="string">&#x27;3&#x27;</span> &gt; <span class="string">&#x27;20&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(result); <span class="comment">// true</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><p><code>&amp;&amp;</code>、<code>||</code>、<code>!</code></p>
+<p>运算结果为真实的值</p>
+<p>下面六个值转化为布尔值都是 false：<code>undefined、null、NaN、&quot;&quot;、0、flase</code>。</p>
+<blockquote>
+<p>NaN(Not a Number)：非数，是数字类型的一类值，意为不可表示的值。</p>
+</blockquote>
+<p><code>&amp;&amp;</code>在运行时，在碰到表达式的布尔值为假时，返回该表达式的值。</p>
+<ul>
+<li>多个表达式时，先看第一个表达式转换成布尔值的结果，若结果为真，接着看第二个表达式的布尔值，若第二个也为真，接着看第三个，依此类推，直到表达式的布尔值为 false，直接返回该表达式的值。即看到假，返回假。如果全为真，则返回最后一个表达式的值。</li>
+<li>只有两个表达式时，若第一个表达式的布尔值为 true，返回第二个表达式的值。若第一个表达式为 false，直接返回第一个表达式原本的值。即一真返二。一假返一。</li>
+</ul>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span> &amp;&amp; <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 1 转化为 true，判断为真</span></span><br><span class="line"><span class="comment">// 第一个为 true，直接返回第二个表达式的值</span></span><br></pre></td></tr></table></figure></div>
+
+<p>基于<code>&amp;&amp;</code>运算符的原理， 使它具备中断的作用，在实际开发中作为<strong>短路语句</strong>使用，它是 if 语句的简写形式，可以用来替代 if 语句：“如果…是真/假，那么…”</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="number">0</span> &amp;&amp; <span class="built_in">document</span>.write(<span class="string">&#x27;a&#x27;</span>); <span class="comment">// 不会输出 a</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果前面的数据正确，那么执行后面的语句</span></span><br><span class="line"></span><br><span class="line"><span class="number">2</span> &gt; <span class="number">1</span> &amp;&amp; <span class="built_in">console</span>.log(<span class="string">&#x27;团子很可爱&#x27;</span>); <span class="comment">// 团子很可爱</span></span><br></pre></td></tr></table></figure></div>
+
+<p><code>||</code>与<code>&amp;&amp;</code>类似，只不过是碰到表达式的布尔值为真时，返回该表达式的值。</p>
+<ul>
+<li>多个表达式时，若第一个为假，则一直往下看，直到找到为真的表达式，然后返回该值。即看到真，返回真。如果全为假，则返回最后一个表达式的值。</li>
+<li>两个表达式时，若第一个为假，直接返回第二个表达式的值。</li>
+</ul>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">1</span> || <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure></div>
+
+<p><code>!</code>将表达式转换成布尔值再取反，然后输出布尔值。 </p>
+<h3 id="其他：逗号运算符"><a href="#其他：逗号运算符" class="headerlink" title="其他：逗号运算符"></a>其他：逗号运算符</h3><p>形式：(表达式1，表达式2，表达式3………….)<br>作用：通常与小括号<code>()</code>一起使用，逗号<code>,</code>用于连接算式<br>运算规则：对每个操作对象求值（从左至右），返回最后一个操作对象的值。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>,</span><br><span class="line">      b = <span class="number">20</span>,</span><br><span class="line">      result = (a++, a + b);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log (result); <span class="comment">// 31 </span></span><br><span class="line"><span class="built_in">console</span>.log (a); <span class="comment">// 11</span></span><br><span class="line"><span class="built_in">console</span>.log (b); <span class="comment">// 20</span></span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p>查询<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Operator_Precedence">运算符优先级</a>。</p>
+</blockquote>
+<h2 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h2><h3 id="if-条件语句"><a href="#if-条件语句" class="headerlink" title="if 条件语句"></a>if 条件语句</h3><p><code>if (条件判断) &#123;执行语句&#125;</code></p>
+<p><code>if () &#123;&#125; else if () &#123;&#125;</code></p>
+<p><code>if () &#123;&#125;</code>&lt;—&gt; <code>&amp;&amp;</code>转换</p>
+<h3 id="for-循环语句"><a href="#for-循环语句" class="headerlink" title="for 循环语句"></a>for 循环语句</h3><p>for 循环执行顺序：</p>
+<ul>
+<li>先执行一遍 (1) ：<code>var i = 0</code></li>
+<li>判断 (2) -&gt; 执行语句 (3)：<code>if(i &lt; 10)&#123;console.log(&#39;a&#39;);&#125;</code></li>
+<li>执行 (4)：<code>i++ -&gt; i = 1</code></li>
+<li>判断 (2) -&gt; 执行语句 (3)</li>
+<li>执行 (4)：<code>i++ -&gt; i = 2</code></li>
+<li>判断 (2) -&gt; 执行语句 (3)</li>
+<li>执行 (4)：<code>i++ -&gt; i = 3</code><br>…</li>
+</ul>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//       (1)      (2)   (4)</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&#x27;a&#x27;</span>);             <span class="comment">// (3)</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> i = <span class="number">0</span>;                          <span class="comment">// (1)</span></span><br><span class="line"><span class="keyword">for</span> (; i &lt; <span class="number">10</span>; ) &#123;                  <span class="comment">// (2)</span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&#x27;a&#x27;</span>);             <span class="comment">// (3)</span></span><br><span class="line">      i++;                          <span class="comment">// (4)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p>无论 for 语句中写的是什么，都会按照这个执行顺序执行。</p>
+</blockquote>
+<p>while</p>
+   <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (i &lt; <span class="number">10</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">    i++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>do while（很少用）</p>
+   <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">    i++;</span><br><span class="line">&#125; <span class="keyword">while</span> (i &lt; <span class="number">10</span>)</span><br></pre></td></tr></table></figure></div>
+
+
+<h3 id="switch-语句"><a href="#switch-语句" class="headerlink" title="switch 语句"></a>switch 语句</h3><p>格式：</p>
+   <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">switch</span> (条件) &#123;</span><br><span class="line">    <span class="keyword">case</span> 结果<span class="number">1</span>:                        <span class="comment">// 结果与条件进行判断（比对）</span></span><br><span class="line">        执行语句;                       <span class="comment">// 满足即执行该语句</span></span><br><span class="line">        <span class="keyword">break</span>;                        <span class="comment">// 执行后结束</span></span><br><span class="line">    <span class="keyword">case</span> 结果<span class="number">2</span>: </span><br><span class="line">        执行语句;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> 结果<span class="number">3</span>: </span><br><span class="line">        执行语句;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        执行语句;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>switch 的条件和 case 的结果比对，如果是一样的，就执行。</p>
+   <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> date = <span class="built_in">window</span>.prompt(<span class="string">&#x27;input&#x27;</span>);</span><br><span class="line"><span class="keyword">switch</span> (date) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;monday&#x27;</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;tuesday&#x27;</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;wednesday&#x27;</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;thursday&#x27;</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;friday&#x27;</span>:</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;working&#x27;</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;周六&#x27;</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;周日&#x27;</span>:</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;relaxing&#x27;</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>当 case 的结果是表达式时，比较的就是表达式的返回值。</p>
+   <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> age = <span class="number">28</span>,</span><br><span class="line">    greeting;</span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span> (<span class="literal">true</span>) &#123;                           <span class="comment">// 条件</span></span><br><span class="line">    <span class="keyword">case</span> age &lt; <span class="number">18</span>:                        <span class="comment">// 结果1</span></span><br><span class="line">        greeting = <span class="string">&#x27;同学&#x27;</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> age &gt;= <span class="number">18</span> &amp;&amp; age &lt; <span class="number">40</span>:             <span class="comment">// 结果2</span></span><br><span class="line">        greeting = <span class="string">&#x27;先生&#x27;</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> age &gt;= <span class="number">40</span>:</span><br><span class="line">        greeting = <span class="string">&#x27;前辈&#x27;</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">        greeting = <span class="string">&#x27;你好&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(greeting); <span class="comment">// &#x27;先生&#x27;</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>break：终止循环。</p>
+   <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++)&#123;</span><br><span class="line">    sum += i;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">    <span class="keyword">if</span> (sum &gt; <span class="number">100</span>) &#123;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">        <span class="comment">// 这个 break 能执行是因为最外有一层 for 循环，如果只有 if 语句，是肯定报错的</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<blockquote>
+<p>break 必须写在循环里面，否则会报错。</p>
+</blockquote>
+<p>continue：终止本次循环，直接进行下一次循环。</p>
+   <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (i % <span class="number">7</span> === <span class="number">0</span> || i % <span class="number">10</span> === <span class="number">7</span>) &#123;</span><br><span class="line">        <span class="keyword">continue</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>ECMAScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>前端</tag>
+        <tag>ECMAScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ECMAScript笔记(二)数据类型</title>
     <url>/post/5714/</url>
     <content><![CDATA[<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="原始值"><a href="#原始值" class="headerlink" title="原始值"></a>原始值</h3><p>不可改变， 存储在 stack（栈）：先进的后出来。</p>
@@ -422,281 +697,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo 增加 Google 收录</title>
-    <url>/post/7dd6/</url>
-    <content><![CDATA[<blockquote>
-<p>博客搭建完成后，一直疏于维护，直到最近开始重新管理，然后发现 Google 没有收录，所以决定自己提交申请。</p>
-</blockquote>
-<h2 id="根目录配置"><a href="#根目录配置" class="headerlink" title="根目录配置"></a>根目录配置</h2><p>博客根目录下执行命令</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure></div>
-
-<p><code>_config.yml</code>末尾添加如下代码</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Yml"><figure class="iseeu highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 自动生成 sitemap</span></span><br><span class="line"><span class="attr">sitemap:</span> </span><br><span class="line"><span class="attr">path:</span> <span class="string">sitemap.xml</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
-<p><code>_config.yml</code>中查找如下代码，把 url 改为自己的博客地址</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Yml"><figure class="iseeu highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># URL</span></span><br><span class="line"><span class="comment">## If your site is put in a subdirectory, set url as &#x27;http://yoursite.com/child&#x27; and root as &#x27;/child/&#x27;</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">https://cnlmx.github.io/</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span></span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br></pre></td></tr></table></figure></div>
-
-<blockquote>
-<p>注意是博客根目录下的<code>_config.yml</code>文件。</p>
-</blockquote>
-<p>编译</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure></div>
-<blockquote>
-<p>查看博客根目录下的 public 文件夹，如果发现<code>sitemap.xml</code>文件即生成成功。</p>
-</blockquote>
-<p>在根目录<code>source</code>文件夹下增加<code>robots.txt</code>文件，<code>Sitemap</code>修改为自己的链接。</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line"># hexo robots.txt</span><br><span class="line">User-agent: *</span><br><span class="line">Allow: &#x2F;</span><br><span class="line">Allow: &#x2F;home&#x2F;</span><br><span class="line">Allow: &#x2F;about&#x2F;</span><br><span class="line">Allow: &#x2F;archives&#x2F;</span><br><span class="line">Allow: &#x2F;categories&#x2F;</span><br><span class="line">Allow: &#x2F;tags&#x2F;</span><br><span class="line">Disallow: &#x2F;js&#x2F;</span><br><span class="line">Disallow: &#x2F;css&#x2F;</span><br><span class="line">Disallow: &#x2F;fonts&#x2F;</span><br><span class="line">Disallow: &#x2F;vendors&#x2F;</span><br><span class="line">Disallow: &#x2F;fancybox&#x2F;</span><br><span class="line"></span><br><span class="line">Sitemap: https:&#x2F;&#x2F;cnlmx.github.io&#x2F;sitemap.xml</span><br></pre></td></tr></table></figure></div>
-<blockquote>
-<p>robots.txt 可以告诉搜索引擎哪些网页可以收录，哪些不允许收录。</p>
-</blockquote>
-<h2 id="Google-站长工具配置"><a href="#Google-站长工具配置" class="headerlink" title="Google 站长工具配置"></a>Google 站长工具配置</h2><p>进入<a href="https://search.google.com/search-console/about">Google Search Console</a>，点击立即使用，登录谷歌账号。</p>
-<p>添加资源，选择资源类型：网址前缀，输入博客地址，然后点击继续。</p>
-<img src="https://gitee.com/cnlmx/blogImg/raw/master/img/googles01.webp" style="width: 65%;margin-left:0">
-
-<p>验证所有权，选择 HTML 标记验证，点击复制。</p>
-<img src="https://gitee.com/cnlmx/blogImg/raw/master/img/googles02.jpg" style="width: 60%;margin-left:0">
-
-<h2 id="主题文件配置"><a href="#主题文件配置" class="headerlink" title="主题文件配置"></a>主题文件配置</h2><p><code>_config.yml</code>文件中找到<code>google_site_verification</code>，设置为<code>true</code></p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Yml"><figure class="iseeu highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment">####    站長驗證    ####</span></span><br><span class="line"><span class="comment"># Google Webmaster tools verification setting</span></span><br><span class="line"><span class="comment"># See: https://www.google.com/webmasters/</span></span><br><span class="line"><span class="attr">google_site_verification:</span> <span class="literal">true</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
-
-<blockquote>
-<p>注意是主题目录下的<code>_config.yml</code>文件。</p>
-</blockquote>
-<p>配置<code>themes/Butterfly/layout/includes/head/site_verification.pug</code>文件，用之前复制的代码替换第二行。</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">if theme.google_site_verification</span><br><span class="line">meta(name&#x3D;&quot;google-site-verification&quot; content&#x3D;theme.google_site_verification)</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
-<p>生成静态文件并部署</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure></div>
-
-<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>打开博客首页，开启控制台查看<code>&lt;head&gt;</code>标签是否加入了 Google 的验证标记。</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;google-site-verification&quot;</span> <span class="attr">content</span>=<span class="string">&quot;G_wF-veta_pkYSiXBTlXtpO4vVoCyOOkoLA_ZKlHyIs&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
-<p>确保验证标记出现，回到 Google 的验证页面，点击验证。</p>
-<h2 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h2><p>验证完成后，点击站点地图，添加新的站点地图，即之前生成的<code>sitemap.xml</code>，点击提交。</p>
-<img src="https://gitee.com/cnlmx/blogImg/raw/master/img/googles03.webp" style="width: 70%;margin-left:0">
-
-
-<blockquote>
-<p>至此，就可以安心等待 Google 进行收录了。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Blog</category>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Blog</tag>
-        <tag>Google</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ECMAScript笔记(一)基础知识</title>
-    <url>/post/d459/</url>
-    <content><![CDATA[<h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><p>Mosaic 是互联网历史上第一个获普遍使用和能够显示图片的网页浏览器。于 1993 年问世。</p>
-<p>浏览器组成：</p>
-<ol>
-<li>shell （外形）部分</li>
-<li>内核部分：渲染引擎（语法规则和渲染），js 引擎，其他模块</li>
-</ol>
-<p>主流浏览器及其内核：</p>
-<ol>
-<li>IE          -&gt;       Trident</li>
-<li>Chrome      -&gt;      Blink</li>
-<li>Opera       -&gt;      Blink</li>
-<li>Safari      -&gt;      Webkit</li>
-<li>Firefox     -&gt;      Gecko</li>
-</ol>
-<p>2001 年的 IE6 浏览器，首次实现对 JavaScript 引擎的优化和分离。</p>
-<p>2008 年 Google 发布最新浏览器 Chrome，它是采用优化后的 JavaScript 引擎，引擎代号 V8，因能把 JavaScript 代码直接转化为机械码来执行，进而以速度快而闻名。</p>
-<h2 id="了解-JavaScript"><a href="#了解-JavaScript" class="headerlink" title="了解 JavaScript"></a>了解 JavaScript</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>编译型：C、C++ 等语言需要一个编译器（compiler）。编译器是一种程序，能够把用 Java 等高级语言编写出来的源代码翻译为直接在计算机上执行的文件。</p>
-<p>解释型：不需要编译器，它们只需要解释器。对于 JavaScript，浏览器负责完成有关的解释和执行工作。</p>
-<h3 id="编程形式"><a href="#编程形式" class="headerlink" title="编程形式"></a>编程形式</h3><ol>
-<li><p>面向过程：C</p>
-</li>
-<li><p>面向对象：Java、C++</p>
-</li>
-<li><p>既面向对象也面向过程：JavaScript </p>
-</li>
-</ol>
-<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ol>
-<li><p>解释型语言 — （不需要编译成文件）跨平台。</p>
-</li>
-<li><p>单线程 — 同一时间只能干一件事。</p>
-</li>
-<li><p>弱类型语言 — 存放的数据类型可变。</p>
-</li>
-</ol>
-<h3 id="组成部分"><a href="#组成部分" class="headerlink" title="组成部分"></a>组成部分</h3><p>我们把 JavaScript 中的核心部分称为 ECMAScript，加上 BOM（浏览器对象模型）与 DOM（文档对象类型），三者共同组成了 JavaScript。</p>
-<ol>
-<li>ECMA-262 标准规定了这门语言的如下组成部分：语法、类型、语句、关键字、保留字、操作符、对象。</li>
-<li>浏览器对象模型（BOM，Browser Object Model），提供与浏览器交互的方法和接口。</li>
-<li>文档对象内容（DOM，Document Object Model），提供访问和操作网页内容的方法和接口。</li>
-</ol>
-<h3 id="执行队列"><a href="#执行队列" class="headerlink" title="执行队列"></a>执行队列</h3><p>执行队列（过程）：轮转时间片。</p>
-<ol>
-<li>单线程模拟多线程。</li>
-<li>类似吃饭，吃一口米饭，吃一口茄子，再吃一口排骨，再吃一口米饭，再吃一口米饭，再吃一口茄子，顺序完全随机，在足够快的时间内，肉眼可见菜和饭在同时减少。</li>
-<li>比如 js 引擎要执行任务 1 和任务 2，js 引擎会把任务 1 和任务 2 切成无数个片段，然后把这些片段随机排成一个队列送入引擎执行，直到被执行完。</li>
-</ol>
-<blockquote>
-<p>异步（asynchronous）：同时执行，类似于有很多条路一起走，可以同时出发。<br>同步（synchronous）：分次执行，类似于只有一条路走，这个走完了下个才能走。</p>
-</blockquote>
-<h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><p>引入方法：</p>
-<ol>
-<li><p>页面内嵌<code>&lt;script&gt;&lt;/script&gt;</code>标签</p>
-</li>
-<li><p>外部引入<code>&lt;script src=location&gt;&lt;/script&gt;</code></p>
-</li>
-</ol>
-<p>页面中，可以存在多个<code>&lt;script&gt;</code>标签，执行顺序从上到下。只要不存在 defer 和 async 属性，浏览器都会按照 它们在页面中出现的先后顺序依次进行解析。</p>
-<p>传统的做法是所有<code>&lt;script&gt;</code>标签都放在<code>&lt;head&gt;</code>中，这意味着必须等到全部 js 代码都被下载、解析和执行完成以后，才能开始呈现页面的内容（浏览器在遇到<code>&lt;body&gt;</code>标签时才开始呈现内容）。</p>
-<p>为了避免这个问题，现代 Web 应用程序一般都把全部 js 引用放在<code>&lt;body&gt;</code>中页面内容的后面。这样，在解析包含的 js 代码之前，页面的内容将完全呈现在浏览器中。而用户也会因为浏览器窗口显示空白页面的时间缩短而感到打开页面的速度加快了。</p>
-<p>为符合 Web 标准中结构、样式、行为相分离的原则，通常会采用外部引入。</p>
-<blockquote>
-<p>如果有外部 js 文件，那么这个 script 标签里如果再写 js 代码，也是不会执行的，会被直接忽略。<br>基于这个特性，在开发时偶尔会用来存储一些代码。<br>在下面再写一个 script 标签，然后里面写代码是可以的。</p>
-</blockquote>
-<h2 id="计算"><a href="#计算" class="headerlink" title="计算"></a>计算</h2><p>JavaScript 可正常计算的范围：小数点前 16 位，后 16 位。</p>
-<p>js 计算精度不准，是纯粹的 bug，所以在 js 中应尽量避免小数操作。<br>   <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">0.14</span> * <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 14.000000000000002</span></span><br></pre></td></tr></table></figure></div></p>
-<p>如果需要计算，那么采用<code>Math.floor()</code>（向下取整）或<code>Math.ceil()</code>（向上取整）方法。<br>   <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 向上取整，无论小数是多少，都向前进 1</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">Math</span>.ceil(<span class="number">123.234</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 124</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 向下取整，无论小数是多少，都不要了</span></span><br><span class="line"><span class="keyword">var</span> num1 = <span class="built_in">Math</span>.floor(<span class="number">123.999</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num1); <span class="comment">// 123</span></span><br></pre></td></tr></table></figure></div></p>
-<p><code>Math.random()</code>方法可以随机产生一个 0 ～ 1 之间的开区间的数。</p>
-   <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="built_in">Math</span>.random();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 0.4322440432127299</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 0.5216225452503296</span></span><br></pre></td></tr></table></figure></div>
-
-<p><code>toFixed()</code>方法可以把 Number 四舍五入为指定小数位数的数字。</p>
-   <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">123.45678</span>;</span><br><span class="line">   </span><br><span class="line">demo = num.toFixed(<span class="number">2</span>);</span><br><span class="line">   </span><br><span class="line"><span class="built_in">console</span>.log(demo); <span class="comment">// 123.46</span></span><br></pre></td></tr></table></figure></div>
-
-
-<h2 id="变量（variable）"><a href="#变量（variable）" class="headerlink" title="变量（variable）"></a>变量（variable）</h2><p>变量声明</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 声明、赋值分解</span></span><br><span class="line"><span class="keyword">var</span> a;</span><br><span class="line">a = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 单一 var</span></span><br><span class="line"><span class="keyword">var</span> c = <span class="number">2</span>,</span><br><span class="line">    b = <span class="number">4</span>;</span><br></pre></td></tr></table></figure></div>
-
-<p>开发规范：单一 var 模式，每个变量用逗号隔开，同时换行。</p>
-<p>命名规则：</p>
-<ol>
-<li>变量名必须以<code>英文字母</code>、<code>_</code>、<code>$</code>开头</li>
-<li>变量名可以包括<code>英文字母</code>、<code>_</code>、<code>$</code>、<code>数字</code></li>
-<li>不可以用系统的关键字、保留字作为变量名。</li>
-</ol>
-<h2 id="语句基本规则"><a href="#语句基本规则" class="headerlink" title="语句基本规则"></a>语句基本规则</h2><p>语句后面要用分号<code>;</code>结束。注意，下列三种语句不用加分号：</p>
-<ol>
-<li>函数： function test() {}</li>
-<li>for 循环：for() {}</li>
-<li>if 语句：if() {}</li>
-</ol>
-<p>一个 HTML 文件中可以放多个 JS 代码块，代码块内的规则可以互通。如果某个代码块内出现 JS 语法错误，会引发该代码块内的后续代码终止，但不会影响其他 JS 代码块，目前有两种错误：</p>
-<ol>
-<li>低级错误：语法解析错误，整个代码块都不会执行。<br>如：使用了中文标点符号：Uncaught Syntax Error: ……</li>
-<li>逻辑错误：标准错误，会执行到该代码块最后一行正确代码再终止。<br>如：没有声明变量，直接使用：Uncaught Reference Error: ……</li>
-</ol>
-<p>书写格式要规范，<code>=</code> <code>+</code> <code>/</code> <code>-</code>两边都应该有空格。</p>
-<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><p><code>+</code>:</p>
-<ul>
-<li>数学运算。</li>
-<li>字符串连接：任何数据类型加字符串都等于字符串。</li>
-</ul>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 从左至右运算</span></span><br><span class="line"><span class="comment">// 1+1 数字运算，得 2</span></span><br><span class="line"><span class="comment">// 2+&#x27;a&#x27; 字符串连接，得 2a</span></span><br><span class="line"><span class="comment">// &#x27;2a&#x27;+1 字符串连接，得 2a1</span></span><br><span class="line"><span class="comment">// 同理可得 2a11</span></span><br><span class="line"><span class="keyword">var</span> result = <span class="number">1</span> + <span class="number">1</span> + <span class="string">&#x27;a&#x27;</span> + <span class="number">1</span> + <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(result); <span class="comment">// 2a11</span></span><br></pre></td></tr></table></figure></div>
-
-
-<p><code>-、*、/、%、=、()</code></p>
-<p><code>+=、-=、/=、*=、%=</code></p>
-<p><code>++</code>。先加加（减减）还是后加加（减减）是针对当前语句来说的。<code>++</code>放后面，意为先执行该条语句，然后再加加。<code>++</code>放前面，意为先加加，然后再执行该条语句。</p>
-   <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a++); <span class="comment">// 10</span></span><br><span class="line"><span class="comment">// 意为先执行 console.log(a)，执行完后 a++</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//此时再看 a 的值，就是加完之后的了</span></span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 11</span></span><br></pre></td></tr></table></figure></div>
-
-   <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> b = ++a - <span class="number">1</span> + a++; </span><br><span class="line"></span><br><span class="line"><span class="comment">// ++a 先加后执行，10 + 1 = 11，a 的值变为 11</span></span><br><span class="line"><span class="comment">// a++ 先执行后加，a 现在的值为 11 ，故 a++ = 11</span></span><br><span class="line"><span class="comment">// b = 11 - 1 + 11 = 21</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(b);<span class="comment">// 21</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// a 两次自增，故值为 12</span></span><br><span class="line"><span class="built_in">console</span>.log(a);<span class="comment">// 12</span></span><br></pre></td></tr></table></figure></div>
-
-<p><code>--</code>。注意：有前自增（自减）操作符时，要先加加（减减），再执行该条语句。</p>
-   <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> b = a-- + --a; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 先算 --a，先减后执行，a = 1，自减后 a = 0</span></span><br><span class="line"><span class="comment">// 再算 a--，先执行后减，a = 0，故 a-- = 0</span></span><br><span class="line"><span class="comment">// b = 0 + 0 = 0</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(b);<span class="comment">// 0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// a 两次自减，故值为 -1</span></span><br><span class="line"><span class="built_in">console</span>.log(a);<span class="comment">// -1</span></span><br></pre></td></tr></table></figure></div>
-
-<h3 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h3><p><code>&gt;</code>、<code>&lt;</code>、<code>==</code>、<code>&gt;=</code>、<code>&lt;=</code>、<code>!=</code></p>
-<p>比较结果为 boolean 值：true / false。</p>
-<blockquote>
-<p><code>==</code>是等于，而<code>=</code>是赋值。</p>
-</blockquote>
-<p>字符串的比较规则为 asc 码。如“A”的 asc 码为 65 ，“a”的 asc 码为 97。</p>
-<p>字符串比较是按照顺序来的，如果运算符左边的字符串中顺位第一的字符小于右边字符串的第一位字符，那么左边直接就是小于右边；如果第一位相等，那就再看第二位。</p>
-   <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 读作字符串一零 &gt; 字符串二</span></span><br><span class="line"><span class="keyword">var</span> result = <span class="string">&#x27;10&#x27;</span> &gt; <span class="string">&#x27;2&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(result); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 字符串‘1’的 asc 码为 49</span></span><br><span class="line"><span class="comment">// 字符串‘2’的 asc 码为 50</span></span><br><span class="line"><span class="comment">// 字符串‘3’的 asc 码为 51</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result = <span class="string">&#x27;3&#x27;</span> &gt; <span class="string">&#x27;20&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(result); <span class="comment">// true</span></span><br></pre></td></tr></table></figure></div>
-
-<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><p><code>&amp;&amp;</code>、<code>||</code>、<code>!</code></p>
-<p>运算结果为真实的值</p>
-<p>下面六个值转化为布尔值都是 false：<code>undefined、null、NaN、&quot;&quot;、0、flase</code>。</p>
-<blockquote>
-<p>NaN(Not a Number)：非数，是数字类型的一类值，意为不可表示的值。</p>
-</blockquote>
-<p><code>&amp;&amp;</code>在运行时，在碰到表达式的布尔值为假时，返回该表达式的值。</p>
-<ul>
-<li>多个表达式时，先看第一个表达式转换成布尔值的结果，若结果为真，接着看第二个表达式的布尔值，若第二个也为真，接着看第三个，依此类推，直到表达式的布尔值为 false，直接返回该表达式的值。即看到假，返回假。如果全为真，则返回最后一个表达式的值。</li>
-<li>只有两个表达式时，若第一个表达式的布尔值为 true，返回第二个表达式的值。若第一个表达式为 false，直接返回第一个表达式原本的值。即一真返二。一假返一。</li>
-</ul>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span> &amp;&amp; <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 1 转化为 true，判断为真</span></span><br><span class="line"><span class="comment">// 第一个为 true，直接返回第二个表达式的值</span></span><br></pre></td></tr></table></figure></div>
-
-<p>基于<code>&amp;&amp;</code>运算符的原理， 使它具备中断的作用，在实际开发中作为<strong>短路语句</strong>使用，它是 if 语句的简写形式，可以用来替代 if 语句：“如果…是真/假，那么…”</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="number">0</span> &amp;&amp; <span class="built_in">document</span>.write(<span class="string">&#x27;a&#x27;</span>); <span class="comment">// 不会输出 a</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果前面的数据正确，那么执行后面的语句</span></span><br><span class="line"></span><br><span class="line"><span class="number">2</span> &gt; <span class="number">1</span> &amp;&amp; <span class="built_in">console</span>.log(<span class="string">&#x27;团子很可爱&#x27;</span>); <span class="comment">// 团子很可爱</span></span><br></pre></td></tr></table></figure></div>
-
-<p><code>||</code>与<code>&amp;&amp;</code>类似，只不过是碰到表达式的布尔值为真时，返回该表达式的值。</p>
-<ul>
-<li>多个表达式时，若第一个为假，则一直往下看，直到找到为真的表达式，然后返回该值。即看到真，返回真。如果全为假，则返回最后一个表达式的值。</li>
-<li>两个表达式时，若第一个为假，直接返回第二个表达式的值。</li>
-</ul>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">1</span> || <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure></div>
-
-<p><code>!</code>将表达式转换成布尔值再取反，然后输出布尔值。 </p>
-<h3 id="其他：逗号运算符"><a href="#其他：逗号运算符" class="headerlink" title="其他：逗号运算符"></a>其他：逗号运算符</h3><p>形式：(表达式1，表达式2，表达式3………….)<br>作用：通常与小括号<code>()</code>一起使用，逗号<code>,</code>用于连接算式<br>运算规则：对每个操作对象求值（从左至右），返回最后一个操作对象的值。</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>,</span><br><span class="line">      b = <span class="number">20</span>,</span><br><span class="line">      result = (a++, a + b);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log (result); <span class="comment">// 31 </span></span><br><span class="line"><span class="built_in">console</span>.log (a); <span class="comment">// 11</span></span><br><span class="line"><span class="built_in">console</span>.log (b); <span class="comment">// 20</span></span><br></pre></td></tr></table></figure></div>
-
-<blockquote>
-<p>查询<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Operator_Precedence">运算符优先级</a>。</p>
-</blockquote>
-<h2 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h2><h3 id="if-条件语句"><a href="#if-条件语句" class="headerlink" title="if 条件语句"></a>if 条件语句</h3><p><code>if (条件判断) &#123;执行语句&#125;</code></p>
-<p><code>if () &#123;&#125; else if () &#123;&#125;</code></p>
-<p><code>if () &#123;&#125;</code>&lt;—&gt; <code>&amp;&amp;</code>转换</p>
-<h3 id="for-循环语句"><a href="#for-循环语句" class="headerlink" title="for 循环语句"></a>for 循环语句</h3><p>for 循环执行顺序：</p>
-<ul>
-<li>先执行一遍 (1) ：<code>var i = 0</code></li>
-<li>判断 (2) -&gt; 执行语句 (3)：<code>if(i &lt; 10)&#123;console.log(&#39;a&#39;);&#125;</code></li>
-<li>执行 (4)：<code>i++ -&gt; i = 1</code></li>
-<li>判断 (2) -&gt; 执行语句 (3)</li>
-<li>执行 (4)：<code>i++ -&gt; i = 2</code></li>
-<li>判断 (2) -&gt; 执行语句 (3)</li>
-<li>执行 (4)：<code>i++ -&gt; i = 3</code><br>…</li>
-</ul>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//       (1)      (2)   (4)</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&#x27;a&#x27;</span>);             <span class="comment">// (3)</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> i = <span class="number">0</span>;                          <span class="comment">// (1)</span></span><br><span class="line"><span class="keyword">for</span> (; i &lt; <span class="number">10</span>; ) &#123;                  <span class="comment">// (2)</span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&#x27;a&#x27;</span>);             <span class="comment">// (3)</span></span><br><span class="line">      i++;                          <span class="comment">// (4)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<blockquote>
-<p>无论 for 语句中写的是什么，都会按照这个执行顺序执行。</p>
-</blockquote>
-<p>while</p>
-   <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (i &lt; <span class="number">10</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">    i++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>do while（很少用）</p>
-   <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">    i++;</span><br><span class="line">&#125; <span class="keyword">while</span> (i &lt; <span class="number">10</span>)</span><br></pre></td></tr></table></figure></div>
-
-
-<h3 id="switch-语句"><a href="#switch-语句" class="headerlink" title="switch 语句"></a>switch 语句</h3><p>格式：</p>
-   <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">switch</span> (条件) &#123;</span><br><span class="line">    <span class="keyword">case</span> 结果<span class="number">1</span>:                        <span class="comment">// 结果与条件进行判断（比对）</span></span><br><span class="line">        执行语句;                       <span class="comment">// 满足即执行该语句</span></span><br><span class="line">        <span class="keyword">break</span>;                        <span class="comment">// 执行后结束</span></span><br><span class="line">    <span class="keyword">case</span> 结果<span class="number">2</span>: </span><br><span class="line">        执行语句;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> 结果<span class="number">3</span>: </span><br><span class="line">        执行语句;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        执行语句;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>switch 的条件和 case 的结果比对，如果是一样的，就执行。</p>
-   <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> date = <span class="built_in">window</span>.prompt(<span class="string">&#x27;input&#x27;</span>);</span><br><span class="line"><span class="keyword">switch</span> (date) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;monday&#x27;</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;tuesday&#x27;</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;wednesday&#x27;</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;thursday&#x27;</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;friday&#x27;</span>:</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;working&#x27;</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;周六&#x27;</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;周日&#x27;</span>:</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;relaxing&#x27;</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>当 case 的结果是表达式时，比较的就是表达式的返回值。</p>
-   <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> age = <span class="number">28</span>,</span><br><span class="line">    greeting;</span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span> (<span class="literal">true</span>) &#123;                           <span class="comment">// 条件</span></span><br><span class="line">    <span class="keyword">case</span> age &lt; <span class="number">18</span>:                        <span class="comment">// 结果1</span></span><br><span class="line">        greeting = <span class="string">&#x27;同学&#x27;</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> age &gt;= <span class="number">18</span> &amp;&amp; age &lt; <span class="number">40</span>:             <span class="comment">// 结果2</span></span><br><span class="line">        greeting = <span class="string">&#x27;先生&#x27;</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> age &gt;= <span class="number">40</span>:</span><br><span class="line">        greeting = <span class="string">&#x27;前辈&#x27;</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">        greeting = <span class="string">&#x27;你好&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(greeting); <span class="comment">// &#x27;先生&#x27;</span></span><br></pre></td></tr></table></figure></div>
-
-<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>break：终止循环。</p>
-   <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++)&#123;</span><br><span class="line">    sum += i;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">    <span class="keyword">if</span> (sum &gt; <span class="number">100</span>) &#123;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">        <span class="comment">// 这个 break 能执行是因为最外有一层 for 循环，如果只有 if 语句，是肯定报错的</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-<blockquote>
-<p>break 必须写在循环里面，否则会报错。</p>
-</blockquote>
-<p>continue：终止本次循环，直接进行下一次循环。</p>
-   <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (i % <span class="number">7</span> === <span class="number">0</span> || i % <span class="number">10</span> === <span class="number">7</span>) &#123;</span><br><span class="line">        <span class="keyword">continue</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-        <category>ECMAScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-        <tag>前端</tag>
-        <tag>ECMAScript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ECMAScript笔记(四)闭包</title>
     <url>/post/1f0e/</url>
     <content><![CDATA[<h2 id="立即执行函数"><a href="#立即执行函数" class="headerlink" title="立即执行函数"></a>立即执行函数</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>此类函数没有声明，在一次执行后即释放。是针对初始化功能的函数，适合做初始化工作。</p>
@@ -962,29 +962,20 @@
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line"># 全局安装</span><br><span class="line">npm i webpack webpack-cli</span><br><span class="line"></span><br><span class="line"># 局部安装</span><br><span class="line">npm i webpack webpack-cli -D</span><br></pre></td></tr></table></figure></div>
 
 <p>命令完成后，项目中会多一个 node_modules 文件夹，用来存放项目中安装的依赖包。</p>
-<blockquote>
-<p><code>install</code> 简写为 <code>i</code></p>
-<p><code>--save-dev</code> 简写为 <code>-D</code></p>
-</blockquote>
-<h1 id="完善项目目录"><a href="#完善项目目录" class="headerlink" title="完善项目目录"></a>完善项目目录</h1><p>创建三个目录：</p>
-<ol>
-<li><code>src</code>：source，源码文件，用于存放我们写的源文件</li>
-<li><code>dist</code>：distribution，编译文件，用于存放之后打包的文件</li>
-<li><code>config</code>：配置文件（这个用于后面的配置文件分离）</li>
-</ol>
+<p>补充：<code>install</code> 可简写为 <code>i</code>，<code>--save-dev</code> 可简写为 <code>-D</code></p>
+<h1 id="完善项目目录"><a href="#完善项目目录" class="headerlink" title="完善项目目录"></a>完善项目目录</h1><h2 id="三个重要目录"><a href="#三个重要目录" class="headerlink" title="三个重要目录"></a>三个重要目录</h2><p><code>src</code>：source，源码文件，用于存放我们写的源文件</p>
+<p><code>dist</code>：distribution，编译文件，用于存放之后打包的文件</p>
+<p><code>config</code>：配置文件（这个用于后面的配置文件分离）</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir config dist src</span><br></pre></td></tr></table></figure></div>
 
-<p>创建项目入口文件：</p>
-<ol>
-<li><code>index.html</code></li>
-<li><code>index.js</code></li>
-</ol>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line"># 根目录下</span><br><span class="line">touch index.html</span><br><span class="line"></span><br><span class="line"># src 目录下</span><br><span class="line">cd src &amp;&amp; touch index.js</span><br></pre></td></tr></table></figure></div>
+<h2 id="项目入口文件"><a href="#项目入口文件" class="headerlink" title="项目入口文件"></a>项目入口文件</h2><p>根目录下：<code>index.html</code></p>
+<p>src 目录下：<code>index.js</code></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">touch index.html</span><br><span class="line"></span><br><span class="line">cd src &amp;&amp; touch index.js</span><br></pre></td></tr></table></figure></div>
 
-<p>回到根目录，创建配置文件 <code>webpack.config.js</code>：</p>
+<h2 id="原始配置文件"><a href="#原始配置文件" class="headerlink" title="原始配置文件"></a>原始配置文件</h2><p>回到根目录，创建配置文件 <code>webpack.config.js</code>：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">cd ..</span><br><span class="line"></span><br><span class="line">touch webpack.config.js</span><br></pre></td></tr></table></figure></div>
 
-<h1 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h1><h2 id="初次尝试"><a href="#初次尝试" class="headerlink" title="初次尝试"></a>初次尝试</h2><p>打开 <code>webpack.config.js</code>，先进行基本的配置：</p>
+<h1 id="配置目录"><a href="#配置目录" class="headerlink" title="配置目录"></a>配置目录</h1><h2 id="初次尝试"><a href="#初次尝试" class="headerlink" title="初次尝试"></a>初次尝试</h2><p>打开 <code>webpack.config.js</code>，先进行基本的配置：</p>
 <ol>
 <li><code>entry</code>：入口文件</li>
 <li><code>output</code>：打包后的文件名和存放目录</li>
