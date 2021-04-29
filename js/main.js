@@ -6,14 +6,14 @@ $(function () {
 
   /**
    * 當menu過多時，自動適配，避免UI錯亂
-    * 傳入 1 sidebar打開時
+   * 傳入 1 sidebar打開時
    * 傳入 2 正常狀態下
    */
   var blogNameWidth = $('#blog_name').width()
   var menusWidth = $('.menus').width()
   var sidebarWidth = $('#sidebar').width()
 
-  function isAdjust (n) {
+  function isAdjust(n) {
     var t
     if (n === 1) {
       t = blogNameWidth + menusWidth > $pageHead.width() - sidebarWidth - 20
@@ -25,20 +25,20 @@ $(function () {
     else headerAdjustBack()
   }
 
-  function headerAdjust () {
+  function headerAdjust() {
     $pageHead.find('.toggle-menu').addClass('is-visible-inline')
     $pageHead.find('.menus_items').addClass('is_invisible')
     $pageHead.find('#search_button span').addClass('is_invisible')
   }
 
-  function headerAdjustBack () {
+  function headerAdjustBack() {
     $pageHead.find('.toggle-menu').removeClass('is-visible-inline')
     $pageHead.find('.menus_items').removeClass('is_invisible')
     $pageHead.find('#search_button span').removeClass('is_invisible')
   }
 
   // 初始化header
-  function initAjust () {
+  function initAjust() {
     if (window.innerWidth < 768) headerAdjust()
     else isAdjust(2)
   }
@@ -79,42 +79,60 @@ $(function () {
    * 點擊左下角箭頭,顯示sidebar
    */
 
-  function closeSidebar () {
+  function closeSidebar() {
     $('#sidebar').removeClass('tocOpenPc')
-    $('.menus').animate({
-      paddingRight: 0
-    }, 400)
-    $('#body-wrap').animate({
-      paddingLeft: 0
-    }, 400)
-    $('#sidebar').animate({
-      left: '-300px'
-    }, 400)
+    $('.menus').animate(
+      {
+        paddingRight: 0,
+      },
+      400
+    )
+    $('#body-wrap').animate(
+      {
+        paddingLeft: 0,
+      },
+      400
+    )
+    $('#sidebar').animate(
+      {
+        left: '-300px',
+      },
+      400
+    )
     $('#toggle-sidebar').css({
       transform: 'rotateZ(0deg)',
       color: '#1F2D3D',
-      opacity: '1'
+      opacity: '1',
     })
     setTimeout(function () {
       isAdjust(2)
     }, 400)
   }
 
-  function openSidebar () {
+  function openSidebar() {
     $('#sidebar').addClass('tocOpenPc')
-    $('.menus').animate({
-      paddingRight: 300
-    }, 400)
-    $('#body-wrap').animate({
-      paddingLeft: 300
-    }, 400)
-    $('#sidebar').animate({
-      left: 0
-    }, 400)
+    $('.menus').animate(
+      {
+        paddingRight: 300,
+      },
+      400
+    )
+    $('#body-wrap').animate(
+      {
+        paddingLeft: 300,
+      },
+      400
+    )
+    $('#sidebar').animate(
+      {
+        left: 0,
+      },
+      400
+    )
     $('#toggle-sidebar').css({
       transform: 'rotateZ(180deg)',
       color: '#99a9bf',
-      opacity: '1'
+      opacity: '1',
     })
     var isAdjustTimeCount = window.setInterval(function () {
       if ($pageHead.hasClass('fixed')) isAdjust(1)
@@ -145,7 +163,7 @@ $(function () {
   var $mobileTocButton = $('#mobile-toc-button')
   var $menuMask = $('#menu_mask')
 
-  function openMobileSidebar (name) {
+  function openMobileSidebar(name) {
     sidebarPaddingR()
     $('body').css('overflow', 'hidden')
     $menuMask.fadeIn()
@@ -167,7 +185,7 @@ $(function () {
     }
   }
 
-  function closeMobileSidebar (name) {
+  function closeMobileSidebar(name) {
     $('body').css({ overflow: '', 'padding-right': '' })
     $menuMask.fadeOut()
 
@@ -228,19 +246,36 @@ $(function () {
    * BOOKMARK 書簽
    */
   $('#bookmark-it').on('click', function () {
-    if (window.sidebar && window.sidebar.addPanel) { // Mozilla Firefox Bookmark
+    if (window.sidebar && window.sidebar.addPanel) {
+      // Mozilla Firefox Bookmark
       window.sidebar.addPanel(document.title, window.location.href, '')
-    } else if (window.external && ('AddFavorite' in window.external)) { // IE Favorite
+    } else if (window.external && 'AddFavorite' in window.external) {
+      // IE Favorite
       window.external.AddFavorite(location.href, document.title)
-    } else if (window.opera && window.print) { // Opera Hotlist
+    } else if (window.opera && window.print) {
+      // Opera Hotlist
       this.title = document.title
       return true
-    } else { // webkit - safari/chrome
+    } else {
+      // webkit - safari/chrome
       if (isSnackbar) {
-        var bookmarkText = GLOBAL_CONFIG.Snackbar.bookmark.message_prev + ' ' + (navigator.userAgent.toLowerCase().indexOf('mac') !== -1 ? 'Command/Cmd' : 'CTRL') + '+ D ' + GLOBAL_CONFIG.Snackbar.bookmark.message_next + '.'
+        var bookmarkText =
+          GLOBAL_CONFIG.Snackbar.bookmark.message_prev +
+          ' ' +
+          (navigator.userAgent.toLowerCase().indexOf('mac') !== -1 ? 'Command/Cmd' : 'CTRL') +
+          '+ D ' +
+          GLOBAL_CONFIG.Snackbar.bookmark.message_next +
+          '.'
         snackbarShow(bookmarkText)
       } else {
-        alert(GLOBAL_CONFIG.bookmark.message_prev + ' ' + (navigator.userAgent.toLowerCase().indexOf('mac') !== -1 ? 'Command/Cmd' : 'CTRL') + '+ D ' + GLOBAL_CONFIG.bookmark.message_next + '.')
+        alert(
+          GLOBAL_CONFIG.bookmark.message_prev +
+            ' ' +
+            (navigator.userAgent.toLowerCase().indexOf('mac') !== -1 ? 'Command/Cmd' : 'CTRL') +
+            '+ D ' +
+            GLOBAL_CONFIG.bookmark.message_next +
+            '.'
+        )
       }
     }
   })
@@ -257,15 +292,19 @@ $(function () {
     const isHighlightShrink = GLOBAL_CONFIG.highlightShrink
 
     if (isHighlightCopy || isHighlightLang || isHighlightShrink !== 'none') {
-      $figureHighlight.wrap('<div class="code-area-wrap"></div>').before('<div class="highlight-tools"></div>')
+      $figureHighlight
+        .wrap('<div class="code-area-wrap"></div>')
+        .before('<div class="highlight-tools"></div>')
     }
 
     /**
-   * 代碼收縮
-   */
+     * 代碼收縮
+     */
     const $highlightTools = $('.highlight-tools')
     if (isHighlightShrink === 'true') {
-      $highlightTools.append('<i class="fa fa-angle-down code-expand code-closed" aria-hidden="true"></i>')
+      $highlightTools.append(
+        '<i class="fa fa-angle-down code-expand code-closed" aria-hidden="true"></i>'
+      )
     } else if (isHighlightShrink === 'false') {
       $highlightTools.append('<i class="fa fa-angle-down code-expand" aria-hidden="true"></i>')
     }
@@ -282,22 +321,26 @@ $(function () {
     })
 
     /**
-    * 代碼語言
-  */
+     * 代碼語言
+     */
     if (isHighlightLang) {
       var langNameIndex, langName
       $figureHighlight.each(function () {
         langNameIndex = langName = $(this).attr('class').split(' ')[1]
         if (langNameIndex === 'plain') langName = 'Code'
-        $(this).prev().append('<div class="code-lang">' + langName + '</div>')
+        $(this)
+          .prev()
+          .append('<div class="code-lang">' + langName + '</div>')
       })
     }
     /**
-   * 代碼copy
-   * copy function
-   */
+     * 代碼copy
+     * copy function
+     */
     if (isHighlightCopy) {
-      $highlightTools.append('<div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i>')
+      $highlightTools.append(
+        '<div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i>'
+      )
       var copy = function (text, ctx) {
         if (document.queryCommandSupported && document.queryCommandSupported('copy')) {
           try {
@@ -305,37 +348,53 @@ $(function () {
             if (isSnackbar) {
               snackbarShow(GLOBAL_CONFIG.copy.success)
             } else {
-              $(ctx).prev('.copy-notice')
+              $(ctx)
+                .prev('.copy-notice')
                 .text(GLOBAL_CONFIG.copy.success)
-                .animate({
-                  opacity: 1,
-                  right: 30
-                }, 450, function () {
-                  setTimeout(function () {
-                    $(ctx).prev('.copy-notice').animate({
-                      opacity: 0,
-                      right: 0
-                    }, 650)
-                  }, 400)
-                })
+                .animate(
+                  {
+                    opacity: 1,
+                    right: 30,
+                  },
+                  450,
+                  function () {
+                    setTimeout(function () {
+                      $(ctx).prev('.copy-notice').animate(
+                        {
+                          opacity: 0,
+                          right: 0,
+                        },
+                        650
+                      )
+                    }, 400)
+                  }
+                )
             }
           } catch (ex) {
             if (isSnackbar) {
               snackbarShow(GLOBAL_CONFIG.copy.success)
             } else {
-              $(ctx).prev('.copy-notice')
+              $(ctx)
+                .prev('.copy-notice')
                 .text(GLOBAL_CONFIG.copy.error)
-                .animate({
-                  opacity: 1,
-                  right: 30
-                }, 650, function () {
-                  setTimeout(function () {
-                    $(ctx).prev('.copy-notice').animate({
-                      opacity: 0,
-                      right: 0
-                    }, 650)
-                  }, 400)
-                })
+                .animate(
+                  {
+                    opacity: 1,
+                    right: 30,
+                  },
+                  650,
+                  function () {
+                    setTimeout(function () {
+                      $(ctx).prev('.copy-notice').animate(
+                        {
+                          opacity: 0,
+                          right: 0,
+                        },
+                        650
+                      )
+                    }, 400)
+                  }
+                )
               return false
             }
           }
@@ -363,9 +422,9 @@ $(function () {
   }
 
   /**
- * PhotoFigcaption
- */
-  function addPhotoFigcaption () {
+   * PhotoFigcaption
+   */
+  function addPhotoFigcaption() {
     var images = $('#article-container img')
     images.each(function (i, o) {
       var $this = $(o)
@@ -392,17 +451,22 @@ $(function () {
         $(o).wrap('<div></div>')
       })
     }
-    $('head').append('<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css">')
-    loadScript('https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js', function () {
-      initJustifiedGallery($justifiedGallery)
-    })
+    $('head').append(
+      '<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css">'
+    )
+    loadScript(
+      'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      function () {
+        initJustifiedGallery($justifiedGallery)
+      }
+    )
 
     var initJustifiedGallery = function (selector) {
       selector.each(function (i, o) {
         if ($(this).is(':visible')) {
           $(this).justifiedGallery({
             rowHeight: 220,
-            margins: 4
+            margins: 4,
           })
         }
       })
@@ -421,10 +485,10 @@ $(function () {
       var lazyloadSrc = $(o).attr('data-src') ? $(o).attr('data-src') : $(o).attr('src')
       $(o).wrap(
         '<a href="' +
-        lazyloadSrc +
-        '" data-fancybox="group" data-caption="' +
-        $(o).attr('alt') +
-        '" class="fancybox"></a>'
+          lazyloadSrc +
+          '" data-fancybox="group" data-caption="' +
+          $(o).attr('alt') +
+          '" class="fancybox"></a>'
       )
     })
 
@@ -433,14 +497,14 @@ $(function () {
       loop: true,
       transitionEffect: 'slide',
       protect: true,
-      buttons: ['slideShow', 'fullScreen', 'thumbs', 'close']
+      buttons: ['slideShow', 'fullScreen', 'thumbs', 'close'],
     })
   } else if (isMediumZoom) {
     const zoom = mediumZoom(document.querySelectorAll('#article-container :not(a)>img'))
     zoom.on('open', function (event) {
       var photoBg = $(document.documentElement).attr('data-theme') === 'dark' ? '#121212' : '#fff'
       zoom.update({
-        background: photoBg
+        background: photoBg,
       })
     })
   }
@@ -478,7 +542,7 @@ $(function () {
   })
 
   // find the scroll direction
-  function scrollDirection (currentTop) {
+  function scrollDirection(currentTop) {
     var result = currentTop > initTop // true is down & false is up
     initTop = currentTop
     return result
@@ -499,12 +563,14 @@ $(function () {
     $('.toc-child').hide()
 
     // main of scroll
-    $(window).scroll(throttle(function (event) {
-      var currentTop = $(this).scrollTop()
-      scrollPercent(currentTop)
-      findHeadPosition(currentTop)
-      autoScrollToc(currentTop)
-    }, 100))
+    $(window).scroll(
+      throttle(function (event) {
+        var currentTop = $(this).scrollTop()
+        scrollPercent(currentTop)
+        findHeadPosition(currentTop)
+        autoScrollToc(currentTop)
+      }, 100)
+    )
 
     // scroll
     $('.toc-link').on('click', function (e) {
@@ -512,7 +578,8 @@ $(function () {
         closeMobileSidebar('toc')
       } else {
         e.preventDefault()
-        scrollTo($(this).attr('href'))
+        // scrollTo($(this).attr('href'))
+        scrollTo(decodeURI(this.getAttribute('href')))
       }
     })
 
@@ -527,16 +594,19 @@ $(function () {
     var scrollPercent = function (currentTop) {
       var docHeight = $('#article-container').height()
       var winHeight = $(window).height()
-      var contentMath = (docHeight > winHeight) ? (docHeight - winHeight) : ($(document).height() - winHeight)
-      var scrollPercent = (currentTop) / (contentMath)
+      var contentMath =
+        docHeight > winHeight ? docHeight - winHeight : $(document).height() - winHeight
+      var scrollPercent = currentTop / contentMath
       var scrollPercentRounded = Math.round(scrollPercent * 100)
-      var percentage = (scrollPercentRounded > 100) ? 100
-        : (scrollPercentRounded <= 0) ? 0
-          : scrollPercentRounded
+      var percentage =
+        scrollPercentRounded > 100 ? 100 : scrollPercentRounded <= 0 ? 0 : scrollPercentRounded
       $('.progress-num').text(percentage)
-      $('.sidebar-toc__progress-bar').animate({
-        width: percentage + '%'
-      }, 100)
+      $('.sidebar-toc__progress-bar').animate(
+        {
+          width: percentage + '%',
+        },
+        100
+      )
     }
 
     // anchor
@@ -552,8 +622,8 @@ $(function () {
     // ol.toc > (li.toc-item, ...)
     // li.toc-item > (a.toc-link, ol.toc-child > (li.toc-item, ...))
     var findHeadPosition = function (top) {
-    // assume that we are not in the post page if no TOC link be found,
-    // thus no need to update the status
+      // assume that we are not in the post page if no TOC link be found,
+      // thus no need to update the status
       if ($('.toc-link').length === 0) {
         return false
       }
@@ -585,14 +655,16 @@ $(function () {
         // Returned list is in reverse order of the DOM elements
         // Thus `parents.last()` is the outermost .toc-child container
         // i.e. list of subsections
-        var topLink = (parents.length > 0) ? parents.last() : _this
+        var topLink = parents.length > 0 ? parents.last() : _this
         expandToc(topLink.closest('.toc-item').find('.toc-child'))
         topLink
           // Find all top-level .toc-item containers, i.e. sections
           // excluding the currently active one
-          .closest('.toc-item').siblings('.toc-item')
+          .closest('.toc-item')
+          .siblings('.toc-item')
           // Hide their respective list of subsections
-          .find('.toc-child').hide()
+          .find('.toc-child')
+          .hide()
       }
     }
 
@@ -600,7 +672,7 @@ $(function () {
       if ($('.toc-link').hasClass('active')) {
         var activePosition = $('.active').offset().top
         var sidebarScrolltop = $('#sidebar .sidebar-toc__content').scrollTop()
-        if (activePosition > (currentTop + $(window).height() - 100)) {
+        if (activePosition > currentTop + $(window).height() - 100) {
           $('#sidebar .sidebar-toc__content').scrollTop(sidebarScrolltop + 100)
         }
         if (activePosition < currentTop + 100) {
@@ -667,12 +739,21 @@ $(function () {
   if (copyright !== undefined) {
     document.body.oncopy = function (event) {
       event.preventDefault()
-      let textFont; const copyFont = window.getSelection(0).toString()
+      let textFont
+      const copyFont = window.getSelection(0).toString()
       if (copyFont.length > 45) {
-        textFont = copyFont + '\n' + '\n' + '\n' +
-          copyright.languages.author + '\n' +
-          copyright.languages.link + window.location.href + '\n' +
-          copyright.languages.source + '\n' +
+        textFont =
+          copyFont +
+          '\n' +
+          '\n' +
+          '\n' +
+          copyright.languages.author +
+          '\n' +
+          copyright.languages.link +
+          window.location.href +
+          '\n' +
+          copyright.languages.source +
+          '\n' +
           copyright.languages.info
       } else {
         textFont = copyFont
@@ -692,18 +773,24 @@ $(function () {
   var isFontAwesomeV5 = GLOBAL_CONFIG.isFontAwesomeV5
   var $darkModeButtom = $('#darkmode')
   if (typeof autoChangeMode !== 'undefined') {
-    document.documentElement.getAttribute('data-theme') === 'dark' ? changeLightIcon() : changeDarkIcon()
+    document.documentElement.getAttribute('data-theme') === 'dark'
+      ? changeLightIcon()
+      : changeDarkIcon()
   }
 
-  function changeLightIcon () {
-    isFontAwesomeV5 ? $darkModeButtom.removeClass('fa-moon').addClass('fa-sun') : $darkModeButtom.removeClass('fa-moon-o').addClass('fa-sun-o')
+  function changeLightIcon() {
+    isFontAwesomeV5
+      ? $darkModeButtom.removeClass('fa-moon').addClass('fa-sun')
+      : $darkModeButtom.removeClass('fa-moon-o').addClass('fa-sun-o')
   }
 
-  function changeDarkIcon () {
-    isFontAwesomeV5 ? $darkModeButtom.removeClass('fa-sun').addClass('fa-moon') : $darkModeButtom.removeClass('fa-sun-o').addClass('fa-moon-o')
+  function changeDarkIcon() {
+    isFontAwesomeV5
+      ? $darkModeButtom.removeClass('fa-sun').addClass('fa-moon')
+      : $darkModeButtom.removeClass('fa-sun-o').addClass('fa-moon-o')
   }
 
-  function switchReadMode () {
+  function switchReadMode() {
     var nowMode = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'
     if (nowMode === 'light') {
       changeLightIcon()
@@ -733,7 +820,7 @@ $(function () {
     var showDateTime = function () {
       var BirthDay = new Date(startDate)
       var today = new Date()
-      var timeold = (today.getTime() - BirthDay.getTime())
+      var timeold = today.getTime() - BirthDay.getTime()
       var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000))
       $runtimeCount.text(daysold + ' ' + GLOBAL_CONFIG.runtime_unit)
     }
@@ -747,7 +834,7 @@ $(function () {
    * 百度推送
    */
   if (GLOBAL_CONFIG.baiduPush) {
-    (function () {
+    ;(function () {
       var bp = document.createElement('script')
       var curProtocol = window.location.protocol.split(':')[0]
       if (curProtocol === 'https') {
@@ -779,7 +866,6 @@ $(function () {
     })
   }
 })
-
 
 // 背景图 webp 格式兼容
 // var side = document.getElementsByClassName("full_page")[0];

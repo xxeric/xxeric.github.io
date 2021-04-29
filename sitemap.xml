@@ -130,27 +130,6 @@
 
   
   <url>
-    <loc>https://cnlmx.top/tags/Hexo/</loc>
-    <lastmod>2021-04-29</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://cnlmx.top/tags/Blog/</loc>
-    <lastmod>2021-04-29</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://cnlmx.top/tags/Google/</loc>
-    <lastmod>2021-04-29</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://cnlmx.top/tags/JavaScript/</loc>
     <lastmod>2021-04-29</lastmod>
     <changefreq>daily</changefreq>
@@ -166,6 +145,27 @@
   
   <url>
     <loc>https://cnlmx.top/tags/ECMAScript/</loc>
+    <lastmod>2021-04-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cnlmx.top/tags/Hexo/</loc>
+    <lastmod>2021-04-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cnlmx.top/tags/Blog/</loc>
+    <lastmod>2021-04-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cnlmx.top/tags/Google/</loc>
     <lastmod>2021-04-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -188,13 +188,6 @@
 
   
   <url>
-    <loc>https://cnlmx.top/categories/Blog/</loc>
-    <lastmod>2021-04-29</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://cnlmx.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2021-04-29</lastmod>
     <changefreq>daily</changefreq>
@@ -202,7 +195,7 @@
   </url>
   
   <url>
-    <loc>https://cnlmx.top/categories/Blog/Hexo/</loc>
+    <loc>https://cnlmx.top/categories/Blog/</loc>
     <lastmod>2021-04-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -210,6 +203,13 @@
   
   <url>
     <loc>https://cnlmx.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ECMAScript/</loc>
+    <lastmod>2021-04-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cnlmx.top/categories/Blog/Hexo/</loc>
     <lastmod>2021-04-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
