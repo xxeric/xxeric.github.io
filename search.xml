@@ -21,72 +21,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Hexo 增加 Google 收录</title>
-    <url>/post/7dd6/</url>
-    <content><![CDATA[<blockquote>
-<p>博客搭建完成后，一直疏于维护，直到最近开始重新管理，然后发现 Google 没有收录，所以决定自己提交申请。</p>
-</blockquote>
-<h2 id="根目录配置"><a href="#根目录配置" class="headerlink" title="根目录配置"></a>根目录配置</h2><p>博客根目录下执行命令</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure></div>
-
-<p><code>_config.yml</code>末尾添加如下代码</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Yml"><figure class="iseeu highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 自动生成 sitemap</span></span><br><span class="line"><span class="attr">sitemap:</span> </span><br><span class="line"><span class="attr">path:</span> <span class="string">sitemap.xml</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
-<p><code>_config.yml</code>中查找如下代码，把 url 改为自己的博客地址</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Yml"><figure class="iseeu highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># URL</span></span><br><span class="line"><span class="comment">## If your site is put in a subdirectory, set url as &#x27;http://yoursite.com/child&#x27; and root as &#x27;/child/&#x27;</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">https://cnlmx.github.io/</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span></span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br></pre></td></tr></table></figure></div>
-
-<blockquote>
-<p>注意是博客根目录下的<code>_config.yml</code>文件。</p>
-</blockquote>
-<p>编译</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure></div>
-<blockquote>
-<p>查看博客根目录下的 public 文件夹，如果发现<code>sitemap.xml</code>文件即生成成功。</p>
-</blockquote>
-<p>在根目录<code>source</code>文件夹下增加<code>robots.txt</code>文件，<code>Sitemap</code>修改为自己的链接。</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line"># hexo robots.txt</span><br><span class="line">User-agent: *</span><br><span class="line">Allow: &#x2F;</span><br><span class="line">Allow: &#x2F;home&#x2F;</span><br><span class="line">Allow: &#x2F;about&#x2F;</span><br><span class="line">Allow: &#x2F;archives&#x2F;</span><br><span class="line">Allow: &#x2F;categories&#x2F;</span><br><span class="line">Allow: &#x2F;tags&#x2F;</span><br><span class="line">Disallow: &#x2F;js&#x2F;</span><br><span class="line">Disallow: &#x2F;css&#x2F;</span><br><span class="line">Disallow: &#x2F;fonts&#x2F;</span><br><span class="line">Disallow: &#x2F;vendors&#x2F;</span><br><span class="line">Disallow: &#x2F;fancybox&#x2F;</span><br><span class="line"></span><br><span class="line">Sitemap: https:&#x2F;&#x2F;cnlmx.github.io&#x2F;sitemap.xml</span><br></pre></td></tr></table></figure></div>
-<blockquote>
-<p>robots.txt 可以告诉搜索引擎哪些网页可以收录，哪些不允许收录。</p>
-</blockquote>
-<h2 id="Google-站长工具配置"><a href="#Google-站长工具配置" class="headerlink" title="Google 站长工具配置"></a>Google 站长工具配置</h2><p>进入<a href="https://search.google.com/search-console/about">Google Search Console</a>，点击立即使用，登录谷歌账号。</p>
-<p>添加资源，选择资源类型：网址前缀，输入博客地址，然后点击继续。</p>
-<img src="https://gitee.com/cnlmx/blogImg/raw/master/img/googles01.webp" style="width: 65%;margin-left:0">
-
-<p>验证所有权，选择 HTML 标记验证，点击复制。</p>
-<img src="https://gitee.com/cnlmx/blogImg/raw/master/img/googles02.jpg" style="width: 60%;margin-left:0">
-
-<h2 id="主题文件配置"><a href="#主题文件配置" class="headerlink" title="主题文件配置"></a>主题文件配置</h2><p><code>_config.yml</code>文件中找到<code>google_site_verification</code>，设置为<code>true</code></p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Yml"><figure class="iseeu highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment">####    站長驗證    ####</span></span><br><span class="line"><span class="comment"># Google Webmaster tools verification setting</span></span><br><span class="line"><span class="comment"># See: https://www.google.com/webmasters/</span></span><br><span class="line"><span class="attr">google_site_verification:</span> <span class="literal">true</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
-
-<blockquote>
-<p>注意是主题目录下的<code>_config.yml</code>文件。</p>
-</blockquote>
-<p>配置<code>themes/Butterfly/layout/includes/head/site_verification.pug</code>文件，用之前复制的代码替换第二行。</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">if theme.google_site_verification</span><br><span class="line">meta(name&#x3D;&quot;google-site-verification&quot; content&#x3D;theme.google_site_verification)</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
-<p>生成静态文件并部署</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure></div>
-
-<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>打开博客首页，开启控制台查看<code>&lt;head&gt;</code>标签是否加入了 Google 的验证标记。</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;google-site-verification&quot;</span> <span class="attr">content</span>=<span class="string">&quot;G_wF-veta_pkYSiXBTlXtpO4vVoCyOOkoLA_ZKlHyIs&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
-<p>确保验证标记出现，回到 Google 的验证页面，点击验证。</p>
-<h2 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h2><p>验证完成后，点击站点地图，添加新的站点地图，即之前生成的<code>sitemap.xml</code>，点击提交。</p>
-<img src="https://gitee.com/cnlmx/blogImg/raw/master/img/googles03.webp" style="width: 70%;margin-left:0">
-
-
-<blockquote>
-<p>至此，就可以安心等待 Google 进行收录了。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Blog</category>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Blog</tag>
-        <tag>Google</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ECMAScript笔记(一)基础知识</title>
     <url>/post/d459/</url>
     <content><![CDATA[<h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><p>Mosaic 是互联网历史上第一个获普遍使用和能够显示图片的网页浏览器。于 1993 年问世。</p>
@@ -697,6 +631,72 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo 增加 Google 收录</title>
+    <url>/post/7dd6/</url>
+    <content><![CDATA[<blockquote>
+<p>博客搭建完成后，一直疏于维护，直到最近开始重新管理，然后发现 Google 没有收录，所以决定自己提交申请。</p>
+</blockquote>
+<h2 id="根目录配置"><a href="#根目录配置" class="headerlink" title="根目录配置"></a>根目录配置</h2><p>博客根目录下执行命令</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure></div>
+
+<p><code>_config.yml</code>末尾添加如下代码</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Yml"><figure class="iseeu highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 自动生成 sitemap</span></span><br><span class="line"><span class="attr">sitemap:</span> </span><br><span class="line"><span class="attr">path:</span> <span class="string">sitemap.xml</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+<p><code>_config.yml</code>中查找如下代码，把 url 改为自己的博客地址</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Yml"><figure class="iseeu highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># URL</span></span><br><span class="line"><span class="comment">## If your site is put in a subdirectory, set url as &#x27;http://yoursite.com/child&#x27; and root as &#x27;/child/&#x27;</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">https://cnlmx.github.io/</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span></span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p>注意是博客根目录下的<code>_config.yml</code>文件。</p>
+</blockquote>
+<p>编译</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure></div>
+<blockquote>
+<p>查看博客根目录下的 public 文件夹，如果发现<code>sitemap.xml</code>文件即生成成功。</p>
+</blockquote>
+<p>在根目录<code>source</code>文件夹下增加<code>robots.txt</code>文件，<code>Sitemap</code>修改为自己的链接。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line"># hexo robots.txt</span><br><span class="line">User-agent: *</span><br><span class="line">Allow: &#x2F;</span><br><span class="line">Allow: &#x2F;home&#x2F;</span><br><span class="line">Allow: &#x2F;about&#x2F;</span><br><span class="line">Allow: &#x2F;archives&#x2F;</span><br><span class="line">Allow: &#x2F;categories&#x2F;</span><br><span class="line">Allow: &#x2F;tags&#x2F;</span><br><span class="line">Disallow: &#x2F;js&#x2F;</span><br><span class="line">Disallow: &#x2F;css&#x2F;</span><br><span class="line">Disallow: &#x2F;fonts&#x2F;</span><br><span class="line">Disallow: &#x2F;vendors&#x2F;</span><br><span class="line">Disallow: &#x2F;fancybox&#x2F;</span><br><span class="line"></span><br><span class="line">Sitemap: https:&#x2F;&#x2F;cnlmx.github.io&#x2F;sitemap.xml</span><br></pre></td></tr></table></figure></div>
+<blockquote>
+<p>robots.txt 可以告诉搜索引擎哪些网页可以收录，哪些不允许收录。</p>
+</blockquote>
+<h2 id="Google-站长工具配置"><a href="#Google-站长工具配置" class="headerlink" title="Google 站长工具配置"></a>Google 站长工具配置</h2><p>进入<a href="https://search.google.com/search-console/about">Google Search Console</a>，点击立即使用，登录谷歌账号。</p>
+<p>添加资源，选择资源类型：网址前缀，输入博客地址，然后点击继续。</p>
+<img src="https://gitee.com/cnlmx/blogImg/raw/master/img/googles01.webp" style="width: 65%;margin-left:0">
+
+<p>验证所有权，选择 HTML 标记验证，点击复制。</p>
+<img src="https://gitee.com/cnlmx/blogImg/raw/master/img/googles02.jpg" style="width: 60%;margin-left:0">
+
+<h2 id="主题文件配置"><a href="#主题文件配置" class="headerlink" title="主题文件配置"></a>主题文件配置</h2><p><code>_config.yml</code>文件中找到<code>google_site_verification</code>，设置为<code>true</code></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Yml"><figure class="iseeu highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment">####    站長驗證    ####</span></span><br><span class="line"><span class="comment"># Google Webmaster tools verification setting</span></span><br><span class="line"><span class="comment"># See: https://www.google.com/webmasters/</span></span><br><span class="line"><span class="attr">google_site_verification:</span> <span class="literal">true</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p>注意是主题目录下的<code>_config.yml</code>文件。</p>
+</blockquote>
+<p>配置<code>themes/Butterfly/layout/includes/head/site_verification.pug</code>文件，用之前复制的代码替换第二行。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">if theme.google_site_verification</span><br><span class="line">meta(name&#x3D;&quot;google-site-verification&quot; content&#x3D;theme.google_site_verification)</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+<p>生成静态文件并部署</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>打开博客首页，开启控制台查看<code>&lt;head&gt;</code>标签是否加入了 Google 的验证标记。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;google-site-verification&quot;</span> <span class="attr">content</span>=<span class="string">&quot;G_wF-veta_pkYSiXBTlXtpO4vVoCyOOkoLA_ZKlHyIs&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+<p>确保验证标记出现，回到 Google 的验证页面，点击验证。</p>
+<h2 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h2><p>验证完成后，点击站点地图，添加新的站点地图，即之前生成的<code>sitemap.xml</code>，点击提交。</p>
+<img src="https://gitee.com/cnlmx/blogImg/raw/master/img/googles03.webp" style="width: 70%;margin-left:0">
+
+
+<blockquote>
+<p>至此，就可以安心等待 Google 进行收录了。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Blog</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Blog</tag>
+        <tag>Google</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ECMAScript笔记(四)闭包</title>
     <url>/post/1f0e/</url>
     <content><![CDATA[<h2 id="立即执行函数"><a href="#立即执行函数" class="headerlink" title="立即执行函数"></a>立即执行函数</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>此类函数没有声明，在一次执行后即释放。是针对初始化功能的函数，适合做初始化工作。</p>
@@ -971,7 +971,7 @@
 <h2 id="原始配置文件"><a href="#原始配置文件" class="headerlink" title="原始配置文件"></a>原始配置文件</h2><p>回到根目录，创建配置文件 <code>webpack.config.js</code>：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">cd ..</span><br><span class="line"></span><br><span class="line">touch webpack.config.js</span><br></pre></td></tr></table></figure></div>
 
-<h1 id="配置目录"><a href="#配置目录" class="headerlink" title="配置目录"></a>配置目录</h1><h2 id="初次尝试"><a href="#初次尝试" class="headerlink" title="初次尝试"></a>初次尝试</h2><p>打开 <code>webpack.config.js</code>，先进行基本的配置：</p>
+<h1 id="进行配置"><a href="#进行配置" class="headerlink" title="进行配置"></a>进行配置</h1><h2 id="初次尝试"><a href="#初次尝试" class="headerlink" title="初次尝试"></a>初次尝试</h2><p>打开 <code>webpack.config.js</code>，先进行基本的配置：</p>
 <ol>
 <li><code>entry</code>：入口文件</li>
 <li><code>output</code>：打包后的文件名和存放目录</li>
