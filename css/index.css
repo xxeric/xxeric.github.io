@@ -1617,7 +1617,7 @@ blockquote footer cite:before {
 }
 #article-container pre,
 #article-container code {
-  font-family: consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace, Helvetica Neue For Number !important;
+  font-family: 'Lucida Sans Typewriter', 'Source Code Pro', consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace, Helvetica Neue For Number !important;
 }
 #article-container code {
   padding: 0.1rem 0.2rem;
@@ -4936,9 +4936,10 @@ figure.gallery-group .gallery-group-name:after {
 [data-theme='light'] .read-mode #article-container pre,
 [data-theme='light'] .read-mode #article-container .highlight:not(.js-file-line-container) {
   background: #f7f7f7 !important;
+  color: #4c4948 !important;
 }
 [data-theme='light'] .read-mode #article-container code {
-  color: #4c4948;
+  color: #4c4948 !important;
 }
 [data-theme='light'] .read-mode #article-container blockquote {
   border-left: 0.2rem solid #ddd;
@@ -5067,6 +5068,10 @@ figure.gallery-group .gallery-group-name:after {
 .read-mode #mobile-toc-button,
 .read-mode #page-header {
   display: none !important;
+}
+.read-mode .highlight-wrap::before,
+.read-mode .highlight-wrap::after {
+  display: none;
 }
 .read-mode #web_bg {
   background: none;

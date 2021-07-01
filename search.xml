@@ -21,6 +21,72 @@
 ]]></content>
   </entry>
   <entry>
+    <title>Hexo 增加 Google 收录</title>
+    <url>/post/7dd6/</url>
+    <content><![CDATA[<blockquote>
+<p>博客搭建完成后，一直疏于维护，直到最近开始重新管理，然后发现 Google 没有收录，所以决定自己提交申请。</p>
+</blockquote>
+<h2 id="根目录配置"><a href="#根目录配置" class="headerlink" title="根目录配置"></a>根目录配置</h2><p>博客根目录下执行命令</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure></div>
+
+<p><code>_config.yml</code>末尾添加如下代码</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Yml"><figure class="iseeu highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 自动生成 sitemap</span></span><br><span class="line"><span class="attr">sitemap:</span> </span><br><span class="line"><span class="attr">path:</span> <span class="string">sitemap.xml</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+<p><code>_config.yml</code>中查找如下代码，把 url 改为自己的博客地址</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Yml"><figure class="iseeu highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># URL</span></span><br><span class="line"><span class="comment">## If your site is put in a subdirectory, set url as &#x27;http://yoursite.com/child&#x27; and root as &#x27;/child/&#x27;</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">https://cnlmx.github.io/</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span></span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p>注意是博客根目录下的<code>_config.yml</code>文件。</p>
+</blockquote>
+<p>编译</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure></div>
+<blockquote>
+<p>查看博客根目录下的 public 文件夹，如果发现<code>sitemap.xml</code>文件即生成成功。</p>
+</blockquote>
+<p>在根目录<code>source</code>文件夹下增加<code>robots.txt</code>文件，<code>Sitemap</code>修改为自己的链接。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line"># hexo robots.txt</span><br><span class="line">User-agent: *</span><br><span class="line">Allow: &#x2F;</span><br><span class="line">Allow: &#x2F;home&#x2F;</span><br><span class="line">Allow: &#x2F;about&#x2F;</span><br><span class="line">Allow: &#x2F;archives&#x2F;</span><br><span class="line">Allow: &#x2F;categories&#x2F;</span><br><span class="line">Allow: &#x2F;tags&#x2F;</span><br><span class="line">Disallow: &#x2F;js&#x2F;</span><br><span class="line">Disallow: &#x2F;css&#x2F;</span><br><span class="line">Disallow: &#x2F;fonts&#x2F;</span><br><span class="line">Disallow: &#x2F;vendors&#x2F;</span><br><span class="line">Disallow: &#x2F;fancybox&#x2F;</span><br><span class="line"></span><br><span class="line">Sitemap: https:&#x2F;&#x2F;cnlmx.github.io&#x2F;sitemap.xml</span><br></pre></td></tr></table></figure></div>
+<blockquote>
+<p>robots.txt 可以告诉搜索引擎哪些网页可以收录，哪些不允许收录。</p>
+</blockquote>
+<h2 id="Google-站长工具配置"><a href="#Google-站长工具配置" class="headerlink" title="Google 站长工具配置"></a>Google 站长工具配置</h2><p>进入<a href="https://search.google.com/search-console/about">Google Search Console</a>，点击立即使用，登录谷歌账号。</p>
+<p>添加资源，选择资源类型：网址前缀，输入博客地址，然后点击继续。</p>
+<img src="https://gitee.com/cnlmx/blogImg/raw/master/img/googles01.webp" style="width: 65%;margin-left:0">
+
+<p>验证所有权，选择 HTML 标记验证，点击复制。</p>
+<img src="https://gitee.com/cnlmx/blogImg/raw/master/img/googles02.jpg" style="width: 60%;margin-left:0">
+
+<h2 id="主题文件配置"><a href="#主题文件配置" class="headerlink" title="主题文件配置"></a>主题文件配置</h2><p><code>_config.yml</code>文件中找到<code>google_site_verification</code>，设置为<code>true</code></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Yml"><figure class="iseeu highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment">####    站長驗證    ####</span></span><br><span class="line"><span class="comment"># Google Webmaster tools verification setting</span></span><br><span class="line"><span class="comment"># See: https://www.google.com/webmasters/</span></span><br><span class="line"><span class="attr">google_site_verification:</span> <span class="literal">true</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p>注意是主题目录下的<code>_config.yml</code>文件。</p>
+</blockquote>
+<p>配置<code>themes/Butterfly/layout/includes/head/site_verification.pug</code>文件，用之前复制的代码替换第二行。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">if theme.google_site_verification</span><br><span class="line">meta(name&#x3D;&quot;google-site-verification&quot; content&#x3D;theme.google_site_verification)</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+<p>生成静态文件并部署</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>打开博客首页，开启控制台查看<code>&lt;head&gt;</code>标签是否加入了 Google 的验证标记。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;google-site-verification&quot;</span> <span class="attr">content</span>=<span class="string">&quot;G_wF-veta_pkYSiXBTlXtpO4vVoCyOOkoLA_ZKlHyIs&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+<p>确保验证标记出现，回到 Google 的验证页面，点击验证。</p>
+<h2 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h2><p>验证完成后，点击站点地图，添加新的站点地图，即之前生成的<code>sitemap.xml</code>，点击提交。</p>
+<img src="https://gitee.com/cnlmx/blogImg/raw/master/img/googles03.webp" style="width: 70%;margin-left:0">
+
+
+<blockquote>
+<p>至此，就可以安心等待 Google 进行收录了。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Blog</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Blog</tag>
+        <tag>Google</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ECMAScript笔记(一)基础知识</title>
     <url>/post/d459/</url>
     <content><![CDATA[<h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><p>Mosaic 是互联网历史上第一个获普遍使用和能够显示图片的网页浏览器。于 1993 年问世。</p>
@@ -631,72 +697,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo 增加 Google 收录</title>
-    <url>/post/7dd6/</url>
-    <content><![CDATA[<blockquote>
-<p>博客搭建完成后，一直疏于维护，直到最近开始重新管理，然后发现 Google 没有收录，所以决定自己提交申请。</p>
-</blockquote>
-<h2 id="根目录配置"><a href="#根目录配置" class="headerlink" title="根目录配置"></a>根目录配置</h2><p>博客根目录下执行命令</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure></div>
-
-<p><code>_config.yml</code>末尾添加如下代码</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Yml"><figure class="iseeu highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 自动生成 sitemap</span></span><br><span class="line"><span class="attr">sitemap:</span> </span><br><span class="line"><span class="attr">path:</span> <span class="string">sitemap.xml</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
-<p><code>_config.yml</code>中查找如下代码，把 url 改为自己的博客地址</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Yml"><figure class="iseeu highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># URL</span></span><br><span class="line"><span class="comment">## If your site is put in a subdirectory, set url as &#x27;http://yoursite.com/child&#x27; and root as &#x27;/child/&#x27;</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">https://cnlmx.github.io/</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span></span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br></pre></td></tr></table></figure></div>
-
-<blockquote>
-<p>注意是博客根目录下的<code>_config.yml</code>文件。</p>
-</blockquote>
-<p>编译</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure></div>
-<blockquote>
-<p>查看博客根目录下的 public 文件夹，如果发现<code>sitemap.xml</code>文件即生成成功。</p>
-</blockquote>
-<p>在根目录<code>source</code>文件夹下增加<code>robots.txt</code>文件，<code>Sitemap</code>修改为自己的链接。</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line"># hexo robots.txt</span><br><span class="line">User-agent: *</span><br><span class="line">Allow: &#x2F;</span><br><span class="line">Allow: &#x2F;home&#x2F;</span><br><span class="line">Allow: &#x2F;about&#x2F;</span><br><span class="line">Allow: &#x2F;archives&#x2F;</span><br><span class="line">Allow: &#x2F;categories&#x2F;</span><br><span class="line">Allow: &#x2F;tags&#x2F;</span><br><span class="line">Disallow: &#x2F;js&#x2F;</span><br><span class="line">Disallow: &#x2F;css&#x2F;</span><br><span class="line">Disallow: &#x2F;fonts&#x2F;</span><br><span class="line">Disallow: &#x2F;vendors&#x2F;</span><br><span class="line">Disallow: &#x2F;fancybox&#x2F;</span><br><span class="line"></span><br><span class="line">Sitemap: https:&#x2F;&#x2F;cnlmx.github.io&#x2F;sitemap.xml</span><br></pre></td></tr></table></figure></div>
-<blockquote>
-<p>robots.txt 可以告诉搜索引擎哪些网页可以收录，哪些不允许收录。</p>
-</blockquote>
-<h2 id="Google-站长工具配置"><a href="#Google-站长工具配置" class="headerlink" title="Google 站长工具配置"></a>Google 站长工具配置</h2><p>进入<a href="https://search.google.com/search-console/about">Google Search Console</a>，点击立即使用，登录谷歌账号。</p>
-<p>添加资源，选择资源类型：网址前缀，输入博客地址，然后点击继续。</p>
-<img src="https://gitee.com/cnlmx/blogImg/raw/master/img/googles01.webp" style="width: 65%;margin-left:0">
-
-<p>验证所有权，选择 HTML 标记验证，点击复制。</p>
-<img src="https://gitee.com/cnlmx/blogImg/raw/master/img/googles02.jpg" style="width: 60%;margin-left:0">
-
-<h2 id="主题文件配置"><a href="#主题文件配置" class="headerlink" title="主题文件配置"></a>主题文件配置</h2><p><code>_config.yml</code>文件中找到<code>google_site_verification</code>，设置为<code>true</code></p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Yml"><figure class="iseeu highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment">####    站長驗證    ####</span></span><br><span class="line"><span class="comment"># Google Webmaster tools verification setting</span></span><br><span class="line"><span class="comment"># See: https://www.google.com/webmasters/</span></span><br><span class="line"><span class="attr">google_site_verification:</span> <span class="literal">true</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
-
-<blockquote>
-<p>注意是主题目录下的<code>_config.yml</code>文件。</p>
-</blockquote>
-<p>配置<code>themes/Butterfly/layout/includes/head/site_verification.pug</code>文件，用之前复制的代码替换第二行。</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">if theme.google_site_verification</span><br><span class="line">meta(name&#x3D;&quot;google-site-verification&quot; content&#x3D;theme.google_site_verification)</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
-<p>生成静态文件并部署</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure></div>
-
-<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>打开博客首页，开启控制台查看<code>&lt;head&gt;</code>标签是否加入了 Google 的验证标记。</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;google-site-verification&quot;</span> <span class="attr">content</span>=<span class="string">&quot;G_wF-veta_pkYSiXBTlXtpO4vVoCyOOkoLA_ZKlHyIs&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
-<p>确保验证标记出现，回到 Google 的验证页面，点击验证。</p>
-<h2 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h2><p>验证完成后，点击站点地图，添加新的站点地图，即之前生成的<code>sitemap.xml</code>，点击提交。</p>
-<img src="https://gitee.com/cnlmx/blogImg/raw/master/img/googles03.webp" style="width: 70%;margin-left:0">
-
-
-<blockquote>
-<p>至此，就可以安心等待 Google 进行收录了。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Blog</category>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Blog</tag>
-        <tag>Google</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ECMAScript笔记(四)闭包</title>
     <url>/post/1f0e/</url>
     <content><![CDATA[<h2 id="立即执行函数"><a href="#立即执行函数" class="headerlink" title="立即执行函数"></a>立即执行函数</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>此类函数没有声明，在一次执行后即释放。是针对初始化功能的函数，适合做初始化工作。</p>
@@ -945,31 +945,31 @@
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">├── config                 # 配置目录</span><br><span class="line">│   ├── webpack.common.js</span><br><span class="line">│   ├── webpack.dev.js</span><br><span class="line">│   └── webpack.prod.js</span><br><span class="line">│</span><br><span class="line">├── dist                   # 编译目录</span><br><span class="line">│   ├── js</span><br><span class="line">│   │   └── main.js</span><br><span class="line">│   ├── favicon.ico</span><br><span class="line">│   └── index.html</span><br><span class="line">│</span><br><span class="line">├── src                    # 源码目录</span><br><span class="line">│   └── index.js</span><br><span class="line">│</span><br><span class="line">├── favicon.ico</span><br><span class="line">│</span><br><span class="line">├── index.html</span><br><span class="line">│</span><br><span class="line">├── package-lock.json</span><br><span class="line">│</span><br><span class="line">└── package.json</span><br></pre></td></tr></table></figure></div>
 
 <h1 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h1><p>创建一个空的目录并进入：</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir 2048_game</span><br><span class="line">cd 2048_game</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir 2048_game</span><br><span class="line"><span class="built_in">cd</span> 2048_game</span><br></pre></td></tr></table></figure></div>
 
 <p>然后进行初始化：</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">npm init</span><br><span class="line"></span><br><span class="line"># 或全部使用默认值</span><br><span class="line"></span><br><span class="line">npm init -y</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">npm init</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或全部使用默认值</span></span><br><span class="line"></span><br><span class="line">npm init -y</span><br></pre></td></tr></table></figure></div>
 
 <p>执行初始化命令后，终端会进行一些简单问题的询问，比如项目名称、作者信息等，以此来创建 package.json 文件，后续可以在该文件内进行修改。</p>
 <p>指令后加上 <code>-y</code>，表示所有选项都为 yes，全部使用默认值。</p>
 <h1 id="安装-webpack"><a href="#安装-webpack" class="headerlink" title="安装 webpack"></a>安装 webpack</h1><p>webpack：核心包，包含了 webpack 构建过程中要用到的所有 api。</p>
 <p>webpack-cli：提供一个简单的 cli 命令，它调用了 webpack 核心包的 api，来完成构建过程。</p>
 <p>安装 webpack、webpack-cli：</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line"># 全局安装</span><br><span class="line">npm i webpack webpack-cli</span><br><span class="line"></span><br><span class="line"># 局部安装</span><br><span class="line">npm i webpack webpack-cli -D</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 全局安装</span></span><br><span class="line">npm i webpack webpack-cli</span><br><span class="line"></span><br><span class="line"><span class="comment"># 局部安装</span></span><br><span class="line">npm i webpack webpack-cli -D</span><br></pre></td></tr></table></figure></div>
 
 <p>命令完成后，项目中会多一个 node_modules 文件夹，用来存放项目中安装的依赖包。</p>
 <p>补充：<code>install</code> 可简写为 <code>i</code>，<code>--save-dev</code> 可简写为 <code>-D</code></p>
 <h1 id="完善项目目录"><a href="#完善项目目录" class="headerlink" title="完善项目目录"></a>完善项目目录</h1><h2 id="三个重要目录"><a href="#三个重要目录" class="headerlink" title="三个重要目录"></a>三个重要目录</h2><p><code>src</code>：source，源码文件，用于存放我们写的源文件</p>
 <p><code>dist</code>：distribution，编译文件，用于存放之后打包的文件</p>
 <p><code>config</code>：配置文件（这个用于后面的配置文件分离）</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir config dist src</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir config dist src</span><br></pre></td></tr></table></figure></div>
 
 <h2 id="项目入口文件"><a href="#项目入口文件" class="headerlink" title="项目入口文件"></a>项目入口文件</h2><p>根目录下：<code>index.html</code></p>
 <p>src 目录下：<code>index.js</code></p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">touch index.html</span><br><span class="line"></span><br><span class="line">cd src &amp;&amp; touch index.js</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">touch index.html</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> src &amp;&amp; touch index.js</span><br></pre></td></tr></table></figure></div>
 
 <h2 id="原始配置文件"><a href="#原始配置文件" class="headerlink" title="原始配置文件"></a>原始配置文件</h2><p>回到根目录，创建配置文件 <code>webpack.config.js</code>：</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">cd ..</span><br><span class="line"></span><br><span class="line">touch webpack.config.js</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line"></span><br><span class="line">touch webpack.config.js</span><br></pre></td></tr></table></figure></div>
 
 <h1 id="进行配置"><a href="#进行配置" class="headerlink" title="进行配置"></a>进行配置</h1><h2 id="初次尝试"><a href="#初次尝试" class="headerlink" title="初次尝试"></a>初次尝试</h2><p>打开 <code>webpack.config.js</code>，先进行基本的配置：</p>
 <ol>
@@ -980,12 +980,12 @@
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: <span class="string">&#x27;./src/index.js&#x27;</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">&#x27;js/main.js&#x27;</span>,</span><br><span class="line">    path: path.resolve(__dirname, <span class="string">&#x27;./dist&#x27;</span>),</span><br><span class="line">  &#125;,</span><br><span class="line">  mode: <span class="string">&#x27;development&#x27;</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
 <p>好了，让我们输入打包指令来尝试一下：</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">npx webpack</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">npx webpack</span><br></pre></td></tr></table></figure></div>
 
 <p>编译完成，打开 <code>dist</code> 目录，就会发现多了一个 js 文件夹，里面就是打包输出的 <code>man.js</code> 文件。</p>
 <h2 id="devServer"><a href="#devServer" class="headerlink" title="devServer"></a>devServer</h2><p>接下来我们配置一个本地开发服务器，可以让浏览器进行实时刷新，查看修改结果。</p>
 <p>安装：</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">npm i webpack-dev-server -D</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">npm i webpack-dev-server -D</span><br></pre></td></tr></table></figure></div>
 
 <p><code>webpack.config.js</code> 中进行配置：</p>
 <ol>
@@ -996,7 +996,7 @@
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  devServer: &#123;</span><br><span class="line">    contentBase: <span class="string">&#x27;./dist&#x27;</span>,</span><br><span class="line">    inline: <span class="literal">true</span>,</span><br><span class="line">    compress: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
 <p>启动：</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">npx webpack serve</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">npx webpack serve</span><br></pre></td></tr></table></figure></div>
 
 <p>可以看到它提供了一个本地网址：<code>http://localhost:8080</code>。打开该网址，就可以实时查看页面了。</p>
 <p>注意，这个只用于开发环境方便调试，在生产环境是不需要的。</p>
@@ -1024,7 +1024,7 @@
 <li><code>less-loader</code>：加载和转译 less 文件。</li>
 </ol>
 <p>下载：</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">npm i css-loader style-loader -D</span><br><span class="line"></span><br><span class="line"># 如果还有 less 文件需处理</span><br><span class="line">npm i less less-loader -D</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">npm i css-loader style-loader -D</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果还有 less 文件需处理</span></span><br><span class="line">npm i less less-loader -D</span><br></pre></td></tr></table></figure></div>
 
 <p>配置：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">        use: [<span class="string">&#x27;style-loader&#x27;</span>, <span class="string">&#x27;css-loader&#x27;</span>],</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.less$/</span>,</span><br><span class="line">        use: [<span class="string">&#x27;style-loader&#x27;</span>, <span class="string">&#x27;css-loader&#x27;</span>, <span class="string">&#x27;less-loader&#x27;</span>],</span><br><span class="line">      &#125;,</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
@@ -1049,7 +1049,7 @@
 <p>所以我们还需要下载一个 loader 来处理。</p>
 <p>作用：处理 html 文件的 img 图片。它负责引入图片，从而能被静态资源模块处理。</p>
 <p>下载：</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">npm i html-withimg-loader -D</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">npm i html-withimg-loader -D</span><br></pre></td></tr></table></figure></div>
 
 <p>配置：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.html$/</span>,</span><br><span class="line">        loader: <span class="string">&#x27;html-withimg-loader&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
@@ -1057,7 +1057,7 @@
 <h3 id="js语法兼容"><a href="#js语法兼容" class="headerlink" title="js语法兼容"></a>js语法兼容</h3><p>loader：<code>babel-loader</code>、<code>@babel/core</code>、<code>@babel/preset-env</code></p>
 <p>作用：用来处理 ES6 语法，将其编译为浏览器可以执行的 js 语法。</p>
 <p>下载：</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">npm i -D babel-loader @babel&#x2F;core @babel&#x2F;preset-env</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">npm i -D babel-loader @babel/core @babel/preset-env</span><br></pre></td></tr></table></figure></div>
 
 <p>配置：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123;</span><br><span class="line">  rules: [</span><br><span class="line">    &#123;</span><br><span class="line">      test: <span class="regexp">/\.m?js$/</span>,</span><br><span class="line">      exclude: <span class="regexp">/(node_modules|bower_components)/</span>,</span><br><span class="line">      use: &#123;</span><br><span class="line">        loader: <span class="string">&#x27;babel-loader&#x27;</span>,</span><br><span class="line">        options: &#123;</span><br><span class="line">          <span class="comment">// 预设：指示 babel 做怎样的兼容性处理</span></span><br><span class="line">          presets: [<span class="string">&#x27;@babel/preset-env&#x27;</span>]</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
@@ -1068,7 +1068,7 @@
 <li>下载开发依赖（<code>-D</code>）：<code>@babel/plugin-transform-runtime</code></li>
 <li>下载生产依赖：<code>@babel/runtime-corejs3</code></li>
 </ol>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">npm install @babel&#x2F;plugin-transform-runtime -D</span><br><span class="line"></span><br><span class="line">npm install @babel&#x2F;runtime-corejs3</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">npm install @babel/plugin-transform-runtime -D</span><br><span class="line"></span><br><span class="line">npm install @babel/runtime-corejs3</span><br></pre></td></tr></table></figure></div>
 
 <p>然后修改配置：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line">rules: [</span><br><span class="line">  &#123;</span><br><span class="line">    test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">    exclude: <span class="regexp">/(node_modules|bower_components)/</span>,</span><br><span class="line">    use: &#123;</span><br><span class="line">      loader: <span class="string">&#x27;babel-loader&#x27;</span>,</span><br><span class="line">      options: &#123;</span><br><span class="line">        presets: [</span><br><span class="line">          [</span><br><span class="line">            <span class="string">&#x27;@babel/preset-env&#x27;</span>,</span><br><span class="line">            &#123;</span><br><span class="line">              modules: <span class="literal">false</span>,</span><br><span class="line">            &#125;,</span><br><span class="line">          ],</span><br><span class="line">        ],</span><br><span class="line">        plugins: [</span><br><span class="line">          [</span><br><span class="line">            <span class="string">&#x27;@babel/plugin-transform-runtime&#x27;</span>,</span><br><span class="line">            &#123;</span><br><span class="line">              corejs: &#123;</span><br><span class="line">                version: <span class="number">3</span>,</span><br><span class="line">                proposals: <span class="literal">true</span>,</span><br><span class="line">              &#125;,</span><br><span class="line">              useESModules: <span class="literal">true</span>,</span><br><span class="line">            &#125;,</span><br><span class="line">          ],</span><br><span class="line">        ],</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure></div>
@@ -1084,7 +1084,7 @@
 <li>将打包的 js 文件，自动通过 <code>script</code> 标签插入到 <code>body</code> 中</li>
 </ol>
 <p>安装：</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">npm i html-webpack-plugin -D</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">npm i html-webpack-plugin -D</span><br></pre></td></tr></table></figure></div>
 
 <p>配置：</p>
 <ol>
@@ -1095,12 +1095,12 @@
 
 <p>网站图标 favicon 文件需放在根目录下，不需要在源文件里引入，它会自动寻找并打包。</p>
 <p>重新打包：</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">npx webpack</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">npx webpack</span><br></pre></td></tr></table></figure></div>
 
 <p>然后打开 <code>dist</code> 文件夹，就可以看到多出来一个 <code>index.html</code> 和 <code>favicon.ico</code>文件了。</p>
 <h3 id="自动清理-dist-目录"><a href="#自动清理-dist-目录" class="headerlink" title="自动清理 dist 目录"></a>自动清理 dist 目录</h3><p>之后每次构建都会重新进行打包，所以需要先清除旧文件，再生成新文件。</p>
 <p>安装：</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">npm i clean-webpack-plugin -D</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">npm i clean-webpack-plugin -D</span><br></pre></td></tr></table></figure></div>
 
 <p>配置：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; CleanWebpackPlugin &#125; = <span class="built_in">require</span>(<span class="string">&#x27;clean-webpack-plugin&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  plugins: [<span class="keyword">new</span> CleanWebpackPlugin()]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
@@ -1108,7 +1108,7 @@
 <p>以后每次打包之前，都会先删除旧文件。</p>
 <h3 id="优化输出日志"><a href="#优化输出日志" class="headerlink" title="优化输出日志"></a>优化输出日志</h3><p>打包编译时，很大一部分输出信息是无效信息，所以可以通过插件进行优化，让终端看起来更简洁明了。</p>
 <p>安装：</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Code"><figure class="iseeu highlight plain"><table><tr><td class="code"><pre><span class="line">npm i @soda&#x2F;friendly-errors-webpack-plugin -D</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">npm i @soda/friendly-errors-webpack-plugin -D</span><br></pre></td></tr></table></figure></div>
 
 <p>配置：</p>
 <ol>
