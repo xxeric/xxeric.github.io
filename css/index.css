@@ -92,6 +92,7 @@ strong {
   transition: all 0.2s;
 }
 hr {
+  display: none;
   position: relative;
   margin: 2rem auto;
   width: calc(100% - 4px);
@@ -3787,6 +3788,7 @@ img {
 }
 .relatedPosts {
   margin-top: 1rem;
+  margin-bottom: 2rem;
 }
 .relatedPosts .relatedPosts_headline {
   margin-bottom: 5px;
@@ -3881,6 +3883,9 @@ img {
 }
 .post-reward .reward-button:hover .reward-main {
   display: block;
+}
+.post-reward .reward-button:hover:before {
+  border-radius: 5px;
 }
 .post-reward .reward-button .reward-main {
   position: absolute;
@@ -4230,20 +4235,68 @@ img {
     display: block !important;
   }
 }
+#vcomment .vwrap {
+  border-radius: 0.75em;
+  padding: 0;
+}
 #vcomment button {
-  padding: 0.3rem 0.8rem;
-  border-color: #fff;
   background-color: #49b1f5;
   color: #fff;
-  font-size: 0.7rem;
+  font-size: 0.63rem;
+  line-height: 1.5;
+  white-space: nowrap;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   -o-transition: all 0.3s;
   -ms-transition: all 0.3s;
   transition: all 0.3s;
+  vertical-align: middle;
+  min-width: 2.5em;
+  margin-bottom: 0;
+  padding: 0.5em 1em;
+  border: 1px solid #ddd;
+  border-radius: 0.5em;
+  font-weight: 400;
 }
 #vcomment button:hover {
   background-color: #ff7242;
+}
+#vcomment .vheader {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  border-top-left-radius: 0.75em;
+  border-top-right-radius: 0.75em;
+  overflow: hidden;
+}
+#vcomment .vheader .vinput {
+  padding: 0.5em;
+  background: transparent;
+  line-height: 2.5;
+  border-bottom: 1px solid #ddd;
+}
+#vcomment .vheader .vinput:focus {
+  background: #f8f8f8;
+}
+#vcomment .vedit .vrow {
+  position: absolute;
+  bottom: -50px;
+  left: 30px;
+}
+#vcomment .vedit .vrow .status-bar {
+  display: none;
+}
+#vcomment .vedit .vrow .text-right {
+  width: auto;
+}
+#vcomment .vedit .vrow a[alt] {
+  display: none;
+}
+#vcomment .vrow {
+  padding: 10px;
 }
 #vcomment .vimg {
   -webkit-transition: all 0.3s;
