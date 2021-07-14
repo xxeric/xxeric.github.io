@@ -878,7 +878,7 @@ $(function () {
 // };
 
 // if(checkWebp()) {
-// 	side.style.backgroundImage = "url('https://gitee.com/cnlmx/blogImg/raw/master/img/bg.webp')";
+// 	side.style.backgroundImage = "url('https://gitee.com/cnlmx/blog/raw/master/img/bg.webp')";
 // } else {
-// 	side.style.backgroundImage = "url('https://gitee.com/cnlmx/blogImg/raw/master/img/bg.jpg')";
+// 	side.style.backgroundImage = "url('https://gitee.com/cnlmx/blog/raw/master/img/bg.jpg')";
 // }
