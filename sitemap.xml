@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://cnlmx.top/post/seo/</loc>
+    <loc>https://cnlmx.top/post/sitemap/</loc>
     
     <lastmod>2021-07-14</lastmod>
     
   </url>
   
   <url>
-    <loc>https://cnlmx.top/post/webpack/</loc>
+    <loc>https://cnlmx.top/post/seo/</loc>
     
     <lastmod>2021-07-14</lastmod>
     
@@ -23,6 +23,13 @@
   </url>
   
   <url>
+    <loc>https://cnlmx.top/post/webpack/</loc>
+    
+    <lastmod>2021-07-14</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://cnlmx.top/about/index.html</loc>
     
     <lastmod>2021-04-29</lastmod>
@@ -30,14 +37,14 @@
   </url>
   
   <url>
-    <loc>https://cnlmx.top/post/1f0e/</loc>
+    <loc>https://cnlmx.top/post/b323/</loc>
     
     <lastmod>2020-11-21</lastmod>
     
   </url>
   
   <url>
-    <loc>https://cnlmx.top/post/b323/</loc>
+    <loc>https://cnlmx.top/post/1f0e/</loc>
     
     <lastmod>2020-11-21</lastmod>
     
@@ -101,13 +108,6 @@
   
   <url>
     <loc>https://cnlmx.top/categories/index.html</loc>
-    
-    <lastmod>2020-11-21</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://cnlmx.top/post/7dd6/</loc>
     
     <lastmod>2020-11-21</lastmod>
     
