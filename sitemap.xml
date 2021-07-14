@@ -9,14 +9,14 @@
   </url>
   
   <url>
-    <loc>https://cnlmx.top/post/d459/</loc>
+    <loc>https://cnlmx.top/post/sitemap/</loc>
     
     <lastmod>2021-07-14</lastmod>
     
   </url>
   
   <url>
-    <loc>https://cnlmx.top/post/sitemap/</loc>
+    <loc>https://cnlmx.top/post/d459/</loc>
     
     <lastmod>2021-07-14</lastmod>
     
@@ -158,20 +158,6 @@
   </url>
   
   <url>
-    <loc>https://cnlmx.top/tags/JavaScript/</loc>
-    <lastmod>2021-07-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://cnlmx.top/tags/ECMAScript/</loc>
-    <lastmod>2021-07-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://cnlmx.top/tags/Hexo/</loc>
     <lastmod>2021-07-14</lastmod>
     <changefreq>daily</changefreq>
@@ -187,6 +173,20 @@
   
   <url>
     <loc>https://cnlmx.top/tags/Google/</loc>
+    <lastmod>2021-07-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cnlmx.top/tags/JavaScript/</loc>
+    <lastmod>2021-07-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cnlmx.top/tags/ECMAScript/</loc>
     <lastmod>2021-07-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -223,14 +223,14 @@
   </url>
   
   <url>
-    <loc>https://cnlmx.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/HTML/</loc>
+    <loc>https://cnlmx.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ECMAScript/</loc>
     <lastmod>2021-07-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://cnlmx.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ECMAScript/</loc>
+    <loc>https://cnlmx.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/HTML/</loc>
     <lastmod>2021-07-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
