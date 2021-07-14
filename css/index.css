@@ -2526,7 +2526,7 @@ blockquote footer cite:before {
 }
 #nav.post-bg #post-info #post-title {
   margin-bottom: 0.4rem;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
 }
 #nav.post-bg #post-info #post-title .posttitle {
   display: -webkit-box;
@@ -5083,6 +5083,7 @@ figure.gallery-group .gallery-group-name:after {
 .read-mode #article-container h5,
 .read-mode #article-container h6 {
   padding: 0;
+  color: #3c70c6;
 }
 .read-mode #article-container h1:before,
 .read-mode #article-container h2:before,
@@ -5091,6 +5092,22 @@ figure.gallery-group .gallery-group-name:after {
 .read-mode #article-container h5:before,
 .read-mode #article-container h6:before {
   content: '';
+}
+.read-mode #article-container h1,
+.read-mode #article-container h2 {
+  text-align: center;
+}
+.read-mode #article-container h1 {
+  font-size: 1.6rem;
+}
+.read-mode #article-container h2 {
+  font-size: 1.3rem;
+}
+.read-mode #article-container h3 {
+  font-size: 0.9rem;
+}
+.read-mode #article-container h4 {
+  font-size: 0.8rem;
 }
 .search-dialog {
   position: fixed;
