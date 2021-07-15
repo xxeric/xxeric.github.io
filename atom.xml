@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Seven</title>
-  <icon>https://www.gravatar.com/avatar/d01b0a8daaff9731b3f49780d18fca51</icon>
+  <icon>https://www.gravatar.com/avatar/0db34c02e3865b9c1c17a9fa4bb0830c</icon>
   
   <link href="https://cnlmx.top/atom.xml" rel="self"/>
   
@@ -11,7 +11,7 @@
   
   <author>
     <name>cnlmx</name>
-    <email>ccnyms@outlook.com</email>
+    <email>cnlmx@outlook.com</email>
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>

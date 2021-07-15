@@ -4298,6 +4298,10 @@ img {
 #vcomment .vrow {
   padding: 10px;
 }
+#vcomment .vcards .vreply-wrapper .vwrap .cancel-replay {
+  display: inline-block;
+  margin: 10px;
+}
 #vcomment .vimg {
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
