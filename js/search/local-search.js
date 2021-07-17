@@ -1,84 +1,87 @@
-$(function () {
-  var loadFlag = false
-  $('a.social-icon.search').on('click', function () {
-    $('body').css({
-      width: '100%',
-      overflow: 'hidden'
-    })
-    $('.search-dialog').css('display', 'block')
-    $('#local-search-input input').focus()
-    $('.search-mask').fadeIn()
+window.addEventListener('load', () => {
+  let loadFlag = false
+  const openSearch = function () {
+    document.body.style.cssText = 'width: 100%;'
+    document.querySelector('#local-search .search-dialog').style.display = 'block'
+    document.querySelector('#local-search-input input').focus()
+    btf.fadeIn(document.getElementById('search-mask'), 0.5)
     if (!loadFlag) {
       search(GLOBAL_CONFIG.localSearch.path)
       loadFlag = true
     }
-
     // shortcut: ESC
-    document.addEventListener('keydown', function f (event) {
+    document.addEventListener('keydown', function f(event) {
       if (event.code === 'Escape') {
         closeSearch()
         document.removeEventListener('keydown', f)
       }
     })
+  }
+
+  const closeSearch = function () {
+    document.body.style.cssText = "width: '';overflow: ''"
+    const $searchDialog = document.querySelector('#local-search .search-dialog')
+    $searchDialog.style.animation = 'search_close .5s'
+    setTimeout(() => {
+      $searchDialog.style.cssText = "display: none; animation: ''"
+    }, 500)
+    btf.fadeOut(document.getElementById('search-mask'), 0.5)
+  }
+
+  // click function
+  const searchClickFn = () => {
+    document.querySelector('#search-button > .search').addEventListener('click', openSearch)
+    document.getElementById('search-mask').addEventListener('click', closeSearch)
+    document
+      .querySelector('#local-search .search-close-button')
+      .addEventListener('click', closeSearch)
+  }
+
+  searchClickFn()
+
+  // pjax
+  window.addEventListener('pjax:complete', function () {
+    getComputedStyle(document.querySelector('#local-search .search-dialog')).display === 'block' &&
+      closeSearch()
+    searchClickFn()
   })
 
-  var closeSearch = function () {
-    $('body').css('width', '')
-    $('body').css('overflow', '')
-    $('.search-dialog').css({
-      animation: 'search_close .5s'
-    })
-
-    $('.search-dialog').animate({}, function () {
-      setTimeout(function () {
-        $('.search-dialog').css({
-          animation: '',
-          display: 'none'
-        })
-      }, 500)
-    })
-
-    $('.search-mask').fadeOut()
-  }
-  $('.search-mask, .search-close-button').on('click touchstart', closeSearch)
-
-  function search (path) {
-    $.ajax({
-      url: GLOBAL_CONFIG.root + path,
-      dataType: 'xml',
-      success: function (xmlResponse) {
-        // get the contents from search data
-        var datas = $('entry', xmlResponse).map(function () {
+  function search(path) {
+    fetch(GLOBAL_CONFIG.root + path)
+      .then(response => response.text())
+      .then(str => new window.DOMParser().parseFromString(str, 'text/xml'))
+      .then(data => {
+        const datas = [...data.querySelectorAll('entry')].map(function (item) {
           return {
-            title: $('title', this).text(),
-            content: $('content', this).text(),
-            url: $('url', this).text()
+            title: item.querySelector('title').textContent,
+            content: item.querySelector('content').textContent,
+            url: item.querySelector('url').textContent,
           }
-        }).get()
+        })
 
-        var $input = $('#local-search-input input')[0]
-        var $resultContent = $('#local-hits')[0]
+        const $input = document.querySelector('#local-search-input input')
+        const $resultContent = document.getElementById('local-search-results')
         $input.addEventListener('input', function () {
-          var str = '<div class="search-result-list">'
-          var keywords = this.value.trim().toLowerCase().split(/[\s]+/)
+          let str = '<div class="search-result-list">'
+          const keywords = this.value.trim().toLowerCase().split(/[\s]+/)
           $resultContent.innerHTML = ''
-          if (this.value.trim().length <= 0) {
-            $('.local-search-stats__hr').hide()
-            return
-          }
-          var count = 0
+          if (this.value.trim().length <= 0) return
+          let count = 0
           // perform local searching
           datas.forEach(function (data) {
-            var isMatch = true
+            let isMatch = true
             if (!data.title || data.title.trim() === '') {
               data.title = 'Untitled'
             }
-            var dataTitle = data.title.trim().toLowerCase()
-            var dataContent = data.content.trim().replace(/<[^>]+>/g, '').toLowerCase()
-            var dataUrl = data.url
-            var indexTitle = -1
-            var indexContent = -1
-            var firstOccur = -1
+            let dataTitle = data.title.trim().toLowerCase()
+            const dataContent = data.content
+              .trim()
+              .replace(/<[^>]+>/g, '')
+              .toLowerCase()
+            const dataUrl = data.url.startsWith('/') ? data.url : GLOBAL_CONFIG.root + data.url
+            let indexTitle = -1
+            let indexContent = -1
+            let firstOccur = -1
             // only match artiles with not empty titles and contents
             if (dataTitle !== '' || dataContent !== '') {
               keywords.forEach(function (keyword, i) {
@@ -101,11 +104,11 @@ $(function () {
 
             // show search results
             if (isMatch) {
-              var content = data.content.trim().replace(/<[^>]+>/g, '')
+              const content = data.content.trim().replace(/<[^>]+>/g, '')
               if (firstOccur >= 0) {
                 // cut out 130 characters
-                var start = firstOccur - 30
-                var end = firstOccur + 100
+                let start = firstOccur - 30
+                let end = firstOccur + 100
 
                 if (start < 0) {
                   start = 0
@@ -119,18 +122,28 @@ $(function () {
                   end = content.length
                 }
 
-                var matchContent = content.substring(start, end)
+                let matchContent = content.substring(start, end)
 
                 // highlight all keywords
                 keywords.forEach(function (keyword) {
-                  var regS = new RegExp(keyword, 'gi')
-                  matchContent = matchContent.replace(regS, '<span class="search-keyword">' + keyword + '</span>')
-                  dataTitle = dataTitle.replace(regS, '<span class="search-keyword">' + keyword + '</span>')
+                  const regS = new RegExp(keyword, 'gi')
+                  matchContent = matchContent.replace(
+                    regS,
+                    '<span class="search-keyword">' + keyword + '</span>'
+                  )
+                  dataTitle = dataTitle.replace(
+                    regS,
+                    '<span class="search-keyword">' + keyword + '</span>'
+                  )
                 })
 
-                str += '<div class="local-search__hit-item"><a href="' + dataUrl + '" class="search-result-title">' + dataTitle + '</a>'
+                str +=
+                  '<div class="local-search__hit-item"><a href="' +
+                  dataUrl +
+                  '" class="search-result-title">' +
+                  dataTitle +
+                  '</a>'
                 count += 1
-                $('.local-search-stats__hr').show()
 
                 if (dataContent !== '') {
                   str += '<p class="search-result">' + matchContent + '...</p>'
@@ -140,13 +153,18 @@ $(function () {
             }
           })
           if (count === 0) {
-            str += '<div id="local-search__hits-empty">' + GLOBAL_CONFIG.localSearch.languages.hits_empty.replace(/\$\{query}/, this.value.trim()) +
+            str +=
+              '<div id="local-search__hits-empty">' +
+              GLOBAL_CONFIG.localSearch.languages.hits_empty.replace(
+                /\$\{query}/,
+                this.value.trim()
+              ) +
               '</div>'
           }
           str += '</div>'
           $resultContent.innerHTML = str
+          window.pjax && window.pjax.refresh($resultContent)
         })
-      }
-    })
+      })
   }
 })
