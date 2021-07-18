@@ -4,7 +4,42 @@
   <url>
     <loc>https://cnlmx.top/about/index.html</loc>
     
-    <lastmod>2021-07-17</lastmod>
+    <lastmod>2021-07-18</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://cnlmx.top/post/seo/</loc>
+    
+    <lastmod>2021-07-18</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://cnlmx.top/post/sitemap/</loc>
+    
+    <lastmod>2021-07-18</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://cnlmx.top/post/webpack/</loc>
+    
+    <lastmod>2021-07-18</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://cnlmx.top/post/semantic/</loc>
+    
+    <lastmod>2021-07-18</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://cnlmx.top/post/3eeb/</loc>
+    
+    <lastmod>2021-07-18</lastmod>
     
   </url>
   
@@ -58,28 +93,7 @@
   </url>
   
   <url>
-    <loc>https://cnlmx.top/post/sitemap/</loc>
-    
-    <lastmod>2021-07-14</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://cnlmx.top/post/1f0e/</loc>
-    
-    <lastmod>2021-07-14</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://cnlmx.top/post/semantic/</loc>
-    
-    <lastmod>2021-07-14</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://cnlmx.top/post/webpack/</loc>
     
     <lastmod>2021-07-14</lastmod>
     
@@ -100,13 +114,6 @@
   </url>
   
   <url>
-    <loc>https://cnlmx.top/post/seo/</loc>
-    
-    <lastmod>2021-07-14</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://cnlmx.top/post/5714/</loc>
     
     <lastmod>2021-07-14</lastmod>
@@ -117,13 +124,6 @@
     <loc>https://cnlmx.top/post/7aae/</loc>
     
     <lastmod>2021-07-14</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://cnlmx.top/post/3eeb/</loc>
-    
-    <lastmod>2020-05-11</lastmod>
     
   </url>
   
@@ -158,20 +158,6 @@
   </url>
   
   <url>
-    <loc>https://cnlmx.top/tags/JavaScript/</loc>
-    <lastmod>2021-07-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://cnlmx.top/tags/ECMAScript/</loc>
-    <lastmod>2021-07-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://cnlmx.top/tags/Hexo/</loc>
     <lastmod>2021-07-18</lastmod>
     <changefreq>daily</changefreq>
@@ -187,6 +173,20 @@
   
   <url>
     <loc>https://cnlmx.top/tags/Google/</loc>
+    <lastmod>2021-07-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cnlmx.top/tags/JavaScript/</loc>
+    <lastmod>2021-07-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cnlmx.top/tags/ECMAScript/</loc>
     <lastmod>2021-07-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -223,14 +223,14 @@
   </url>
   
   <url>
-    <loc>https://cnlmx.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/HTML/</loc>
+    <loc>https://cnlmx.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ECMAScript/</loc>
     <lastmod>2021-07-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://cnlmx.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ECMAScript/</loc>
+    <loc>https://cnlmx.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/HTML/</loc>
     <lastmod>2021-07-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
