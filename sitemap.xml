@@ -2,13 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://cnlmx.top/post/sitemap/</loc>
-    
-    <lastmod>2021-07-19</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://cnlmx.top/post/semantic/</loc>
     
     <lastmod>2021-07-19</lastmod>
@@ -17,6 +10,69 @@
   
   <url>
     <loc>https://cnlmx.top/post/seo/</loc>
+    
+    <lastmod>2021-07-19</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://cnlmx.top/post/c545/</loc>
+    
+    <lastmod>2021-07-19</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://cnlmx.top/post/sitemap/</loc>
+    
+    <lastmod>2021-07-19</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://cnlmx.top/post/webpack/</loc>
+    
+    <lastmod>2021-07-19</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://cnlmx.top/post/7aae/</loc>
+    
+    <lastmod>2021-07-19</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://cnlmx.top/post/22db/</loc>
+    
+    <lastmod>2021-07-19</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://cnlmx.top/post/d459/</loc>
+    
+    <lastmod>2021-07-19</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://cnlmx.top/post/5714/</loc>
+    
+    <lastmod>2021-07-19</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://cnlmx.top/post/1f0e/</loc>
+    
+    <lastmod>2021-07-19</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://cnlmx.top/post/b323/</loc>
     
     <lastmod>2021-07-19</lastmod>
     
@@ -44,21 +100,14 @@
   </url>
   
   <url>
-    <loc>https://cnlmx.top/post/webpack/</loc>
-    
-    <lastmod>2021-07-18</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://cnlmx.top/categories/index.html</loc>
+    <loc>https://cnlmx.top/link/index.html</loc>
     
     <lastmod>2021-07-17</lastmod>
     
   </url>
   
   <url>
-    <loc>https://cnlmx.top/link/index.html</loc>
+    <loc>https://cnlmx.top/categories/index.html</loc>
     
     <lastmod>2021-07-17</lastmod>
     
@@ -75,55 +124,6 @@
     <loc>https://cnlmx.top/tags/index.html</loc>
     
     <lastmod>2021-07-17</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://cnlmx.top/post/b323/</loc>
-    
-    <lastmod>2021-07-14</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://cnlmx.top/post/d459/</loc>
-    
-    <lastmod>2021-07-14</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://cnlmx.top/post/1f0e/</loc>
-    
-    <lastmod>2021-07-14</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://cnlmx.top/post/c545/</loc>
-    
-    <lastmod>2021-07-14</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://cnlmx.top/post/22db/</loc>
-    
-    <lastmod>2021-07-14</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://cnlmx.top/post/5714/</loc>
-    
-    <lastmod>2021-07-14</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://cnlmx.top/post/7aae/</loc>
-    
-    <lastmod>2021-07-14</lastmod>
     
   </url>
   
