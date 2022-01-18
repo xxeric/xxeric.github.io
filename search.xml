@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hello World</title>
+    <url>/post/3eeb/</url>
+    <content><![CDATA[<p>Welcome to Hexo! </p>
+<span id="more"></span>
+<p>This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>SEO 优化</title>
     <url>/post/seo/</url>
     <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>在搜索引擎网站的后台会有一个非常庞大的数据库，里面存储了海量的关键词，而每个关键词又对应着很多网址，这些网址是被“网络爬虫”程序（又叫“搜索引擎蜘蛛”）从茫茫互联网中下载收集而来的。</p>
@@ -93,6 +113,72 @@
         <tag>HTML</tag>
         <tag>前端</tag>
         <tag>优化</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo 增加 Google 收录</title>
+    <url>/post/sitemap/</url>
+    <content><![CDATA[<blockquote>
+<p>博客搭建完成后，一直疏于维护，直到最近开始重新管理，然后发现 Google 没有收录，所以决定自己提交申请。</p>
+</blockquote>
+<h2 id="根目录配置"><a href="#根目录配置" class="headerlink" title="根目录配置"></a>根目录配置</h2><p>博客根目录下执行命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
+
+<p><code>_config.yml</code>末尾添加如下代码</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 自动生成 sitemap</span></span><br><span class="line"><span class="attr">sitemap:</span> </span><br><span class="line"><span class="attr">path:</span> <span class="string">sitemap.xml</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><code>_config.yml</code>中查找如下代码，把 url 改为自己的博客地址</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># URL</span></span><br><span class="line"><span class="comment">## If your site is put in a subdirectory, set url as &#x27;http://yoursite.com/child&#x27; and root as &#x27;/child/&#x27;</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">https://xxeric.github.io/</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span></span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意是博客根目录下的<code>_config.yml</code>文件。</p>
+</blockquote>
+<p>编译</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>查看博客根目录下的 public 文件夹，如果发现<code>sitemap.xml</code>文件即生成成功。</p>
+</blockquote>
+<p>在根目录<code>source</code>文件夹下增加<code>robots.txt</code>文件，<code>Sitemap</code>修改为自己的链接。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># hexo robots.txt</span><br><span class="line">User-agent: *</span><br><span class="line">Allow: /</span><br><span class="line">Allow: /home/</span><br><span class="line">Allow: /about/</span><br><span class="line">Allow: /archives/</span><br><span class="line">Allow: /categories/</span><br><span class="line">Allow: /tags/</span><br><span class="line">Disallow: /js/</span><br><span class="line">Disallow: /css/</span><br><span class="line">Disallow: /fonts/</span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /fancybox/</span><br><span class="line"></span><br><span class="line">Sitemap: https://xxeric.github.io/sitemap.xml</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>robots.txt 可以告诉搜索引擎哪些网页可以收录，哪些不允许收录。</p>
+</blockquote>
+<h2 id="Google-站长工具配置"><a href="#Google-站长工具配置" class="headerlink" title="Google 站长工具配置"></a>Google 站长工具配置</h2><p>进入<a href="https://search.google.com/search-console/about">Google Search Console</a>，点击立即使用，登录谷歌账号。</p>
+<p>添加资源，选择资源类型：网址前缀，输入博客地址，然后点击继续。</p>
+<img src="https://gitee.com/xxeric/blog/raw/master/img/googles01.webp" style="width: 65%;margin-left:0">
+
+<p>验证所有权，选择 HTML 标记验证，点击复制。</p>
+<img src="https://gitee.com/xxeric/blog/raw/master/img/googles02.jpg" style="width: 60%;margin-left:0">
+
+<h2 id="主题文件配置"><a href="#主题文件配置" class="headerlink" title="主题文件配置"></a>主题文件配置</h2><p><code>_config.yml</code>文件中找到<code>google_site_verification</code>，设置为<code>true</code></p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment">####    站長驗證    ####</span></span><br><span class="line"><span class="comment"># Google Webmaster tools verification setting</span></span><br><span class="line"><span class="comment"># See: https://www.google.com/webmasters/</span></span><br><span class="line"><span class="attr">google_site_verification:</span> <span class="literal">true</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意是主题目录下的<code>_config.yml</code>文件。</p>
+</blockquote>
+<p>配置<code>themes/Butterfly/layout/includes/head/site_verification.pug</code>文件，用之前复制的代码替换第二行。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if theme.google_site_verification</span><br><span class="line">meta(name=&quot;google-site-verification&quot; content=theme.google_site_verification)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>生成静态文件并部署</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
+
+<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>打开博客首页，开启控制台查看<code>&lt;head&gt;</code>标签是否加入了 Google 的验证标记。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;google-site-verification&quot;</span> <span class="attr">content</span>=<span class="string">&quot;G_wF-veta_pkYSiXBTlXtpO4vVoCyOOkoLA_ZKlHyIs&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>确保验证标记出现，回到 Google 的验证页面，点击验证。</p>
+<h2 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h2><p>验证完成后，点击站点地图，添加新的站点地图，即之前生成的<code>sitemap.xml</code>，点击提交。</p>
+<img src="https://gitee.com/xxeric/blog/raw/master/img/googles03.webp" style="width: 70%;margin-left:0">
+
+
+<blockquote>
+<p>至此，就可以安心等待 Google 进行收录了。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Blog</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Blog</tag>
+        <tag>Google</tag>
       </tags>
   </entry>
   <entry>
@@ -299,92 +385,6 @@
         <tag>JavaScript</tag>
         <tag>ECMAScript</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hexo 增加 Google 收录</title>
-    <url>/post/sitemap/</url>
-    <content><![CDATA[<blockquote>
-<p>博客搭建完成后，一直疏于维护，直到最近开始重新管理，然后发现 Google 没有收录，所以决定自己提交申请。</p>
-</blockquote>
-<h2 id="根目录配置"><a href="#根目录配置" class="headerlink" title="根目录配置"></a>根目录配置</h2><p>博客根目录下执行命令</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
-
-<p><code>_config.yml</code>末尾添加如下代码</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 自动生成 sitemap</span></span><br><span class="line"><span class="attr">sitemap:</span> </span><br><span class="line"><span class="attr">path:</span> <span class="string">sitemap.xml</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><code>_config.yml</code>中查找如下代码，把 url 改为自己的博客地址</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># URL</span></span><br><span class="line"><span class="comment">## If your site is put in a subdirectory, set url as &#x27;http://yoursite.com/child&#x27; and root as &#x27;/child/&#x27;</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">https://xxeric.github.io/</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span></span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>注意是博客根目录下的<code>_config.yml</code>文件。</p>
-</blockquote>
-<p>编译</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>查看博客根目录下的 public 文件夹，如果发现<code>sitemap.xml</code>文件即生成成功。</p>
-</blockquote>
-<p>在根目录<code>source</code>文件夹下增加<code>robots.txt</code>文件，<code>Sitemap</code>修改为自己的链接。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># hexo robots.txt</span><br><span class="line">User-agent: *</span><br><span class="line">Allow: /</span><br><span class="line">Allow: /home/</span><br><span class="line">Allow: /about/</span><br><span class="line">Allow: /archives/</span><br><span class="line">Allow: /categories/</span><br><span class="line">Allow: /tags/</span><br><span class="line">Disallow: /js/</span><br><span class="line">Disallow: /css/</span><br><span class="line">Disallow: /fonts/</span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /fancybox/</span><br><span class="line"></span><br><span class="line">Sitemap: https://xxeric.github.io/sitemap.xml</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>robots.txt 可以告诉搜索引擎哪些网页可以收录，哪些不允许收录。</p>
-</blockquote>
-<h2 id="Google-站长工具配置"><a href="#Google-站长工具配置" class="headerlink" title="Google 站长工具配置"></a>Google 站长工具配置</h2><p>进入<a href="https://search.google.com/search-console/about">Google Search Console</a>，点击立即使用，登录谷歌账号。</p>
-<p>添加资源，选择资源类型：网址前缀，输入博客地址，然后点击继续。</p>
-<img src="https://gitee.com/xxeric/blog/raw/master/img/googles01.webp" style="width: 65%;margin-left:0">
-
-<p>验证所有权，选择 HTML 标记验证，点击复制。</p>
-<img src="https://gitee.com/xxeric/blog/raw/master/img/googles02.jpg" style="width: 60%;margin-left:0">
-
-<h2 id="主题文件配置"><a href="#主题文件配置" class="headerlink" title="主题文件配置"></a>主题文件配置</h2><p><code>_config.yml</code>文件中找到<code>google_site_verification</code>，设置为<code>true</code></p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment">####    站長驗證    ####</span></span><br><span class="line"><span class="comment"># Google Webmaster tools verification setting</span></span><br><span class="line"><span class="comment"># See: https://www.google.com/webmasters/</span></span><br><span class="line"><span class="attr">google_site_verification:</span> <span class="literal">true</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>注意是主题目录下的<code>_config.yml</code>文件。</p>
-</blockquote>
-<p>配置<code>themes/Butterfly/layout/includes/head/site_verification.pug</code>文件，用之前复制的代码替换第二行。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if theme.google_site_verification</span><br><span class="line">meta(name=&quot;google-site-verification&quot; content=theme.google_site_verification)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>生成静态文件并部署</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
-
-<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>打开博客首页，开启控制台查看<code>&lt;head&gt;</code>标签是否加入了 Google 的验证标记。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;google-site-verification&quot;</span> <span class="attr">content</span>=<span class="string">&quot;G_wF-veta_pkYSiXBTlXtpO4vVoCyOOkoLA_ZKlHyIs&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>确保验证标记出现，回到 Google 的验证页面，点击验证。</p>
-<h2 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h2><p>验证完成后，点击站点地图，添加新的站点地图，即之前生成的<code>sitemap.xml</code>，点击提交。</p>
-<img src="https://gitee.com/xxeric/blog/raw/master/img/googles03.webp" style="width: 70%;margin-left:0">
-
-
-<blockquote>
-<p>至此，就可以安心等待 Google 进行收录了。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Blog</category>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Blog</tag>
-        <tag>Google</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/post/3eeb/</url>
-    <content><![CDATA[<p>Welcome to Hexo! </p>
-<span id="more"></span>
-<p>This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>ECMAScript笔记(二)数据类型</title>
