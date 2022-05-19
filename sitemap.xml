@@ -2,9 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://ieric.top/post/sitemap/</loc>
+    <loc>https://ieric.top/post/semantic/</loc>
     
-    <lastmod>2022-01-18</lastmod>
+    <lastmod>2022-05-19</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -13,7 +13,7 @@
   <url>
     <loc>https://ieric.top/post/webpack/</loc>
     
-    <lastmod>2022-01-18</lastmod>
+    <lastmod>2022-05-19</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -22,16 +22,16 @@
   <url>
     <loc>https://ieric.top/post/seo/</loc>
     
-    <lastmod>2022-01-18</lastmod>
+    <lastmod>2022-05-19</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://ieric.top/post/c545/</loc>
+    <loc>https://ieric.top/post/sitemap/</loc>
     
-    <lastmod>2022-01-18</lastmod>
+    <lastmod>2022-05-19</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -40,7 +40,7 @@
   <url>
     <loc>https://ieric.top/categories/index.html</loc>
     
-    <lastmod>2022-01-18</lastmod>
+    <lastmod>2022-05-19</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -49,7 +49,16 @@
   <url>
     <loc>https://ieric.top/tags/index.html</loc>
     
-    <lastmod>2022-01-18</lastmod>
+    <lastmod>2022-05-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://ieric.top/post/c545/</loc>
+    
+    <lastmod>2022-05-19</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -58,16 +67,7 @@
   <url>
     <loc>https://ieric.top/about/index.html</loc>
     
-    <lastmod>2022-01-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://ieric.top/post/semantic/</loc>
-    
-    <lastmod>2022-01-18</lastmod>
+    <lastmod>2022-05-19</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -166,7 +166,7 @@
 
   <url>
     <loc>https://ieric.top/</loc>
-    <lastmod>2022-02-23</lastmod>
+    <lastmod>2022-05-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -174,70 +174,70 @@
   
   <url>
     <loc>https://ieric.top/tags/HTML/</loc>
-    <lastmod>2022-02-23</lastmod>
+    <lastmod>2022-05-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://ieric.top/tags/%E5%89%8D%E7%AB%AF/</loc>
-    <lastmod>2022-02-23</lastmod>
+    <lastmod>2022-05-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://ieric.top/tags/%E4%BC%98%E5%8C%96/</loc>
-    <lastmod>2022-02-23</lastmod>
+    <lastmod>2022-05-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://ieric.top/tags/Hexo/</loc>
-    <lastmod>2022-02-23</lastmod>
+    <lastmod>2022-05-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://ieric.top/tags/Blog/</loc>
-    <lastmod>2022-02-23</lastmod>
+    <lastmod>2022-05-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://ieric.top/tags/Google/</loc>
-    <lastmod>2022-02-23</lastmod>
+    <lastmod>2022-05-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://ieric.top/tags/JavaScript/</loc>
-    <lastmod>2022-02-23</lastmod>
+    <lastmod>2022-05-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://ieric.top/tags/ECMAScript/</loc>
-    <lastmod>2022-02-23</lastmod>
+    <lastmod>2022-05-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://ieric.top/tags/%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2022-02-23</lastmod>
+    <lastmod>2022-05-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://ieric.top/tags/Webpack/</loc>
-    <lastmod>2022-02-23</lastmod>
+    <lastmod>2022-05-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -246,49 +246,49 @@
   
   <url>
     <loc>https://ieric.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2022-02-23</lastmod>
+    <lastmod>2022-05-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://ieric.top/categories/Blog/</loc>
-    <lastmod>2022-02-23</lastmod>
+    <lastmod>2022-05-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://ieric.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ECMAScript/</loc>
-    <lastmod>2022-02-23</lastmod>
+    <lastmod>2022-05-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://ieric.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/HTML/</loc>
-    <lastmod>2022-02-23</lastmod>
+    <lastmod>2022-05-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://ieric.top/categories/Blog/Hexo/</loc>
-    <lastmod>2022-02-23</lastmod>
+    <lastmod>2022-05-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://ieric.top/categories/%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2022-02-23</lastmod>
+    <lastmod>2022-05-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://ieric.top/categories/%E5%B7%A5%E5%85%B7/Webpack/</loc>
-    <lastmod>2022-02-23</lastmod>
+    <lastmod>2022-05-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
